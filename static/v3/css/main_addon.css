@@ -1,0 +1,246 @@
+@charset "UTF-8";
+
+.fullwidth{
+  border-radius: 5px 5px 0px 0px;
+}
+
+.dashpart{
+  height:123px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  border: 1px solid #dcdcdc;
+}
+
+.dashpart li{
+  float:left;
+  position: relative;
+}
+
+.ltlogo{
+  width:170px;
+}
+.counter{
+  width:300px;
+}
+.opencode{
+  width:400px;
+  margin-left: 15px;
+}
+.lastcodes{
+  width:240px;
+  display: none;
+}
+
+.ltlogo> span{
+  float: left;
+  display: inline-block;
+  background-color: #ff6781;
+  width: 94px;
+  height: 94px;
+  border-radius: 16px;
+  background-image: url(/static/v3/images/alllogos_white.png);
+  background-position: -222px -2168px;
+  margin: 15px 0px 0px 20px;
+  background-repeat: no-repeat;
+}
+.ltlogo> span.flb15sscxjw{
+  background-position: -392px -30px;
+}
+.ltlogo> span.flb2sscxjw{
+  background-position: -1100px -25px;
+}
+.ltlogo> span.flb5sscxjw{
+  background-position: -1215px -30px;
+}
+
+.ltlogo> span.cqsscxjw{
+  background-position: -18px -168px;
+}
+.ltlogo> span.xjsscxjw{
+  background-position: -258px -165px;
+}
+.ltlogo> span.gd11yxjw{
+  background-position: -872px -165px;
+}
+.ltlogo> span.hbk3xjw{
+  background-position: -372px -310px;
+}
+.ltlogo> span.sd11yxjw{
+  background-position: -754px -170px;
+}
+.ltlogo> span.sh11yxjw{
+  background-position: -1105px -170px;
+}
+.ltlogo> span.hgsscxjw{
+  background-position: -638px -30px;
+}
+.ltlogo> span.bjpk10xjw{
+  background-position: -757px -314px;
+}
+.ltlogo> span.dfcxjw{
+  background-position: -991px -324px;
+}
+.ltlogo> span.jsk3xjw{
+  background-position: -8px -308px;
+}
+.ltlogo> span.djsscxjw {
+  background-position: -763px -30px;
+}
+.ltlogo> span.shouersscxjw {
+  background-position: -1105px -315px;
+}
+.ltlogo> span.jx11yxjw {
+  background-position: -988px -170px;
+}
+.ltlogo> span.js11yxjw {
+  background-position: -1225px -165px;
+  height: 88px;
+}
+
+.ltlogo> span.newyosscxjw {
+  background-position: -1325px -35px;
+}
+
+.ltlogo .ltmenus{
+  float: left;
+  margin-left: 15px;
+  margin-top: 40px;
+  position: relative;
+  display: none;
+}   
+.ltlogo a{
+  color: #fff;
+  background-color: #ff5c5b;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.ltlogo a label{
+  margin:0px;
+  margin-right:10px;
+}
+
+.dashpart .break{
+  width: 15px;
+  height: 79px;
+  margin-top: 22px;
+  position: absolute;
+  border-right: 1px solid #ccc;
+  right: 10px;
+}
+.dashpart .sound{
+  background-image: url(/static/images/pankou/sound.png);
+  width: 35px;
+  height: 26px;
+  margin-top: 22px;
+  position: absolute;
+  right: 45px;
+  text-align: center;
+  line-height: 26px;
+  font-size: 15px;
+  color: #fff;
+  font-weight: bold;
+  display:none;
+}
+.counter{
+  color:#333;
+}
+.counter b,.opencode b{
+  /*color:#1cbcf0;*/
+}
+.counter > div.tbox,.opencode > div.tbox,.lastcodes > div.tbox{
+  width: 260px;
+  text-align: center;
+  float: left;
+  margin-top: 15px;
+  line-height: 40px;
+  position: relative;
+}
+.opencode > div.tbox{
+  width:400px;
+  color:#333;
+}
+.counter > div.tbox .audio-sw{
+  position: absolute;
+  background-image: url(/static/v3/images/audio-on1.png);
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  background-size: 18px;
+  right: 0px;
+  top: 12px;
+}
+.counter > div.tbox .audio-on{
+  background-image: url(/static/v3/images/audio-off.png);
+}
+
+.lastcodes > div.tbox{
+  text-align:left;
+  width:240px;
+  margin-left:20px;
+  line-height: 20px;
+  margin-top: 25px;
+}
+
+.counter > div.timebox{
+  width:260px;
+  text-align:center;
+  display:block;
+  margin-top:0px;
+  float:left;
+}
+.opencode > div.timebox{
+  width:280px;
+  text-align:center;
+  display:block;
+  margin-top:0px;
+  margin:0px auto;
+}
+
+.counter #close-timer{
+  font-size:32px;
+}
+
+.lastcodes .tbox{
+  color:#333;
+}
+
+#pank-lt-list{
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  padding-top: 10px;
+}
+
+#pank-lt-list .top-lt-list-inside > em{
+  top:-20px;
+}
+
+#pank-lt-list li h4,#nav-ltmenu li h4{
+  background: transparent;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  height: 47px;
+  line-height: 25px;
+  border-radius: 3px;
+}
+#pank-lt-list .first_ssc h4 .icon_ball,#pank-lt-list .top-lt-choose h4 .icon_ball{
+  background-image: url(/static/images/ball/ssc.png);
+  display:inline-block;
+  width:47px;
+  height:47px;
+  margin:0px auto;
+}
+#pank-lt-list .top-lt-choose .xuan .icon_ball{
+  background-image: url(/static/images/ball/11x5.png);
+}
+#pank-lt-list .top-lt-choose .pk .icon_ball{
+  background-image: url(/static/images/ball/pk.png);
+}
+#pank-lt-list .top-lt-choose .three .icon_ball{
+  background-image: url(/static/images/ball/lf.png);
+}
+#pank-lt-list .top-lt-choose .other .icon_ball{
+  background-image: url(/static/images/ball/xt.png);
+}

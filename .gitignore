@@ -1,0 +1,66 @@
+.DS_Store
+node_modules/
+dist/
+npm-debug.log
+yarn-error.log
+
+# Editor directories and files
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+/*.7z
+/*.rar
+/src/components/*.bak
+/src/components/*.me
+/src/components/index - Copy.vue
+/src/components/notice1.vue
+/*.zip
+/src/*.ME
+/src/components/*.ME1
+/src/components/pageHeader - Copy.vue
+/src/components/pagefooter - Copy.vue
+/bak
+/src/js/index.new.js
+/src/router/index.new.js
+/src/js/index1.js
+/static/v3/js/*.me
+/static/h5/v1a/css
+/static/h5/v1a
+/webpack.config1.js
+/jc0
+/promo
+/*.4018714899
+/src0428
+/act/0507
+/act/*.rar
+/static/v3/js/online/*.new
+/public/tjs/online
+/src/components/dslogin.vue
+/static/v3/js/game/online
+/online/index.html
+/config.js
+/package-lock.json
+/yx/views/hbs/lottery/bak
+/config.js.local
+/kupin6969/img/wximg.jpg
+/static/v3/js/pc_core0.js
+/online/*.bak
+/static/v3/fonts/bak
+/online/*.0531
+/yx/views/hbs/lottery/bak0531
+/src/components/newindex1.vue
+/src/components/qiandao - Copy.vue
+/src/js/index - Copy.js
+/webpack.config - Copy.js
+/static/ad.html
+/nginx
+/yx/views/hbs/lottery/bak0604
+/src/img/lottery/lhc1.png
+/lt.html
+/src/components/*.new
+/static/v3/js/*.local
+/config.js.0531
+/config2.js
+/online/config.js.0619

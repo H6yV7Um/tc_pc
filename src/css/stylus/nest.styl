@@ -1,0 +1,40 @@
+a
+	color: inherit
+	&:hover
+		color:#ff546a
+.relative_p
+	position: relative
+	
+.dotted_line
+	height: 2px
+	background: url(imgPathIndex + 'dotted_line.png') center center repeat
+.box_shadow
+	boxShadow(0 1px 5px 1px #ddd)
+.drop_down_list
+	position: absolute
+	z-index: 11
+	.drop_down_arrow
+		height: 8px
+		bgNormal(imgPathIndex + 'top_arrow.png')
+		background-position: center top
+	.drop_down_content
+		bgColor()
+		boxShadow(0 1px 5px 1px #999)
+
+.hover_show_list
+	position: absolute
+	overflow: hidden
+	z-index: 12
+	.hover_show_arrow
+		float: right
+		width: 8px
+		height: 12px
+		bgNormal(imgPathIndex + 'left_arrow.png')
+	.hover_show_content
+		float: left
+		bgColor()
+
+.disable_click
+	background-image: -webkit-linear-gradient(90deg, #979797, #d0d0d0 100%) !important
+	cursor: default !important
+

@@ -1,0 +1,278 @@
+ul {
+  list-style: none;
+}
+ul.ways {
+  margin: 25px 3.5% 0;
+}
+ul.ways li {
+  width: 47.5%;
+  height: 50px;
+  line-height: 50px;
+  margin-bottom: 10px;
+  float: left;
+  box-sizing: border-box;
+  border: 1px solid #e0dfdf;
+  display: flex;
+}
+ul.ways li.active {
+  border: 1px solid #ff687a;
+}
+ul.ways li i {
+  flex: 3;
+  height: 100%;
+}
+ul.ways li span {
+  flex: 4;
+  padding-left: 5%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+ul.ways li:nth-child(1) i {
+  background: url("../images/yhks.png") no-repeat center;
+  background-size: auto 30px;
+}
+ul.ways li:nth-child(2) i {
+  background: url("../images/yl.png") no-repeat center;
+  background-size: auto 30px;
+}
+ul.ways li:nth-child(3) i {
+  background: url("../images/wx.png") no-repeat center;
+  background-size: auto 35px;
+}
+ul.ways li:nth-child(4) i {
+  background: url("../images/zfb.png") no-repeat center;
+  background-size: auto 35px;
+}
+ul.ways li:nth-child(5) i {
+  background: url("../images/qq.png") no-repeat center;
+  background-size: auto 35px;
+}
+ul.ways li:nth-child(6) i {
+  background: url("../images/qq.png") no-repeat center;
+  background-size: auto 35px;
+}
+ul.ways li:nth-child(2n+1) {
+  margin-right: 5%;
+}
+div.sep {
+  border-top: 8px solid #e6e6e5;
+}
+div.bank {
+  display: none;
+  margin-top: 10px;
+  position: relative;
+}
+div.bank span.title {
+  position: absolute;
+  height: 40px;
+  line-height: 40px;
+  width: 20%;
+  padding-left: 5%;
+}
+div.bank select {
+  margin-left: 25%;
+  width: 72%;
+  height: 40px;
+  padding-left: 5%;
+  border-left: none;
+  border-right: none;
+  font-size: 16px;
+  color: #999899;
+  outline: none;
+}
+div.bank select option {
+  text-align: center;
+  padding: 0;
+  outline: none;
+}
+div.active {
+  display: block;
+}
+div.money {
+  position: relative;
+  margin: 10px 0;
+  height: 40px;
+}
+div.money span.title {
+  position: absolute;
+  display: inline-block;
+  height: 40px;
+  width: 25%;
+  line-height: 40px;
+  padding-left: 5%;
+  box-sizing: border-box;
+}
+div.money input {
+  position: absolute;
+  box-sizing: border-box;
+  left: 25%;
+  height: 40px;
+  width: 72%;
+  line-height: 40px;
+  padding-left: 6%;
+  background: #e6e6e5;
+  outline: none;
+  border: none;
+}
+ul.account {
+  display: flex;
+  margin: 0 1%;
+}
+ul.account li {
+  flex: 1;
+  border: 1px solid #d1d1d1;
+  text-align: center;
+  color: #323333;
+  margin: 0 1%;
+  height: 30px;
+  line-height: 30px;
+}
+div.confirm,
+div.confirmSecond,
+div.scanSecond {
+  text-align: center;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 20px;
+  width: 90%;
+  box-sizing: border-box;
+  margin: 20px 5% 0;
+  background: #ff687a;
+}
+p.tips {
+  margin: 40px 5% 0;
+  color: #898989;
+  font-size: 12px;
+  line-height: 20px;
+}
+div.confirmInfo {
+  display: none;
+}
+div.confirmInfo h1 {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0 5%;
+}
+div.confirmInfo h1 span {
+  color: #ff687a;
+}
+div.confirmInfo table {
+  width: 90%;
+  margin-left: 5%;
+  border-collapse: collapse;
+}
+div.confirmInfo table tr {
+  height: 30px;
+}
+div.confirmInfo table tr td.label {
+  width: 25%;
+  text-align: center;
+}
+div.confirmInfo table tr td.value {
+  padding-left: 5%;
+}
+div.confirmInfo table tr:nth-child(2) td span {
+  padding: 0 5px;
+  background: #ff687a;
+  color: #fff;
+  border-radius: 5px;
+}
+div.confirmInfo table,
+div.confirmInfo tr,
+div.confirmInfo td {
+  border: 1px solid #a9a8a8;
+}
+div.scanInfo {
+  display: none;
+}
+div.scanInfo h1 {
+  font-size: 14px;
+  padding: 0 5%;
+  margin-bottom: 5px;
+}
+div.scanInfo p {
+  color: #ff687a;
+  padding: 0 5%;
+}
+div.scanInfo ul {
+  width: 60%;
+  min-width: 200px;
+  display: flex;
+  border: 1px solid #e0dfdf;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+div.scanInfo ul li {
+  flex: 1;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+div.scanInfo ul li.qrCode div {
+  width: 80%;
+}
+div.scanInfo ul li.qrCode div img {
+  width: 100%;
+}
+div.scanInfo ul li.info {
+  text-align: center;
+}
+div.scanInfo ul li.info img {
+  width: 50px;
+}
+div.scanInfo ul li.info p {
+  color: #000;
+  padding: 0;
+  margin: 5px 0;
+}
+div.scanInfo ul li.info span {
+  background: #ff687a;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+div.scanInfo h3 {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 5px 5% 0;
+}
+div.scanInfo h3 span {
+  color: #ff687a;
+}
+div.scanInfo table {
+  width: 90%;
+  margin: 10px 0 0 5%;
+  border-collapse: collapse;
+}
+div.scanInfo table tr {
+  height: 30px;
+}
+div.scanInfo table tr td.label {
+  width: 25%;
+  text-align: center;
+}
+div.scanInfo table tr td.value {
+  padding-left: 5%;
+}
+div.scanInfo table tr:nth-child(2) td span {
+  padding: 0 5px;
+  background: #ff687a;
+  color: #fff;
+  border-radius: 5px;
+}
+div.scanInfo table,
+div.scanInfo tr,
+div.scanInfo td {
+  border: 1px solid #a9a8a8;
+}
+.clear:after {
+  content: '';
+  display: block;
+  clear: both;
+  overflow: hidden;
+}

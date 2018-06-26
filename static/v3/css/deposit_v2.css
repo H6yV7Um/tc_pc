@@ -1,0 +1,522 @@
+.manager .wrapper.abitright{
+  padding-left:30px;
+  padding-top:30px;
+}
+.deposit_item{
+  position: relative;
+}
+.deposit_types{
+  height:auto;
+}
+
+.deposit_item > label{
+  float:left;
+  line-height:32px;
+  font-size:16px;
+}
+.deposit_item ul{
+  float:left;
+  margin-left:50px;
+}
+.deposit_item ul.sectyp_list{
+  margin-top: 8px;
+  margin-left: 130px;
+  /*position: absolute;*/
+}
+.deposit_item .step_items{
+  height: 70px;
+  margin-left: 140px;
+  margin-top: 30px;
+}
+.deposit_item .amount_items{
+  height: 70px;
+  width: 400px;
+}
+.deposit_fuyin{
+  display:none:
+}
+.deposit_fuyin .amount_items{
+  height: 50px;
+}
+
+.deposit_item .amount_items li{
+  float:left;
+  height:43px;
+}
+
+.deposit_item .amount_items li.am_limits{
+  height:21px;
+}
+
+.deposit_confirm{
+  width:870px;
+}
+.deposit_confirm ul{
+  float: left;
+  margin-left: 130px;
+  font-size: 16px;
+  margin-top: 20px;
+  width: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.deposit_code_confirm ul{
+  height:440px;
+  overflow: hidden;
+} 
+
+.deposit_slider{
+  position: relative;
+  height:500px;
+}
+.deposit_slider .sildeTab{
+  position: relative;
+  top: 30px;
+  left: 130px; 
+}
+
+.deposit_slider_alipay{
+  position: absolute;
+  right: 180px;
+  /*top: 285px;*/
+  margin-top: -510px;
+}
+
+.deposit_slider_wechat{
+  position: absolute;
+  right: 180px;
+  /*top: 285px;*/
+  margin-top: -510px;
+}
+
+.sectyp_list li{
+  float:left;
+  border:1px solid #d6d6d6;
+  width:144px;
+  height:38px;    
+  border-radius: 10px;
+  text-align: center;
+  line-height: 36px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  cursor:pointer;
+}
+
+.sectyp_list li:hover{
+  background-color: #ff6977;
+  color:#fff;
+  border-color:#ff6977;
+}
+
+.sectyp_list li.on{
+  background-color: #ff6977;
+  color:#fff;
+  border-color:#ff6977;
+}
+
+
+.deposit_code_confirm .trans{
+  display:none;
+}
+
+.deposit_slider .sildeTabMain ul.nowtab {
+  display: block;
+  margin: 0px;
+}
+.deposit_confirm ul li{
+  display:block;
+  height:30px;
+}
+
+.deposit_confirm .confirm_bank{
+  background-image: url('/dist/banklist.jpg');
+  width: 164px;
+  height: 44px;
+  display: inline-block;
+  border: 2px solid #cccccc;
+  float:left;
+}
+
+.deposit_confirm .confirm_code{
+  background-image: url(../images/deposit/cz_code.jpg);
+  width: 116px;
+  height: 144px;
+  display: inline-block;
+  border: 2px solid #cccccc;
+  float:left;
+}
+
+.deposit_code_confirm{
+  position: relative;
+}
+
+.qrcode_confirm{
+  position: absolute;
+  right: -120px;
+  top: 30px;
+}
+
+.qrcode_confirm img{
+  width: 290px;
+  padding-left: 10px;
+  border-left: 1px solid #ccc;
+}
+.deposit_confirm .choosecode_items{
+  height:150px;
+}
+
+.deposit_confirm label{
+  display: inline-block;
+  width: 85px;
+  line-height: 30px;
+  text-align: right;
+}
+.deposit_confirm .firstline{
+  padding-left:4px;
+}
+
+
+.deposit_confirm .cancopy{
+  display: inline-block;
+  width: 65px;
+  height: 24px;
+  text-align: center;
+  background-color: #ff6977;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.deposit_item .amount_items .am_quick a{
+  background-color: #60c285;
+  line-height: 40px;
+  height: 40px;
+  display: inline-block;
+  padding: 0px 10px;
+  border-radius: 10px 0px 0px 10px;
+  color: #fff;
+  width: 70px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.deposit_item .amount_items .am_quick a:hover{
+  background-color: #49e081;
+}
+
+.deposit_item .amount_items .am_quick .first_am{
+  margin-left:10px;
+
+}
+.deposit_item .amount_items .am_quick .last_am{
+  border-radius: 0px 10px 10px 0px;
+  border-left:1px solid #fff;
+
+}
+.deposit_item .justhelp{
+  margin-left:0px;
+  margin-bottom:60px;
+  width:900px;
+}
+.deposit_item .choosebank_items{
+  margin-bottom:30px;
+  width: 900px;
+}
+.deposit_item .choosebank_items li{
+  position: relative;
+  background-image: url('/dist/banklist.jpg');
+  width: 164px;
+  height: 44px;
+  display: inline-block;
+  border:2px solid #cccccc;
+  margin-right:10px;
+  cursor:pointer;
+  margin-bottom: 8px;
+}
+.deposit_item .choosebank_items li:hover{
+  border-color:#fd8b96;
+  background-image: url('/dist/banklist_hover.jpg');
+}
+.deposit_item .choosebank_items li em{
+  display:none;
+}
+.deposit_item .choosebank_items li.on{
+  border-color:#ff011d;
+}
+
+.deposit_item .choosebank_items li.on em{
+  position: absolute;
+  background-image: url(../images/deposit/cz_now.png);
+  width: 21px;
+  height: 18px;
+  display: inline-block;
+  right: 0px;
+  bottom: 0px;
+}
+.deposit_item .choosebank_items .b1 {
+	background-position: 0 0;
+}
+
+.deposit_item .choosebank_items .b2 {
+	background-position: 0 -40px;
+}
+
+.deposit_item .choosebank_items .b3 {
+	background-position: 0 -80px;
+}
+
+.deposit_item .choosebank_items .b4 {
+	background-position: 0 -120px;
+}
+
+.deposit_item .choosebank_items .b5 {
+	background-position: 0 -160px;
+}
+
+.deposit_item .choosebank_items .b6 {
+	background-position: 0 -200px;
+}
+
+.deposit_item .choosebank_items .b7 {
+	background-position: 0 -240px;
+}
+
+.deposit_item .choosebank_items .b8 {
+	background-position: 0 -280px;
+}
+
+.deposit_item .choosebank_items .b9 {
+	background-position: 0 -320px;
+}
+
+.deposit_item .choosebank_items .b10 {
+	background-position: 0 -360px;
+}
+
+.deposit_item .choosebank_items .b11 {
+	background-position: 0 -400px;
+}
+
+.deposit_item .choosebank_items .b12 {
+	background-position: 0 -440px;
+}
+
+.deposit_item .choosebank_items .b13 {
+	background-position: 0 -480px;
+}
+
+.deposit_item .choosebank_items .b14 {
+	background-position: 0 -520px;
+}
+
+.deposit_item .choosebank_items .b15 {
+	background-position: 0 -560px;
+}
+
+.deposit_item .choosebank_items .b16 {
+	background-position: 0 -600px;
+}
+
+.deposit_item .choosebank_items .b17 {
+	background-position: 0 -640px;
+}
+
+.deposit_item .choosebank_items .b18 {
+	background-position: 0 -680px;
+}
+
+.deposit_item .choosebank_items .b19 {
+	background-position: 0 -720px;
+}
+
+.deposit_item .choosebank_items .b20 {
+	background-position: 0 -760px;
+}
+
+.deposit_item .choosebank_items .b21 {
+	background-position: 0 -800px;
+}
+
+.deposit_item .choosebank_items .b22 {
+	background-position: 0 -840px;
+}
+
+.deposit_item .choosebank_items .b23 {
+	background-position: 0 -880px;
+}
+
+.deposit_item .choosebank_items .b24 {
+	background-position: 0 -920px;
+}
+
+.deposit_item .choosebank_items .b98 {
+	background-position: 0 -2px;
+}
+
+.deposit_item .choosebank_items .b99 {
+	background-position: 0 -2px;
+}
+
+
+.deposit_item #main_fire{
+  background-color: #ff6977;
+  line-height: 40px;
+  color: #fff;
+  height: 40px;
+  font-size: 18px;
+  display: inline-block;
+  padding: 0px 20px;
+  border-radius: 10px;
+  margin-left: 128px;
+}
+.deposit_last{
+  margin-top:20px;
+}
+.deposit_item #main_finish{
+  background-color: #60c285;
+  line-height: 40px;
+  color: #fff;
+  height: 40px;
+  font-size: 18px;
+  display: inline-block;
+  padding: 0px 20px;
+  border-radius: 10px;
+  margin-left: 28px;
+}
+.deposit_item .notvery{
+  background-color: #888;
+  line-height: 40px;
+  color: #fff;
+  height: 40px;
+  font-size: 18px;
+  display: inline-block;
+  padding: 0px 20px;
+  border-radius: 10px;
+  margin-left: 28px;
+}
+.deposit_item .gogame{
+  background-color: #bbb;
+}
+.deposit_item .finished{
+  background-color: #60c285;
+}
+.deposit_item .notready{
+  display:none;
+}
+.blank_break{
+  width:100px;
+  display:inline-block;
+  height:30px;
+}
+.deposit_item #main_fire:hover{
+  background-color: #ff96a0;
+}
+
+.deposit_item .amount_items .am_input input{
+  line-height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 200px;
+  text-align:center;
+  font-size: 18px;
+}
+.deposit_item input:focus {
+  outline-width: 0;
+}
+
+.deposit_help{
+  margin-top: 30px;
+  margin-left: 128px;
+  color:#898989;
+  font-size:16px;
+}
+.deposit_help h3{
+  font-size:21px;
+  line-height:35px;
+}
+.help_red{
+  color:#ff6b8d;
+}
+
+.deposit_item .step_items li{
+  float:left;
+  color: #9c9c9c;
+}
+.deposit_item .step_items li em{
+  height: 36px;
+  width: 36px;
+  display: block;
+  line-height: 36px;
+  border-radius: 50%;
+  background-color: #e1e1e1;
+  color: #9c9c9c;
+  font-size: 21px;
+  text-align: center;
+  margin: 0px auto;
+}
+.deposit_item .step_items li em.blank_line{
+  height: 2px;
+  width: 142px;
+  background-color: #e1e1e1;
+  border-radius: 0px;
+  margin-top: 17px;
+}
+.deposit_item .step_items .on em{
+  background-color: #ff6977;
+  color: #fff;
+}
+.deposit_item .typ_list{
+  height:108px;
+}
+.deposit_item .typ_list li{
+  background-image:none;
+  height:108px;
+  width:114px;
+  float:left;
+  cursor:pointer;
+  opacity: 0.5;
+}
+.deposit_item .typ_list li.nowactive{
+  opacity: 1;
+}
+.deposit_item .typ_list li:hover{
+  background-image:url(../images/deposit/cz_bg.png);
+}
+
+.deposit_item .typ_list .type_on{
+  background-image:url(../images/deposit/cz_bg.png);
+}
+
+.deposit_item .typ_list li div{
+  background-image:url(../images/deposit/cz_icon.png);
+  height:70px;
+  width:72px;
+  display:block;
+  margin:0px auto;
+  margin-top:17px;
+}
+.deposit_item .typ_list .alipay_item div{
+  background-position-x: -107px;
+}
+.deposit_item .typ_list .qq_item div{
+  background-position-x: -217px;
+}
+.deposit_item .typ_list .unionpay_item div{
+  background-position-x: -327px;
+}
+.deposit_item .typ_list .yunscan_item div{
+  background-position-x: -431px;
+}
+.deposit_item .typ_list .onlinepay_item div{
+  background-position-x: -540px;
+}
+
+.deposit_item label em{
+  border-left:3px solid #ff6a76;
+  margin-right:12px;
+}
+
+.deposit_itemhide{
+  display:none;
+}

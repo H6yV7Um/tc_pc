@@ -1,0 +1,1004 @@
+﻿<link rel="stylesheet" href="/css/reg.css" />
+<style media="screen">
+  .common-confirm .jBox-Confirm-footer, .common-alert .jBox-Confirm-footer:after { content: " "; display: table; clear: both; }
+  .common-confirm .jBox-Confirm-footer, .common-alert .jBox-Confirm-footer{width: 100%;}
+</style>
+
+<div class="title01">代理中心——团队总览</div>
+<!-- 菜单开始 -->
+<div class="menu noselect">
+  <a href="../funds/recharge.html"><i class="funds"></i>财务中心</a>
+  <a href="../account/index.html"><i class="account"></i>个人中心</a>
+  <a href="../proxy/account.html" class="active" data-visible="proxy"><i class="proxy"></i>代理中心</a>
+  <a href="../report/main.html"><i class="report"></i>报表中心</a>
+  <a href="../message/inbox.html"><i class="message"></i>消息中心</a>
+</div>
+<!-- 菜单结束 -->
+<style media="screen">
+  .lottery-order-details table.info{width: 100%;}
+  table.info .label-f{width: auto;}
+  table.info td{text-align: left;padding: 5px 0;}
+  .button-groups input{padding: 5px 30px;color: #fff;}
+  .button-groups input.grey{background: #ed784a;}
+  .button-groups input.green{background: #787878;}
+  .manager .content .tabs>a,.manager .content .result table.form-control>tbody>tr>td>.colorLys0,.manager .content .result table.form-control>tbody>tr>td>.colorLys1,.radio-group div,.manager .content .tabsLys>a{border-radius: 4px;}
+  table.info .label-f{width: 100px;}
+  table.info td {
+  border-right: 1px solid #ccc;
+  padding: 5px 0 5px 15px;
+}
+.button-groups {
+    text-align: center;
+    margin-top: 10px;
+}
+@font-face {
+  font-family: 'matai';
+  src: url('/static/font/matai.eot');
+  src: url('/static/font/matai.eot?#iefix') format('embedded-opentype'),
+  url('/static/font/matai.woff') format('woff'),
+  url('/static/font/matai.ttf') format('truetype'),
+  url('/static/font/matai.svg#iconfont') format('svg');
+}
+.matai{
+  font-family:"matai" !important;
+  font-size:16px;font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+/**/
+
+</style>
+<!-- 导航开始 -->
+<!-- <div class="nav noselect">
+
+  <a href="javascript:void(0)">团队总览<em class="m_ico">&#59187;</em></a>
+  <a href="javascript:void(0)">开户中心<em class="m_ico">&#59187;</em></a>
+  <a href="javascript:void(0)">会员管理<em class="m_ico">&#59187;</em></a>
+  <a href="javascript:void(0)">在线会员<em class="m_ico">&#59187;</em></a>
+  <a href="javascript:void(0)">游戏记录<em class="m_ico">&#59187;</em></a>
+  <a href="javascript:void(0)">VR游戏记录<em class="m_ico">&#59187;</em></a>
+  <a href="javascript:void(0)">账变记录<em class="m_ico">&#59187;</em></a>
+  <a href="javascript:void(0)">团队报表<em class="m_ico">&#59187;</em></a>
+  <a href="javascript:void(0)" id="salarypage" style="display:none;">私返管理<em class="m_ico">&#59187;</em></a>
+  <a href="javascript:void(0)" id="bonuspage" style="display:none;">分红<em class="m_ico">&#59187;</em></a>
+  <span class="breakline"></span>
+</div> -->
+<div class="nav noselect">
+
+  <a href="javascript:void(0)">团队总览</a>
+  <a href="javascript:void(0)">开户中心</a>
+  <a href="javascript:void(0)">会员管理</a>
+  <a href="javascript:void(0)">在线会员</a>
+  <a href="javascript:void(0)">游戏记录</a>
+  <a href="javascript:void(0)">VR游戏记录</a>
+  <a href="javascript:void(0)">账变记录</a>
+  <a href="javascript:void(0)">团队报表</a>
+  <a href="javascript:void(0)" id="salarypage" style="display:none;">私返管理</a>
+  <a href="javascript:void(0)" id="bonuspage" style="display:none;">分红</a>
+  <span class="breakline"></span>
+</div>
+<!-- 导航结束 -->
+<!-- 逻辑内容1团队总览开始  -->
+<div data-init="content" class="content">
+  <div class="wrapper proxy-index">
+    <div class="team-info">
+      <!-- <table>
+        <tbody>
+          <tr>
+            <td>团队成员：<span data-field="totalUser">0</span>人<font class="f14">（代理<span data-field="proxyUser">0</span>人，玩家<span data-field="playerUser">0</span>人）</font></td>
+            <td width="32%">团队在线：<span data-field="onlineUser">0</span>人</td>
+            <td width="32%"></td>
+          </tr>
+          <tr>
+            <td>团队余额：<span data-field="lotteryBalanceTeam">0.000</span>元</td>
+            <td>(包含自己本人)<!--百家乐总余额：<span data-field="baccaratBalance">0.000</span>元-></td>
+          </tr>
+        </tbody>
+      </table>-->
+
+      <ul class="dash fl clearfix" style="width:100%;margin-bottom: 20px;">
+        <li class="clearfix ddcolorAa bgcolorA fl">
+          <label class="clearfix">
+            <p class="txtcen" style="font-size:14px;margin-top:0;color:#2c3e50;width:100%;"><i class="icon ft20" style="color:#47c5b7;position:relative;top:2px;right:5px;">&#xe680;</i>团队成员</p>
+            <p class="txtcen ft16" style="width:100%; line-height:15px;"><s data-field="totalUser" style="text-decoration: none;font-size:22px;color:#47c5b7;">0</s>人</p>
+          </label>
+        </li>
+        <li class="clearfix ddcolorAa bgcolorA fl">
+          <label class="clearfix">
+            <p class="txtcen" style="font-size:14px;margin-top:0;color:#2c3e50;width:100%;"><i class="icon ft20" style="color:#afcc78;position:relative;top:2px;right:5px;" >&#xe65e;</i>团队在线：</p>
+            <p class="txtcen ft16" style="width:100%; line-height:15px;"><s data-field="onlineUser" style="text-decoration: none;font-size:22px;color:#afcc78;">0</s>人</p>
+          </label>
+        </li>
+        <li class="clearfix ddcolorAa bgcolorA fl">
+          <label class="clearfix">
+            <p class="txtcen" style="font-size:14px;margin-top:0;color:#2c3e50;width:100%;"><i class="icon ft20" style="color:#e87057;position:relative;top:2px;right:5px;" >&#xe667;</i>团队余额：</p>
+            <p class="txtcen ft16" style="width:100%; line-height:15px;"><s data-field="lotteryBalanceTeam" style="text-decoration: none;font-size:22px;color:#e87057;">0</s>元</p>
+          </label>
+        </li>
+
+        <!--
+        <li class="clearfix ddcolorAa bgcolorA fl">
+          <label class="clearfix">
+            <b style="font-size:14px;margin-top:0;color:#2c3e50"><i class="icon" >&#xe709;</i>团队在线：</b>
+            <p style="width:100%;"><s data-field="onlineUser" style="text-decoration: none;display:inline-block;max-width: 70px;height: 14px;overflow: hidden;">0</s>人</p>
+          </label>
+        </li>
+        <li class="clearfix ddcolorAa bgcolorA fl" >
+          <label class="clearfix">
+            <b style="font-size:14px;margin-top:0;color:#2c3e50"><i class="icon " >&#xe709;</i>团队余额：</b>
+            <p style="width:100%;"><s data-field="lotteryBalanceTeam" style="text-decoration:none;display:inline-block;max-width: 70px;height: 14px;overflow: hidden;">0.00</s>元</p>
+          </label>
+        </li> -->
+
+
+
+
+
+        <!-- <li class="clearfix ddcolorAa bgcolorA fl" style="width:186px;    margin-right: 10px;">
+          <i class="matai usercenterFt fl" style="font-size:44px;margin-top:15px; color:#47c5b7;">&#xe709;</i>
+          <label class="fl clearfix">
+            <b style="font-size:14px;margin-top:0;color:#2c3e50">团队成员：</b>
+            <p style="width:100%;"><s data-field="totalUser" style="text-decoration: none;display:inline-block;max-width: 70px;height: 14px;overflow: hidden;">0</s>人</p>
+          </label>
+        </li>
+        <li class="clearfix ddcolorAa bgcolorA fl" style="width:186px;    margin-right: 10px;">
+          <i class="matai usercenterFt fl" style="font-size:44px;margin-top:15px; color:#afcc78;">&#xe73f;</i>
+          <label class="fl clearfix">
+            <b style="font-size:14px;margin-top:0;color:#2c3e50">团队在线：</b>
+            <p style="width:100%;"><s data-field="onlineUser" style="text-decoration: none;display:inline-block;max-width: 70px;height: 14px;overflow: hidden;">0</s>人</p>
+          </label>
+        </li>
+        <li class="clearfix ddcolorAa bgcolorA fl" style="width:186px;">
+          <i class="matai usercenterFt fl" style="font-size:44px;margin-top:15px; color:#e87057;">&#xe610;</i>
+          <label class="fl clearfix">
+            <b style="font-size:14px;margin-top:0;color:#2c3e50">团队余额：</b>
+            <p style="width:100%;"><s data-field="lotteryBalanceTeam" style="text-decoration:none;display:inline-block;max-width: 70px;height: 14px;overflow: hidden;">0.00</s>元</p>
+          </label>
+        </li> -->
+      </ul>
+    </div>
+    <div class="menus" style="margin-top: 20px;display:none;">
+      <a class="active">彩票</a>
+      <a>真人娱乐</a>
+      <a>体育投注</a>
+      <a>老虎机</a>
+    </div>
+    <div class="params" style="padding: 20px 0;">
+      <div class="row">
+        <div class="x-radio">
+          <a data-value="today">今天</a>
+          <a data-value="7days">最近7天</a>
+          <a data-value="1months">最近一个月</a>
+        </div>
+        <div class="x-date-range">
+          <input name="sDate" type="text" class="date-picker" readonly="readonly" autocomplete="off">
+          <label>至</label>
+          <input name="eDate" type="text" class="date-picker" readonly="readonly" autocomplete="off">
+        </div>
+        <input name="submit" type="button" class="search" style="border-radius:0;" value="查询">
+      </div>
+    </div>
+    <div class="result">
+      <div class="total">
+        <div class="item">
+          <div class="label">充值</div>
+          <div class="value" data-field="uRechargeChart">0.00</div>
+        </div>
+        <div class="item">
+          <div class="label">取款</div>
+          <div class="value" data-field="uWithdrawChart">0.00</div>
+        </div>
+        <div class="item">
+          <div class="label">消费</div>
+          <div class="value" data-field="uConsumeChart">0.00</div>
+        </div>
+        <div class="item">
+          <div class="label">派奖</div>
+          <div class="value" data-field="uBonusChart">0.00</div>
+        </div>
+        <div class="item">
+          <div class="label">返点</div>
+          <div class="value" data-field="uRebateChart">0.00</div>
+        </div>
+      </div>
+      <div class="radio-group">
+        <label><input name="stat" type="radio" value="uRechargeChart">充值</label>
+        <label><input name="stat" type="radio" value="uWithdrawChart">取款</label>
+        <label><input name="stat" type="radio" value="uConsumeChart">投注量</label>
+        <label><input name="stat" type="radio" value="uBonusChart">返派奖</label>
+        <label><input name="stat" type="radio" value="uRebateChart">返点</label>
+        <label><input name="stat" type="radio" value="uActivityChart">活动</label>
+        <label><input name="stat" type="radio" value="uRegistChart">新增用户数</label>
+      </div>
+      <div class="chart">
+        <div class="instance"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 逻辑内容1团队总览结束 -->
+<!-- 逻辑内2开户中心容开始 -->
+<div data-init="content" class="content">
+  <div class="wrapper">
+    <!-- <div class="tabs noselect">
+      <a class="active">普通开户</a>
+      <a>链接开户</a>
+      <a>链接管理</a>
+    </div> -->
+    <div class="tabs tabsLys noselect clearfix">
+      <a class="active" style="margin-left:20px;">普通开户</a>
+      <a style="margin-left:20px;">链接开户</a>
+      <a style="margin-left:20px;">链接管理</a>
+    </div>
+    <div class="panels">
+      <div class="section active">
+        <div class="form-float form-center" style="margin:40px 0 0 0 ;width:100%;">
+          <form>
+            <table class="form-control-float">
+              <tbody>
+                <tr>
+                  <td class="" style="width:100px; text-align:right;padding:5px 0;">开户类别：</td>
+                  <td class="value">
+                    <div data-field="type" class="radio-group noselect" id="groupDivEventLys">
+                      <div data-type="agent" value="1" class="groupDivEvent groupDivEventtype"> 代理 </div>
+                      <div id="onlyplayer" style="display:none;" data-type="player" value="0" class="groupDivEvent groupDivEventtype"> 玩家 </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width:100px; text-align:right;padding:5px 0;">用户名：</td>
+                  <td class="value">
+                    <input name="username" type="text" class="form-control input" autocomplete="off">
+                    <span class="help-inline" style="font-size:12px;">格式：大小写字母开头，不能超过10个字符！</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width:100px; text-align:right;padding:5px 0;">密码：</td>
+                  <td class="value">
+                    <input name="passwd" type="password" class="form-control input" autocomplete="off">
+                    <span class="help-inline" style="font-size:12px;">6-24位字母或数字, 不支持特殊字符.</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="label-f" style="width:100px; text-align:right;padding:5px 0;">彩票返点：</td>
+                  <td class="value" >
+                    <input name="point" type="text" class="form-control input" autocomplete="off">
+                    <span data-help="point" ></span>
+                  </td>
+                </tr>
+                <tr class="last-child">
+                  <td class="label-f "  style="width:100px; text-align:right;"></td>
+                  <td class="value">
+                    <input style="width:200px;border-radius:4px;" name="submit" type="button" class="button bgImgBtn1" value="立即开户"/>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+          <div class="proxyNotice">
+            <h4 class="ft16" style="color:#333;font-weight:100;"><i class="icon">&#xe69f;</i>温馨提示</h4>
+
+            <p class="ft12">1.为提高服务效率 , 系统将自动清理注册一个月没有充值 , 或两个月未登录 , 并且金额低于10元的账户</p>
+          </div>
+
+          <div class="result" style="padding: 0 55px 20px 55px;">
+            <div class="text-title">彩票配额信息：</div>
+            <table data-table="quota" class="form-control">
+              <thead>
+                <tr>
+                  <td width="25%">区段</td>
+                  <td width="25%">总额</td>
+                  <td width="25%">使用</td>
+                  <td width="25%">剩余</td>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="section active">
+        <div class="notice" style="margin-top: 20px;">
+          <div>【！】为提高服务器效率，系统将自动清理注册一个月没有充值，或两个月未登录，并且金额低于10元的账户。</div>
+        </div>
+        <div class="form-float form-center">
+          <form>
+            <table class="form-control-float">
+              <tbody>
+                <tr>
+                  <td class="label-f">开户类别：</td>
+                  <td class="value">
+                    <div data-field="type" class="radio-group noselect">
+                      <label><input data-type="agent" name="type" type="radio" value="1" checked="checked">代理</label>
+                      <label><input data-type="player" name="type" type="radio" value="0">玩家</label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="label-f">用户名：</td>
+                  <td class="value">
+                    <input name="username" type="text" class="form-control input" autocomplete="off">
+                    <span class="help-inline">格式：大小写字母开头，不能超过10个字符！</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="label-f">密码：</td>
+                  <td class="value">
+                    <input name="passwd" type="password" class="form-control input" autocomplete="off">
+                    <span class="help-inline" style="color:red;"><br />格式：密码前4位必须字母，其他可以为字母和数字组合，长度8到12位，不支持特殊字符！</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="label-f">彩票返点：</td>
+                  <td class="value">
+                    <input name="point" type="text" class="form-control input" autocomplete="off">
+                    <span data-help="point" class="help-inline"></span>
+                  </td>
+                </tr>
+                <tr class="last-child">
+                  <td class="label-f"></td>
+                  <td class="value">
+                    <input name="submit" type="button" class="button" value="立即开户"/>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+        </div>
+        <div class="result hide" style="padding: 0 15% 20px 15%;">
+          <div class="text-title">彩票配额信息：</div>
+          <table data-table="quota" class="form-control">
+            <thead>
+              <tr>
+                <td width="25%">区段</td>
+                <td width="25%">总额</td>
+                <td width="25%">使用</td>
+                <td width="25%">剩余</td>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div> -->
+      <div class="section">
+        <div class="form-float form-center" style="margin:40px 0 0 0 ;width:100%;">
+          <form>
+            <table class="form-control-float">
+              <tbody>
+                <tr>
+                  <td class="" style="width:100px; text-align:right;padding:5px 0;">开户类别：</td>
+                  <td class="value">
+                    <div data-field="type" class="radio-group noselect" id="groupDivEventLylinktype">
+                      <div data-type="agent" value="1" class="groupDivEvent  groupDivEventtypelink"> 代理 </div>
+                      <div id="onlyplayer_link" data-type="player" value="0" class="groupDivEvent groupDivEventtypelink"> 玩家 </div>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="label-f"style="width:100px; text-align:right;">链接有效期：</td>
+                  <td class="value">
+                    <select  data-type="static"  data-type="static" name="time" class="form-control input">
+                      <option value="1">1天</option>
+                      <option value="7">7天</option>
+                      <option value="30">30天</option>
+                      <option value="-1" selected="selected">永久有效</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="label-f"style="width:100px; text-align:right;">彩票返点：</td>
+                  <td class="value">
+                    <input name="point" type="text" class="form-control input">
+                    <span data-help="point" class="help-inline"></span>
+                  </td>
+                </tr>
+                <tr class="last-child">
+                  <td class="label-f"style="width:100px; text-align:right;"></td>
+                  <td class="value">
+                    <input name="submit" type="button" class="button bgImgBtn1" value="生成链接"/>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+        </div>
+        <div class="result hide" style="padding: 20px 15%;">
+          <div class="text-title">剩余配合信息：</div>
+          <table data-table="quota" class="form-control">
+            <thead>
+              <tr>
+                <td width="25%">区段</td>
+                <td width="25%">总额</td>
+                <td width="25%">使用</td>
+                <td width="25%">剩余</td>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <!-- <div class="notice" style="margin-top: 20px;">
+          <div>【？】生成链接不会立即扣减配额，只有用户使用该链接注册成功的时候，才会扣减配额；请确保您的配额充足，配额不足将造成用户注册不成功！</div>
+        </div>
+        <div class="form-float form-center">
+          <form>
+            <table class="form-control-float">
+              <tbody>
+                <tr>
+                  <td class="label-f">开户类别：</td>
+                  <td class="value">
+                    <div data-field="type" class="radio-group noselect">
+                      <label><input data-type="agent" name="linktype" type="radio" value="1" checked="checked">代理</label>
+                      <label><input data-type="player" name="linktype" type="radio" value="0">玩家</label>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="label-f">链接有效期：</td>
+                  <td class="value">
+                    <select  data-type="static"  data-type="static" name="time" class="form-control input">
+                      <option value="1">1天</option>
+                      <option value="7">7天</option>
+                      <option value="30">30天</option>
+                      <option value="-1" selected="selected">永久有效</option>
+                    </select>
+                  </td>
+                </tr>
+                <!- <tr>
+                  <td class="label-f">使用次数：</td>
+                  <td class="value">
+                    <input name="amount" type="text" class="form-control input" value="9999">
+                    <span class="help-inline"></span>
+                  </td>
+                </tr> ->
+                <tr>
+                  <td class="label-f">彩票返点：</td>
+                  <td class="value">
+                    <input name="point" type="text" class="form-control input">
+                    <span data-help="point" class="help-inline"></span>
+                  </td>
+                </tr>
+                <tr class="last-child">
+                  <td class="label-f"></td>
+                  <td class="value">
+                    <input name="submit" type="button" class="button" value="生成链接"/>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+        </div>
+        <div class="result hide" style="padding: 0 15% 20px 15%;">
+          <div class="text-title">剩余配合信息：</div>
+          <table data-table="quota" class="form-control">
+            <thead>
+              <tr>
+                <td width="25%">区段</td>
+                <td width="25%">总额</td>
+                <td width="25%">使用</td>
+                <td width="25%">剩余</td>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div> -->
+      </div>
+      <div class="section">
+        <div class="result" style="margin-top: 15px;">
+          <table class="form-control" id="reglinks">
+            <thead>
+              <tr>
+                <td>序号</td>
+                <td>注册码</td>
+                <td>用户类别</td>
+                <td>彩票返点</td>
+                <td width="20%">过期时间</td>
+                <td>操作</td>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+          <div class="page-list noselect"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 逻辑内容2开户中心结束 -->
+<!-- 逻辑内容3团队管理开始 -->
+<div data-init="content" class="content">
+  <div class="wrapper">
+    <div class="params">
+      <div class="row">
+        <label>用户名：</label>
+        <input name="username" type="text" class="form-control input" style="width:200px;" placeholder="用户名" autocomplete="off">
+        <!-- <label>余额：</label>
+        <input name="minMoney" type="text" class="form-control input" placeholder="最低" autocomplete="off">
+        <label>至</label>
+        <input name="maxMoney" type="text" class="form-control input" placeholder="最高" autocomplete="off">
+        <label>登录时间：</label>
+        <select   data-type="static" name="time" class="form-control input" id='weij'>
+          <option value="" selected="selected">默认</option>
+          <option value="7days">7天内</option>
+          <option value="1months">一个月内</option>
+          <option value="3months">三个月内</option>
+          <option value="6months">六个月内</option>
+          <option value="earlier">更早以前</option>
+        </select> -->
+        <label>查询代理下级：</label>
+        <input name="subName" type="text" class="form-control input" style="width:200px;" placeholder="下级代理用户名" autocomplete="off">
+        <input name="target" type="hidden">
+        <input name="submit" type="button" class="search" value="搜索">
+      </div>
+    </div>
+    <div class="result">
+      <table class="form-control">
+        <thead>
+          <tr>
+            <td width="12%">用户名</td>
+            <td width="6%">类型</td>
+            <td width="10%">用户余额</td>
+            <td width="10%">团队余额</td>
+            <td width="8%">返点</td>
+            <td width="16%">最后登录时间</td>
+            <td width="18%">操作</td>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="page-list noselect"></div>
+    </div>
+  </div>
+</div>
+<!-- 逻辑内容3团队管理结束 -->
+<!-- 逻辑内容4在线会员开始 -->
+<div data-init="content" class="content">
+  <div class="wrapper">
+    <div class="result">
+      <table class="form-control">
+        <thead>
+          <tr>
+            <td width="20%">用户名</td>
+            <td width="30%">余额</td><!--<td width="10%">-</td><td width="10%">-</td>
+            <td width="10%"></td>
+            <td>上级</td>-->
+            <td width="30%">最后登录</td>
+            <td width="20%">操作</td>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="page-list noselect"></div>
+    </div>
+  </div>
+</div>
+<!-- 逻辑内容4在线会员结束 -->
+<!-- 逻辑内容5游戏记录开始 -->
+<div data-init="content" class="content">
+  <div class="wrapper wrapper-big">
+    <div class="params">
+      <div class="row">
+        <label>游戏类别：</label>
+        <select name="lottery_proxy" id="proxy-gamelist" class="form-control input">
+          <option value="" selected="selected">全部游戏</option>
+        </select>
+        <label>订单状态：</label>
+        <select data-type="static" name="status_proxy" class="form-control input">
+          <option value="" selected="selected">全部状态</option>
+          <option value="0">未开奖</option>
+          <option value="4">已撤销</option>
+          <option value="1">未中奖</option>
+          <option value="2">已派奖</option>
+          <option value="5">系统撤销</option>
+        </select>
+        <div style="width:100%;height:15px;"></div>
+        <label>用户名：</label>
+        <input name="username" type="text" class="form-control input" style="width:200px;" placeholder="用户名" autocomplete="off">
+        <label>投注期号：</label>
+        <input name="expect" type="text" class="form-control input" style="width:200px;" placeholder="期号" autocomplete="off">
+        <label>时间：</label>
+        <input name="time" type="text" data-time-opens="center" data-time-init="0" class="form-control input d-range-picker">
+        <input name="submit" type="button" class="search" value="搜索">
+      </div>
+    </div>
+    <div class="result">
+      <table class="form-control">
+        <thead>
+          <tr>
+            <td width="10%">编号</td>
+            <td width="10%">用户名</td>
+            <td width="14%">彩种/玩法</td>
+            <td width="12%">期号</td>
+            <td width="16%">下单时间</td>
+            <td width="10%">注数/倍数</td>
+            <td width="10%">金额</td>
+            <td width="10%">奖金</td>
+            <td width="8%">状态</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="nodata">
+            <td colspan="20">请点击搜索查询数据</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="page-list noselect"></div>
+    </div>
+  </div>
+</div>
+<!-- 逻辑内容5游戏记录结束 -->
+
+<!-- 逻辑内容5A VR游戏记录开始 -->
+<div data-init="content" class="content">
+  <div class="wrapper wrapper-big">
+    <div class="params">
+      <div class="row">
+        <label>游戏类别：</label>
+        <select name="lottery_proxy_vr" id="proxy-gamelist_vr" class="form-control input">
+          <!--<option value="" selected="selected">全部游戏</option>-->
+        </select>
+        <label>订单状态：</label>
+        <select data-type="static" name="status_proxy_vr" class="form-control input">
+          <option value="" selected="selected">全部状态</option>
+          <option value="0">未开奖</option>
+          <option value="4">已撤销</option>
+          <option value="1">未中奖</option>
+          <option value="2">已派奖</option>
+          <option value="5">系统撤销</option>
+        </select>
+        <div style="width:100%;height:15px;"></div>
+        <label>用户名：</label>
+        <input name="username" type="text" class="form-control input" style="width:200px;"  placeholder="用户名" autocomplete="off">
+        <label>投注期号：</label>
+        <input name="expect" type="text" class="form-control input" style="width:200px;"  placeholder="期号" autocomplete="off">
+        <label>时间：</label>
+        <input name="time" type="text" data-time-opens="center" data-time-init="0" class="form-control input d-range-picker">
+        <input name="submit" type="button" class="search" value="搜索">
+      </div>
+    </div>
+    <div class="result">
+      <table class="form-control">
+        <thead>
+          <tr>
+            <td width="10%">编号</td>
+            <td width="10%">用户名</td>
+            <td width="14%">彩种/玩法</td>
+            <td width="12%">期号</td>
+            <td width="16%">下单时间</td>
+            <td width="10%">注数/倍数</td>
+            <td width="10%">金额</td>
+            <td width="10%">奖金</td>
+            <td width="8%">状态</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="nodata">
+            <td colspan="20">请点击搜索查询数据</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="page-list noselect"></div>
+    </div>
+  </div>
+</div>
+<!-- 逻辑内容5A VR游戏记录结束 -->
+<!-- 逻辑内容6账变记录开始 -->
+<div data-init="content" class="content">
+  <div class="wrapper">
+    <div class="params">
+      <div class="row">
+        <label>账单类别：</label>
+        <select  data-type="static" name="type" class="form-control input">
+          <option value="" selected="selected">全部类别</option>
+          <option value="7">彩票游戏</option>
+          <option value="90">活动</option>
+          <!--<option value="91">分红</option>-->
+          <option value="3">转账</option>
+          <option value="80">修正资金</option>
+          <option value="1">充值</option>
+          <option value="2">提现</option>
+        </select>
+        <label>用户名：</label>
+        <input name="username" type="text" class="form-control input" style="width:200px;" placeholder="用户名" autocomplete="off">
+        <label>时间：</label>
+        <input name="time" type="text" data-time-opens="center" data-time-init="0" class="form-control input d-range-picker">
+        <input name="submit" type="button" class="search" value="搜索">
+      </div>
+    </div>
+    <div class="result">
+      <table class="form-control">
+        <thead>
+          <tr>
+            <td style="width:242px;" >订单号</td>
+            <td style="width:57px;" >用户名</td>
+            <td style="width:167px;">时间</td>
+            <td style="width:110px;">操作类型</td>
+            <td style="width:110px;">业务类型</td>
+            <td style="width:74px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;" >变动金额</td>
+            <td style="width:74px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;" >余额</td>
+            <td style="width:118px;">备注</td>
+          </tr>
+        </thead>
+        <tbody><tr class="nodata"><td colspan="20">没有任何账单记录。</td></tr></tbody>
+      </table>
+      <div class="page-list noselect"></div>
+    </div>
+  </div>
+</div>
+<!-- 逻辑内容6账变记录结束 -->
+
+<!-- 逻辑内容7团队报表开始 -->
+<div data-init="content" class="content">
+  <div id="tab01">
+    <div class="tabs noselect">
+      <a  nav='S1'>团队报表</a>
+      <!--<a  nav='S2'>个人报表</a>-->
+    </div>
+  </div>
+  <div class="clear">
+
+  </div>
+  <div class="wrapper S1">
+    <div class="params S1">
+      <div class="row">
+        <label>用户名：</label>
+        <input name="username" type="text" class="form-control input" style="width:200px;" placeholder="用户名" autocomplete="off">
+        <label>时间：</label>
+        <input name="time" type="text" data-time-opens="right" data-time-init="0" class="form-control input d-range-picker">
+        <input name="submit" type="button" class="search" value="搜索">
+      </div>
+    </div>
+    <div class="result S1 rpt-result">
+      <table class="form-control">
+        <thead>
+          <tr>
+            <td width="10%">用户名</td>
+            <td width="10%">类型</td>
+            <td width="10%">余额</td>
+            <td width="10%">充值</td>
+            <td width="10%">提现</td>
+            <td width="10%">投注额</td>
+            <td width="15%">奖金/单单日工资</td>
+            <td width="10%">返点</td>
+            <td width="10%">活动</td>
+            <td width="10%">总盈亏</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="nodata">
+            <td colspan="20">请点击搜索查询数据</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="page-list noselect"></div>
+    </div>
+  </div>
+  <div class="wrapper S2" style="display:none;">
+    <div class="params S2">
+      <div class="row">
+          <label>用户名：</label>
+        <input name="name" type="text" class="form-control input" placeholder="用户名" autocomplete="off">
+        <label>订单状态：</label>
+        <select  data-type="static" name="type" class="form-control input">
+          <option value="0" selected="selected">查询自身</option>
+          <option value="1">查询下级</option>
+        </select>
+        <label>时间：</label>
+        <input name="time" type="text" data-time-opens="right" data-time-init="0" class="form-control input d-range-picker">
+        <input name="submit" type="button" class="search" value="搜索">
+      </div>
+    </div>
+     <div class="result S2 rpt-result">
+      <table class="form-control">
+        <thead>
+          <tr>
+            <td width="14%">用户名</td>
+            <td width="12%">时间</td>
+            <td width="12%">充值</td>
+            <td width="12%">取款</td>
+            <td width="10%">投注</td>
+            <td width="10%">奖金</td>
+            <td width="10%">返点</td>
+            <td width="10%">活动</td>
+            <td width="10%">盈亏</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="nodata">
+            <td colspan="20">请点击搜索查询数据</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="page-list noselect"></div>
+    </div>
+    <!-- <div class="result S2">
+      <table class="form-control">
+        <thead>
+          <tr>
+            <td width="10%">订单号</td>
+            <td>彩种</td>
+            <td width="14%">玩法</td>
+            <td width="14%">开始期号</td>
+            <td width="10%">已追/总期数</td>
+            <td width="10%">总金额</td>
+            <td width="10%">总奖金</td>
+            <td width="8%">状态</td>
+            <td width="8%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="nodata">
+            <td colspan="20">请点击搜索查询数据</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="page-list noselect"></div>
+  </div> -->
+  </div>
+</div>
+<!-- 逻辑内容7团队报表结束 -->
+
+<!-- 逻辑内容8 日工资开始 -->
+<div data-init="content" class="content">
+  <div class="wrapper">
+    <div class="params">
+      <div class="row">
+        <label>平台：</label>
+        <select  data-type="static" name="type" class="form-control input">
+          <option value="0" selected="selected">全部</option>
+          <!--<option value="1">AG平台</option>
+          <option value="2">PT平台</option>
+          <option value="3">沙巴体育</option>-->
+        </select>
+        <label>用户名：</label>
+        <input name="username" type="text" class="form-control input" placeholder="用户名" autocomplete="off">
+        <label>游戏时间：</label>
+        <input name="time" type="text" data-time-opens="center" data-time-init="0" class="form-control input d-range-picker">
+        <input name="submit" type="button" class="search" value="搜索">
+      </div>
+    </div>
+    <div class="result">
+      <table class="form-control">
+        <thead>
+          <tr>
+            <td>时间</td>
+            <td>用户名</td>
+            <td>日工资比例</td>
+            <td width="14%">团队流水</td>
+            <td width="14%">日工资发放金额</td>
+            <td>状态</td>
+          </tr>
+        </thead>
+        <tbody><tr class="nodata"><td colspan="20">没有任何日工资记录。</td></tr></tbody>
+      </table>
+      <div class="page-list noselect"></div>
+    </div>
+  </div>
+</div>
+<!-- 逻辑内容8 日工资结束 -->
+<!-- 逻辑内容9 分红开始 -->
+<div data-init="content" id="fenhong" class="content">
+  <div class="wrapper">
+    <div class="page-half">
+      <ul class="half clearfix">
+        <li>
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td class="firstline firstcol tablehead" colspan="2"><em class="ctx" style="font-size: 120%;">&#58931;</em><h3>我的分红规则</h3></span></td>
+            </tr>
+            <tr>
+              <td class="title firstcol" width="50%">用户类型</td>
+              <td>招商号</td>
+            </tr>
+            <tr>
+              <td class="title firstcol">分红比例</td>
+              <td><a class="hand viewmyrate">查看</a></td>
+            </tr>
+            <tr>
+              <td class="title firstcol">分红要求消费天数</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td class="title firstcol">每天最低日量</td>
+              <td>-</td>
+            </tr>
+            <tr>
+              <td class="firstcol lastbtn" colspan="2">
+                <a class="hand likebtn" style="opacity:0.1;">分红额外奖励<em class="ctx rf">&#59144;</em></a>
+              </td>
+            </tr>
+          </table>
+        </li>
+        <li class="last">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td class="firstline firstcol tablehead"><em class="ctx">&#58898;</em><h3>我的分红详情</h3></td>
+            </tr>
+            <tr>
+              <td class="firstcol" style="padding-left:0px;">
+                <ul class="count">
+                  <li><em class="ctx dot">&#58918;</em><span>团队盈亏金额</span><span class="rf teammoney"><i></i>元</span></li>
+                  <li><em class="ctx dot">&#58918;</em><span>应得分红</span><span class="rf deservedBonus"><i></i>元</span></li>
+                  <li><em class="ctx dot">&#58918;</em><span>已收到分红</span><span class="rf receivedBonus"><i></i>元</span></li>
+                  <li><em class="ctx dot">&#58918;</em><span>分红时间</span><span class="rf lastpaifa_end"></span><span class="rf lastpaifa"></span></li>
+                  <li><em class="ctx dot">&#58918;</em><span>应派发分红</span><span class="rf shouleDistributBonus"></span></li>
+                  <li><em class="ctx dot">&#58918;</em><span>已派发分红</span><span class="rf alreadyDistributBonus"></span></li>
+                  <li class="last"><em class="ctx dot">&#58918;</em><span>未派发分红</span><a class="hand rf sendnow" style="display:none;"><em class="ctx">&#59144;</em>派发分红</a><span class="rf yetDistributBonus status">已发放，请点击</span></li>
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </li>
+      </ul>
+    </div>
+    <div class="topcounter result">
+      <table class="form-control line-height-medium" style="display:none;">
+        <thead>
+          <tr>
+            <td colspan="2">上期分红信息</td>
+            <td colspan="2">派发分红信息</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-field="thisTotalLoss">
+            <td>分红开始时间</td>
+            <td rel="startDay">2017-01-15</td>
+            <td>应派发分红</td>
+            <td rel="shouleDistributBonus">0.0000</td>
+          </tr>
+          <tr data-field="thisTotalLoss">
+            <td>分红结束时间</td>
+            <td rel="endDay">2017-01-15</td>
+            <td>已派发分红</td>
+            <td rel="alreadyDistributBonus">0.0000</td>
+          </tr>
+          <tr data-field="thisTotalConsume">
+            <td>分红比例</td>
+            <td><a class="hand" id="showMixPercents">查看</a></td>
+            <td>未派发分红</td>
+            <td><i rel="yetDistributBonus">0.0000</i> <a class="hand" id="sendAll">派发分红</a></td>
+          </tr>
+          <tr data-field="thisScale">
+            <td>团队盈亏金额</td><td rel="profitAmount">-</td>
+            <td colspan="2"></td>
+          </tr>
+          <tr data-field="thisAmount">
+            <td>应得分红</td><td rel="deservedBonus">-</td>
+            <td colspan="2"></td>
+          </tr>
+          <tr data-field="thisStartDate">
+            <td>已收到分红	</td><td rel="receivedBonus">-</td>
+            <td colspan="2"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="params">
+      <div class="row">
+        <label>用户名：</label>
+        <input name="username" type="text" class="form-control input" placeholder="用户名" autocomplete="off">
+        <label>日期：</label>
+        <input name="time" type="text" data-time-opens="center" data-time-init="0" class="form-control input d-range-picker">
+        <input name="submit" type="button" class="search" value="搜索">
+      </div>
+    </div>
+    <div class="result">
+      <table class="form-control">
+        <thead>
+          <tr>
+            <td>日期</td>
+            <td>用户名</td>
+            <td>分红比例</td>
+            <td width="14%">团队盈亏</td>
+            <td width="14%">分红金额</td>
+            <td>状态</td>
+          </tr>
+        </thead>
+        <tbody><tr class="nodata"><td colspan="20">没有任何分红记录。</td></tr></tbody>
+      </table>
+      <br />
+    </div>
+  </div>
+</div>
+<!-- 逻辑内容9 分红结束 -->

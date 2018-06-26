@@ -1,0 +1,435 @@
+﻿<div class="title01">报表中心——彩票报表</div>
+<!-- 菜单开始 -->
+<div class="menu noselect">
+  <a href="funds/recharge.html"><i class="funds"></i>财务中心</a>
+  <a href="account/index.html"><i class="account"></i>个人中心</a>
+  <a href="proxy/account.html" data-visible="proxy"><i class="proxy"></i>代理中心</a>
+  <a href="report/lottery.html" class="active"><i class="report"></i>报表中心</a>
+  <a href="message/inbox.html"><i class="message"></i>消息中心</a>
+</div>
+<style media="screen">
+  .content .noselectHiddeb td{overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;}
+</style>
+<!-- 菜单结束 -->
+
+<!-- 导航开始 -->
+<div class="nav noselect">
+  <a href="javascript:void(0)">游戏记录</a>
+  <a href="javascript:void(0)">追号记录</a>
+  <a href="javascript:void(0)">账变记录</a>
+  <a ref="manager-account.html#page=4" class="disabled" style="display:none;">主账户报表</a>
+  <a href="javascript:void(0)">彩票报表</a>
+  <a href="javascript:void(0)">VR游戏记录</a>
+  <a href="javascript:void(0)">第三方游戏记录</a>
+  <a ref="javascript:void(0)" class="disabled" style="display:none;">百家乐报表</a>
+  <!-- <a href="manager-account.html#page=3" class="fixed">游戏记录</a>
+  <a href="manager-account.html#page=4" class="fixed">追号记录</a>
+  <a href="javascript:void(0)">百家乐报表</a> -->
+  <span class="breakline"></span>
+</div>
+<!-- 导航结束 -->
+
+<!-- 逻辑内容4游戏记录开始 -->
+<div data-init="content" class="content" >
+  <div class="wrapper">
+    <div class="params">
+      <div class="row" id="rpt-gamerecord">
+        <label>游戏类别：</label>
+        <select name="lottery" class="form-control input">
+          <option value="" selected="selected">全部游戏</option>
+        </select>
+        <label>订单状态：</label>
+        <select  data-type="static" name="status" class="form-control input">
+          <option value="" selected="selected">全部状态</option>
+          <option value="0">未开奖</option>
+          <option value="4">已撤销</option>
+          <option value="1">未中奖</option>
+          <option value="2">已派奖</option>
+          <option value="5">系统撤销</option>
+        </select>
+        <label>投注期号：</label>
+        <input name="expect" type="text"  class="form-control input" style="width:200px;" placeholder="期号">
+        <label>时间：</label>
+        <input name="time" type="text" data-time-opens="center" data-time-init="0" class="form-control input d-range-picker">
+        <input name="submit" type="button" class="search icon" value="&#xe60c;查询">
+      </div>
+    </div>
+    <div class="result">
+      <table class="form-control">
+        <thead>
+          <tr>
+            <td width="10%">订单号</td>
+            <td>彩种</td>
+            <td width="14%">玩法</td>
+            <td width="14%">期号</td>
+            <td width="16%">下单时间</td>
+            <td width="10%">投注金额</td>
+            <td width="10%">奖金</td>
+            <td width="8%">状态</td>
+            <td width="8%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="nodata">
+            <td colspan="20">请点击搜索查询数据</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="page-list noselect"></div>
+    </div>
+  </div>
+</div>
+<!-- 逻辑内容4游戏记录结束 -->
+<!-- 逻辑内容5追号记录开始 -->
+<div data-init="content" class="content">
+  <div class="wrapper">
+    <div class="params">
+      <div class="row">
+        <label>游戏类别：</label>
+        <select name="lottery" class="form-control input" id='ioaf'>
+          <option value="" selected="selected">全部游戏</option>
+        </select>
+        <!-- <label>订单状态：</label>
+        <select  data-type="static" name="status" class="form-control input" id='asd'>
+          <option value="" selected="selected">全部状态</option>
+          <option value="0">未开始</option>
+          <option value="1">进行中</option>
+          <option value="2">已完成</option>
+          <option value="-1">已撤单</option>
+        </select> -->
+        <label>时间：</label>
+        <input name="time" type="text" data-time-opens="center" data-time-init="0" class="form-control input d-range-picker">
+        <input name="submit" type="button" class="search icon" value="&#xe60c;查询">
+      </div>
+    </div>
+    <div class="result">
+      <table class="form-control">
+        <thead>
+          <tr>
+            <td width="10%">订单号</td>
+            <td>彩种</td>
+            <td width="14%">玩法</td>
+            <td width="14%">开始期号</td>
+            <td width="10%">已追/总期数</td>
+            <td width="10%">总金额</td>
+            <td width="10%">总奖金</td>
+            <td width="8%">状态</td>
+            <td width="8%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="nodata">
+            <td colspan="20">请点击搜索查询数据</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="page-list noselect"></div>
+    </div>
+  </div>
+</div>
+<!-- 逻辑内容5追号记录结束 -->
+<!-- 逻辑内容6账变记录开始 -->
+<div data-init="content" class="content">
+  <div class="wrapper">
+    <div class="params">
+      <div class="row">
+        <label>账户：</label>
+        <select  data-type="static" name="account" class="form-control input">
+          <option value="" selected="selected">全部账户</option>
+          <option value="1">彩票账户</option>
+          <!-- <option value="2">百家乐账户</option> -->
+        </select>
+        <label>账单类别：</label>
+        <select data-type="static" name="type" class="form-control input">
+          <option value="" selected="selected">全部类别</option>
+          <option value="7">彩票游戏</option>
+          <option value="90">活动</option>
+          <!--<option value="91">分红</option>-->
+          <option value="3">转账</option>
+          <option value="80">修正资金</option>
+          <option value="1">充值</option>
+          <option value="2">提现</option>
+        </select>
+        <label>时间：</label>
+        <input name="time" type="text" data-time-opens="center" data-time-init="0" class="form-control input d-range-picker">
+        <input name="submit" type="button" class="search icon" value="&#xe60c;查询">
+      </div>
+    </div>
+    <div class="result">
+      <table class="form-control noselectHiddeb">
+        <thead>
+          <tr>
+            <td>订单号</td>
+            <td>用户名</td>
+            <td>时间</td>
+            <td width="14%">操作类型</td>
+            <td width="14%">业务类型</td>
+            <td>变动金额</td>
+            <td>余额</td>
+            <td>备注</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="nodata">
+            <td colspan="20">请点击搜索查询数据</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="page-list noselect"></div>
+    </div>
+  </div>
+</div>
+<!-- 逻辑内容6账变记录结束 -->
+<div data-init="content" class="content"></div>
+<!-- 逻辑内容开始 -->
+<div data-init="content" class="content">
+    <div id="tab01">
+      <div class="tabs noselect" style="margin:0; padding:0;">
+        <a  nav='S1' style="border-radius:6px;"></a>
+        <a  nav='S2' style="border-radius:6px;"></a>
+      </div>
+    </div>
+    <div class="clear">
+
+    </div>
+    <div class="wrapper S1">
+      <div class="params S1">
+        <div class="row">
+          <!-- <label>用户名：</label> -->
+          <!-- <input name="username" type="text" class="form-control input" style="width:200px;" placeholder="用户名" autocomplete="off"> -->
+          <label>时间：</label>
+          <input name="time" type="text" data-time-opens="right" data-time-init="0" class="form-control input d-range-picker">
+          <input name="submit" type="button" class="search icon" value="&#xe60c;查询">
+        </div>
+      </div>
+      <div class="result S1">
+        <table class="form-control">
+          <thead>
+            <tr>
+              <td width="10%">用户名</td>
+              <td width="10%">类型</td>
+              <td width="10%">余额</td>
+              <td width="10%">充值</td>
+              <td width="10%">提现</td>
+              <td width="10%">投注额</td>
+              <td width="10%">奖金</td>
+              <td width="10%">返点</td>
+              <td width="10%">活动</td>
+              <td width="10%">总盈亏</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="nodata">
+              <td colspan="20">请点击搜索查询数据</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="page-list noselect"></div>
+      </div>
+    </div>
+    <div class="wrapper S2" style="display:none;">
+      <div class="params S2">
+        <div class="row">
+            <!-- <label>用户名：</label>
+          <input name="name" type="text" class="form-control input" style="width:200px;" placeholder="用户名" autocomplete="off"> -->
+          <label>订单状态：</label>
+          <select data-type="static" name="prtype" class="form-control input">
+            <option value="0" selected="selected">查询自身</option>
+            <option value="1">查询下级</option>
+          </select>
+          <label>时间：</label>
+          <input name="time" type="text" data-time-opens="right" data-time-init="0" class="form-control input d-range-picker">
+          <input name="submit" type="button" class="search icon" value="&#xe60c;查询">
+        </div>
+      </div>
+       <div class="result S2">
+        <table class="form-control">
+          <thead>
+            <tr>
+              <td width="14%">用户名</td>
+              <td width="12%">时间</td>
+              <td width="12%">充值</td>
+              <td width="12%">取款</td>
+              <td width="10%">投注</td>
+              <td width="10%">奖金</td>
+              <td width="10%">返点</td>
+              <td width="10%">活动</td>
+              <td width="10%">盈亏</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="nodata">
+              <td colspan="20">请点击搜索查询数据</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="page-list noselect"></div>
+      </div>
+      <!-- <div class="result S2">
+        <table class="form-control">
+          <thead>
+            <tr>
+              <td width="10%">订单号</td>
+              <td>彩种</td>
+              <td width="14%">玩法</td>
+              <td width="14%">开始期号</td>
+              <td width="10%">已追/总期数</td>
+              <td width="10%">总金额</td>
+              <td width="10%">总奖金</td>
+              <td width="8%">状态</td>
+              <td width="8%">操作</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="nodata">
+              <td colspan="20">请点击搜索查询数据</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="page-list noselect"></div>
+    </div> -->
+    </div>
+</div>
+<!-- 逻辑内容结束 -->
+
+<!-- 逻辑内容7VR游戏记录开始 -->
+<div data-init="content" class="content" >
+  <div class="wrapper">
+    <div class="params">
+      <div class="row" id="rpt-gamerecord-vr">
+        <label>游戏类别：</label>
+        <select name="lotteryvr" class="form-control input">
+          <!--<option value="" selected="selected">全部游戏</option>-->
+        </select>
+        <label>订单状态：</label>
+        <select  data-type="static" name="statusvr" class="form-control input">
+          <option value="" selected="selected">全部状态</option>
+          <option value="0">未开奖</option>
+          <option value="4">已撤销</option>
+          <option value="1">未中奖</option>
+          <option value="2">已派奖</option>
+          <option value="5">系统撤销</option>
+        </select>
+        <label>投注期号：</label>
+        <input name="expect" type="text" class="form-control input" style="width:200px;" placeholder="期号">
+        <label>时间：</label>
+        <input name="time" type="text" data-time-opens="center" data-time-init="0" class="form-control input d-range-picker">
+        <input name="submit" type="button" class="search icon" value="&#xe60c;查询">
+      </div>
+    </div>
+    <div class="result">
+      <table class="form-control">
+        <thead>
+          <tr>
+            <td width="10%">订单号</td>
+            <td>彩种</td>
+            <td width="14%">玩法</td>
+            <td width="14%">期号</td>
+            <td width="16%">下单时间</td>
+            <td width="10%">投注金额</td>
+            <td width="10%">奖金</td>
+            <td width="8%">状态</td>
+            <td width="8%">操作</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="nodata">
+            <td colspan="20">请点击搜索查询数据</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="page-list noselect"></div>
+    </div>
+  </div>
+</div>
+<!-- 逻辑内容4游戏记录结束 -->
+
+<!-- 逻辑内容开始 -->
+<div data-init="content" class="content">
+  <div class="wrapper">
+    <div class="params">
+      <div class="row">
+        <!-- <label>用户名：</label>
+        <input name="username" type="text" class="form-control input" placeholder="用户名" autocomplete="off"> -->
+        <label>时间：</label>
+        <input name="time" type="text" data-time-opens="right" data-time-init="0" class="form-control input d-range-picker">
+        <input name="submit" type="button" class="search icon" value="&#xe60c;查询">
+      </div>
+    </div>
+    <div class="result">
+      <table class="form-control">
+        <thead>
+          <tr>
+            <td width="14%">用户名</td>
+            <td width="12%">转入</td>
+            <td width="12%">转出</td>
+            <td width="12%">消费</td>
+            <td width="12%">派奖</td>
+            <td width="12%">返水/返点</td>
+            <td width="12%">优惠</td>
+            <td width="14%">盈利</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="nodata">
+            <td colspan="20">请点击搜索查询数据</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- 逻辑内容8第三方游戏记录开始 -->
+<div data-init="content" class="content" >
+	<div class="wrapper">
+		<div class="params">
+			<div class="row" id="rpt-gamerecord-vr">
+				<label>游戏类别：</label>
+				<select name="lotteryvr" class="form-control input">
+					<!--<option value="" selected="selected">全部游戏</option>-->
+				</select>
+				<label>订单状态：</label>
+				<select  data-type="static" name="statusvr" class="form-control input">
+					<option value="" selected="selected">全部状态</option>
+					<option value="0">未开奖</option>
+					<option value="4">已撤销</option>
+					<option value="1">未中奖</option>
+					<option value="2">已派奖</option>
+					<option value="5">系统撤销</option>
+				</select>
+				<label>投注期号：</label>
+				<input name="expect" type="text" class="form-control input" style="width:200px;" placeholder="期号">
+				<label>时间：</label>
+				<input name="time" type="text" data-time-opens="center" data-time-init="0" class="form-control input d-range-picker">
+				<input name="submit" type="button" class="search icon" value="&#xe60c;查询">
+			</div>
+		</div>
+		<div class="result">
+			<table class="form-control">
+				<thead>
+				<tr>
+					<td width="10%">订单号</td>
+					<td>彩种</td>
+					<td width="14%">玩法</td>
+					<td width="14%">期号</td>
+					<td width="16%">下单时间</td>
+					<td width="10%">投注金额</td>
+					<td width="10%">奖金</td>
+					<td width="8%">状态</td>
+					<td width="8%">操作</td>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="nodata">
+					<td colspan="20">请点击搜索查询数据</td>
+				</tr>
+				</tbody>
+			</table>
+			<div class="page-list noselect"></div>
+		</div>
+	</div>
+</div>
+<!-- 逻辑内容8第三方游戏记录开始 -->

@@ -1,0 +1,90 @@
+// 引用图片简写
+bgNormal(n)
+  background:url(n) center center no-repeat
+bgFull(n)
+  background:url(n) center center no-repeat
+  background-size:cover
+bgAll(n)
+  background:url(n) center center no-repeat
+  background-size:100% 100%
+backgroundImg()
+  background-repeat:no-repeat
+  background-position :center center
+bgCover()
+  background-size:cover
+bgColor(n=#fff)
+	background-color:n
+boxSizing()
+  box-sizing:border-box
+color(color=#fff)
+  color:color
+opacity(n)
+  opacity:n
+bgRed()
+  background-color:#ff6681
+bgGrey()
+  background-color:#dcdddd
+radius(n)
+  -webkit-border-radius: n
+  -moz-border-radius: n
+  border-radius: n
+radiusTop(n)
+  border-top-left-radius: n
+  border-top-right-radius: n
+radiusLeft(n)
+  border-top-left-radius: n
+  border-bottom-left-radius: n
+radiusRight(n)
+  border-top-right-radius: n
+  border-bottom-right-radius: n
+radiusBottom(n)
+  border-bottom-left-radius: n
+  border-bottom-right-radius: n
+cursor()
+  cursor:pointer
+border
+  border-1px solid n
+boxShadow(n)
+  box-shadow: n
+setMiddle()
+  display:flex
+  justify-content: center
+  align-items: center
+setStart()
+  display:flex
+  justify-content: flex-start
+  align-items: center
+setBetween()
+  display:flex
+  justify-content: space-between
+  align-items:center
+setColumn
+  display:flex
+  flex-direction:column
+bgColor(color=#fff)
+  background-color:color
+gradientRed()
+  background-image: -webkit-linear-gradient(to bottom, #e7556e 0, #f95867 100%)
+  background-image:linear-gradient(to bottom, #e7556e 0, #f95867 100%)
+gradientBlue()
+  background-image:-webkit-linear-gradient(to right, #57addd 0, #4882c5 100%)
+  background-image:linear-gradient(to right, #57addd 0, #4882c5 100%)
+gradient(n)
+  background-image:-webkit-linear-gradient(n)
+  background-image:linear-gradient(n)
+gradientIE(type, startColor, endColor)
+  if support-for-ie
+    filter unquote('progid:DXImageTransform.Microsoft.gradient(startcolorstr=' + startColor + ',endcolorstr=' + endColor + ',gradientType = ' + type +')')
+ellipsis()
+  overflow:hidden
+  text-overflow:ellipsis
+  white-space:nowrap
+ellipsis()
+  overflow:hidden
+  white-space:nowrap
+  text-overflow:ellipsis
+commonBtn()
+  background-color:#ff6681
+  color:#fff
+colorRed()
+	color:#ff6a76

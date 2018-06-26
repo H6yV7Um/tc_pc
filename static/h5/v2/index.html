@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <!-- 引用样式文件开始 -->
+    <link media="all" type="text/css" rel="stylesheet" href="css/zui-org.css"/>
+    <link rel="stylesheet" type="text/css" href="css/deposit.css">
+    <link rel="stylesheet" type="text/css" href="css/dialog-style.css">
+    <link rel="stylesheet" href="css/new-payway.css">
+    <!-- 引用脚本文件开始-->
+    <script type="text/javascript" src="js/core.js"></script>
+    <script type="text/javascript" src="js/zui.js"></script>
+    <script type="text/javascript" src="js/lodash.min.js"></script>
+    <script type="text/javascript" src="js/api.js?b=1"></script>
+    <!--<script type="text/javascript" src="js/deposit_new.js"></script>-->
+    <script src="js/clipboard.min.js"></script>
+    <script type="text/javascript" src="js/new-payway.js"></script>
+</head>
+<body>
+<div id="pay">
+    <ul class="ways clear">
+        <li class="active">
+            <i></i><span>快速入款</span>
+        </li>
+        <li>
+            <i></i><span>银联扫码</span>
+        </li>
+        <li>
+            <i></i><span>微信</span>
+        </li>
+        <li>
+            <i></i><span>支付宝</span>
+        </li>
+        <li>
+            <i></i><span>QQ</span>
+        </li>
+        <li>
+            <i></i><span>云闪付扫码</span>
+        </li>
+    </ul>
+    <div class="sep"></div>
+    <div class="bank clear active">
+        <span class="title">开户银行</span>
+        <select>
+            <!--<option value="">请选择开户银行</option>-->
+            <!--<option value="">中国1银行</option>-->
+            <!--<option value="">中国22银行</option>-->
+        </select>
+    </div>
+    <div class="money clear">
+        <span class="title">存款金额</span>
+        <input type="number" placeholder="请输入金额！">
+    </div>
+    <ul class="account">
+        <li value="100">+100元</li>
+        <li value="300">+300元</li>
+        <li value="500">+500元</li>
+        <li value="1000">+1000元</li>
+    </ul>
+    <div class="confirm">下一步</div>
+    <div class="confirmInfo">
+        <h1>
+            信息确认
+            <span>（确定充值金额后，点击下方【进入第三方支付】按钮进行支付）</span>
+        </h1>
+        <table>
+            <tbody>
+            <tr>
+                <td class="label">充值金额</td>
+                <td class="value" id="thirdAmount">
+                    <span></span>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">订单编号</td>
+                <td class="value">
+                    <span id="thirdOrderNum"></span>
+                    <span class="copy" id="thirdCopy" data-clipboard-target="#thirdOrderNum">复制</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="confirmSecond">进入第三方支付</div>
+    </div>
+    <div class="scanInfo">
+        <h1>
+            打开【手机银行】或【云闪付APP】，扫描下方二维码
+        </h1>
+        <p>（使用另一台手机打开【云闪付】扫描下方二维码。或保存二维码图片，
+            打开云闪付扫一扫，选择右上方“相册”中的二维码图片进行支付）
+        </p>
+        <ul>
+           <li class="qrCode">
+               <div>
+                   <img src="images/erweima.gif" alt="">
+               </div>
+           </li>
+            <li class="info">
+                <img src="images/yhks.png">
+                <p>闪付扫一扫</p>
+                <!--<span>保存二维码</span>-->
+            </li>
+        </ul>
+        <h3>
+            温馨提示：
+            <span>充值不要忘了小数点，到账快快滴(∩_∩)</span>
+        </h3>
+        <table>
+            <tbody>
+            <tr>
+                <td class="label">充值金额</td>
+                <td class="value" id="scanAmount">
+                    <span>123</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="label">订单编号</td>
+                <td class="value">
+                    <span id="scanOrderNum"></span>
+                    <span class="copy" id="scanCopy" data-clipboard-target="#scanOrderNum">复制</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="scanSecond">完成</div>
+    </div>
+    <p class="tips">
+        * 充值现时：请在15分钟内完成充值 <br>
+        *每天23点50分至0点10分之间使用该充值方式，会延迟到账
+    </p>
+    <div style="display:none;">
+        <form method="post" target="_self" id="depositform" action="">
+            <input name="text" type="hidden" value="">
+        <!--<input name="pid1" type="hidden" value="000001">
+        <input name="bankco1" type="hidden" value="ICBC"> -->
+        </form>
+    </div>
+</div>
+</body>
+</html>

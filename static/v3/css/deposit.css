@@ -1,0 +1,161 @@
+body {
+  font-size: 12px;
+  font-family: Microsoft YaHei, Arial, Helvetica, sans-serif;
+  background-color: #efefef;
+}
+
+.clearfix {
+    zoom: 1;
+}
+.clearfix:after {
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.clearall {
+    clear: both;
+}
+
+input,
+button,
+select,
+textarea {
+	outline: 0;
+	font-family: inherit;
+}
+.hand{
+  cursor:pointer;
+}
+a {
+	outline: 0;
+	text-decoration: none;
+}
+
+img {
+	vertical-align: middle;
+}
+
+h3,ul,li{
+  margin:0px;
+  padding:0px;
+  list-style:none;
+}
+
+.lf{float:left;}
+.rf{float:right;}
+
+.modal-sm {
+  width: 300px;
+  margin: 30px auto;
+  -webkit-box-shadow: 0px 0px 16px 0px rgba(50, 50, 50, 0.51);
+  -moz-box-shadow:    0px 0px 16px 0px rgba(50, 50, 50, 0.51);
+  box-shadow:         0px 0px 16px 0px rgba(50, 50, 50, 0.51);
+}
+
+.modal-sms {
+  width: 200px;
+}
+#letdeposit_t{
+  z-index:1080;
+}
+#iframedeposit li{
+  background-color: #efefef;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+#iframedeposit .full{
+  line-height: 32px;
+  height: 42px;
+  font-size: 14px;
+  padding-top: 10px;
+}
+
+#iframedeposit .full > .lf{
+  margin-left:10px;
+}
+#iframedeposit .full > .rf{
+  margin-right:10px;
+}
+#iframedeposit .line-tip{
+  padding-left: 10px;  
+}
+
+#iframedeposit h3{
+  line-height:42px;height:42px;
+  background-color: #ffcdd9;
+  font-size:14px;
+  font-weight:normal;
+  padding-left: 10px;
+}
+#iframedeposit .btn-primary,#letdeposit .btn-primary,#letdeposit_t .btn-primary{
+  background-color: #ff416d;
+  border:none;
+}
+
+.banks ul{
+  width: 80%;
+  margin: 10px auto;
+}
+#letdeposit .amount,#letdeposit_t .amount{
+  width: 80%;
+  margin: 10px auto;
+}
+#letdeposit .banks li,#iframedeposit .banks li{
+  width: 30.33333333%;
+  display: inline-block;
+  height: 46px;
+  text-align: center;
+  vertical-align: top;
+  background-color: #dedede;
+  margin-bottom: 5px;
+  margin-left: 3px;
+  margin-right: 3px;
+  padding: 5px;
+}
+
+#letdeposit .banks li.on,#iframedeposit .banks li.on{
+  background-color: #ff6f17;
+  color:#fff;
+}
+
+#letdeposit .fireline,#letdeposit_t .fireline{
+  text-align:center;
+  padding-bottom: 10px;
+}
+
+#letdeposit_t .bankinfo{
+  width: 80%;
+  margin: 10px auto;
+  font-size:12px;
+}
+#letdeposit_t tr{
+  line-height: 24px;
+}
+
+#letdeposit_t td{
+  font-size:12px;
+  vertical-align: top;
+}
+
+#letdeposit_t .cancopy{
+  display: inline-block;
+  width: 30px;
+  background-color: #d6d2e2;
+  text-align: center;
+  border-radius: 4px;
+  color: #fff;
+  margin-left: 5px;
+}
+
+#letdeposit_t .bcardno{
+  width: 120px;
+  display: inline-block;
+  word-break: break-all;
+}
+
+#letdeposit_success{
+  z-index:1090;
+}
+

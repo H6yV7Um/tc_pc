@@ -1,0 +1,109 @@
+.easyweb-pagination {
+	line-height: 28px;
+	font-size: 13px;
+	text-align: right;
+	color: #787876;
+}
+
+.easyweb-pagination .infos {
+	display: inline;
+	float: left;
+}
+
+.easyweb-pagination .infos .p, .easyweb-pagination .infos .s, .easyweb-pagination .infos .e, .easyweb-pagination .infos .t {
+	
+}
+
+.easyweb-pagination .pages {
+	display: inline;
+}
+
+.easyweb-pagination .pages > a {
+	display: inline-block;
+	text-align: center;
+	margin-left: 2px;
+	margin-right: 2px;
+	padding-left: 5px;
+	padding-right: 5px;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.easyweb-pagination .pages > a.top, 
+.easyweb-pagination .pages > a.end, 
+.easyweb-pagination .pages > a.prev, 
+.easyweb-pagination .pages > a.next {
+	border: 1px solid #ddd;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.easyweb-pagination .pages > a.page {
+	width: 30px;
+	text-align: center;
+	border: 1px solid #ddd;
+}
+
+.easyweb-pagination .pages > a.page:hover {
+	color: #fff;
+	background-color: #ED6C44;
+	border: 1px solid #ED6C44;
+}
+
+.easyweb-pagination .pages > a.ellipsis {
+	cursor: default;
+}
+
+.easyweb-pagination .pages > a:hover {
+	color: #fff;
+	background-color: #ED6C44;
+	border: 1px solid #ED6C44;
+}
+
+.easyweb-pagination .pages > a.disabled {
+	cursor: default;
+}
+
+.easyweb-pagination .pages > a.disabled:hover {
+	background-color: none;
+}
+
+.easyweb-pagination .pages > a.selected {
+	cursor: default;
+	color: #fff;
+	background-color: #ED6C44;
+	border: 1px solid #ED6C44;
+}
+
+.easyweb-pagination .go {
+	display: inline;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.easyweb-pagination .go > input[type="text"] {
+	width: 42px;
+	height: 30px;
+	border: 1px solid #ddd;
+	text-align: center;
+	padding: 0 !important;
+	color: #787876;
+	vertical-align: -0.5px;
+}
+
+.easyweb-pagination .go .btn-go {
+	cursor: pointer;
+	display: inline-block;
+	text-decoration: none;
+	text-align: center;
+	border: 1px solid #ddd;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-left: 4px;
+}
+
+.easyweb-pagination .go .btn-go:hover {
+	color: #fff;
+	background-color: #ED6C44;
+	border: 1px solid #ED6C44;
+}

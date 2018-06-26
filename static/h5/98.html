@@ -1,0 +1,36 @@
+<head>
+	<meta charset="utf-8"/>
+	<title>彩票游戏</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+	<!-- 引用样式文件开始 -->
+  <link media="all" type="text/css" rel="stylesheet" href="/assets/css/zui-org.css" />
+  <link rel="stylesheet" type="text/css" href="/css/deposit.css">
+  <link rel="stylesheet" type="text/css" href="/css/dialog-style.css">
+
+	<!-- 引用脚本文件开始-->
+	<script type="text/javascript" src="/plugins/official/core.js" ></script>
+  <script type="text/javascript" src="/assets/js/zui.js" ></script>
+  <script type="text/javascript" src="/assets/js/lodash.min.js" ></script>
+  <script type="text/javascript" src="/static/mobile/js/libs/api.js?b=1"></script>
+	<script type="text/javascript" src="/static/sites/scripts/deposit_98.js" ></script>
+</head>
+<body>
+  <div id="iframedeposit">
+    <h3>网银充值1</h3>
+    <div>
+      <div class="banks">
+        <ul></ul>   
+      </div>
+      <div class="amount" style="width:300px;margin:0px auto;"><label id="amnumber_label">充值金额：</label><input type="text" name="" id="amnumber" value="" /></div>
+      <br />
+      <div class="fireline" style="text-align:center;"><a class="btn btn-primary surego">进入第三方支付付款</a></div>
+    </div>
+    <div style="display:none;">
+      <form method="post" target="_self" id="depositform" action="">
+        <input name="text" type="hidden" value="">
+        <input name="pid1" type="hidden" value="000001">
+        <input name="bankco1" type="hidden" value="ICBC">
+      </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,1064 @@
+.clear {
+	height: 8px;
+	clear: both;
+}
+
+.clear.h2 {
+	height: 2px;
+}
+
+.clear.h4 {
+	height: 4px;
+}
+
+.clear.h6 {
+	height: 6px;
+}
+
+.clear.h8 {
+	height: 8px;
+}
+
+.clear.h10 {
+	height: 10px;
+}
+
+.webqq-main-window {
+	width: 212px;
+	height: 422px;
+	background-color: #169ada;
+	position: fixed;
+	z-index: 9999;
+	bottom: 10px;
+	right: 10px;
+	border-radius: 3px;
+	box-shadow: 0px 0px 6px #666;
+	overflow: hidden;
+	font-family: Microsoft YaHei;
+	display:none;
+}
+
+.webqq-main-window .scroller {
+	height:264px !important;
+}
+
+.webqq-main-window .slim-scroll {
+	height:264px !important;
+	width:213px !important
+}
+
+.webqq-main-window .top-action-bar {
+	height: 23px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 0;
+	z-index: 2;
+}
+
+.webqq-main-window .top-action-bar .btn {
+	width: 25px;
+	height: 23px;
+	display: inline-block;
+	cursor: default;
+	background-repeat: no-repeat;
+	background-position: center;
+	transition: all 0.5s ease 0s;
+}
+
+.webqq-main-window .top-action-bar .btn.btn-min {
+	background-image: url("res/main/sysbtn_min_normal.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/main/sysbtn_min_normal.png*/;
+}
+
+.webqq-main-window .top-action-bar .btn.btn-close {
+	background-image: url("res/main/sysbtn_close_normal.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/main/sysbtn_close_normal.png*/;
+}
+
+.webqq-main-window .top-action-bar .btn.btn-min:hover {
+	background-color: #38a9df;
+}
+
+.webqq-main-window .top-action-bar .btn.btn-close:hover {
+	background-color: #d44027;
+}
+
+.webqq-main-window .my-profile {
+	margin-top: 10px;
+	height: 75px;
+	padding: 8px 10px;
+}
+
+.webqq-main-window .my-profile .head-portrait {
+	width: 55px;
+	height: 55px;
+	border-radius: 3px;
+	box-shadow: 0px 0px 6px #666;
+	overflow: hidden;
+	font-size: 0;
+	float: left;
+}
+
+.webqq-main-window .my-profile .head-portrait > img {
+	width: 55px;
+	height: 55px;
+}
+
+.webqq-main-window .my-profile .infos {
+	margin-left: 68px;
+}
+
+.webqq-main-window .my-profile .infos .name {
+	height: 24px;
+	line-height: 22px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.webqq-main-window .my-profile .infos .sign {
+	height: 20px;
+	line-height: 18px;
+	color: #fff;
+	font-size: 12px;
+}
+
+.webqq-main-window .search-all {
+	height: 30px;
+	background-color: #157fb2;
+	border-top: 1px solid #1179ac;
+	background-image: url("res/main/sysbtn_search_normal.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/main/sysbtn_search_normal.png*/;
+	background-repeat: no-repeat;
+	background-position: center right;
+}
+
+.webqq-main-window .search-all > input {
+	height: 30px;
+	width: 264px;
+	border: none;
+	background: none;
+	padding: 0 8px;
+	color: #fff;
+	font-size: 12px;
+	font-family: Microsoft YaHei;
+	outline: medium;
+}
+
+.webqq-main-window .chats {
+	height: 302px;
+	background-color: #e8f5fc;
+}
+
+.webqq-main-window .chats .tabs {
+	height: 38px;
+	border-bottom: 1px solid #d9dfe2;
+	font-size: 0;
+}
+
+.webqq-main-window .chats .tabs > a {
+	width: 70px;
+	height: 38px;
+	cursor: pointer;
+	display: inline-block;
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: relative;
+}
+
+.webqq-main-window .chats .tabs > a.last {
+	background-image: url("res/main/icon_last_normal.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/main/icon_last_normal.png*/;
+}
+
+.webqq-main-window .chats .tabs > a.last:hover {
+	background-image: url("res/main/icon_last_hover.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/main/icon_last_hover.png*/;
+}
+
+.webqq-main-window .chats .tabs > a.last.selected {
+	background-image: url("res/main/icon_last_selected.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/main/icon_last_selected.png*/;
+}
+
+.webqq-main-window .chats .tabs > a.selected .arrow {
+	position: absolute;
+	bottom: -1px;
+	left: 50%;
+	margin-left: -5px;
+	width: 10px;
+	height: 6px;
+	background-image: url("res/main/icon_arrow.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/main/icon_arrow.png*/;
+	z-index: 1;
+}
+
+.webqq-main-window .chats .tabs > a.contacts {
+	background-image: url("res/main/icon_contacts_normal.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/main/icon_contacts_normal.png*/;
+}
+
+.webqq-main-window .chats .tabs > a.contacts:hover {
+	background-image: url("res/main/icon_contacts_hover.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/main/icon_contacts_hover.png*/;
+}
+
+.webqq-main-window .chats .tabs > a.contacts.selected {
+	background-image: url("res/main/icon_contacts_selected.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/main/icon_contacts_selected.png*/;
+}
+
+.webqq-main-window .chats .tabs > a.group {
+	background-image: url("res/main/icon_group_normal.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/main/icon_group_normal.png*/;
+}
+
+.webqq-main-window .chats .tabs > a.group:hover {
+	background-image: url("res/main/icon_group_hover.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/main/icon_group_hover.png*/;
+}
+
+.webqq-main-window .chats .tabs > a.group.selected {
+	background-image: url("res/main/icon_group_selected.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/main/icon_group_selected.png*/;
+}
+
+.webqq-main-window .chats .panels {
+	width: 1120px;
+	height: 264px;
+	
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.webqq-main-window .chats .panels .item-panel {
+	width: 280px;
+	height: 100%;
+	float: left;
+}
+
+.webqq-main-window .chats .panels .item-panel .tips {
+	height: 30px;
+	line-height: 30px;
+	padding: 50px 0;
+	font-size: 12px;
+	color: #888;
+	text-align: center;	
+}
+
+.webqq-main-window .chats .panels .item-panel.last .item-chat {
+	height: 40px;
+	padding: 8px;
+	display: block;
+	border-bottom: 1px solid #d9dfe2;
+	cursor: default;
+}
+
+.webqq-main-window .chats .panels .item-panel.last .item-chat:hover {
+	background-color: #fdecaa;
+}
+
+.webqq-main-window .chats .panels .item-panel.last .item-chat.selected {
+	background-color: #fdecaa;
+}
+
+.webqq-main-window .chats .panels .item-panel.last .item-chat .img {
+	height: 40px;
+	width: 40px;
+	border-radius: 3px;
+	float: left;
+	font-size: 0;
+	overflow: hidden;
+}
+
+.webqq-main-window .chats .panels .item-panel.last .item-chat .img > img {
+	width: 40px;
+	height: 40px;
+}
+
+.webqq-main-window .chats .panels .item-panel.last .item-chat .infos {
+	margin-left: 48px;
+	font-size: 12px;
+}
+
+.webqq-main-window .chats .panels .item-panel.last .item-chat .infos .name {
+	height: 20px;
+	line-height: 18px;
+}
+
+.webqq-main-window .chats .panels .item-panel.last .item-chat .infos .msg {
+	height: 20px;
+	line-height: 18px;
+	color: #888;
+}
+
+.webqq-main-window .chats .panels .item-panel.contacts .g-item .g-infos {
+	height: 26px;
+	line-height: 24px;
+	display: block;
+	font-size: 13px;
+	padding: 0 10px;
+	cursor: default;
+}
+
+.webqq-main-window .chats .panels .item-panel.contacts .g-item .g-infos:hover {
+	background-color: #edf7fd;
+}
+
+.webqq-main-window .chats .panels .item-panel.contacts .g-item .g-infos i.arrow {
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+	background-image: url("res/main/icon_collapse.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/main/icon_collapse.png*/;
+	background-repeat: no-repeat;
+	background-position: center;
+	vertical-align: -2px;
+	margin-right: 5px;
+}
+
+.webqq-main-window .chats .panels .item-panel.contacts .g-item .g-infos .status {
+	font-size: 12px;
+}
+
+.webqq-main-window .chats .panels .item-panel.contacts .g-item .u-list {
+	display: none;
+}
+
+.webqq-main-window .chats .panels .item-panel.contacts .g-item .u-list .item-contact {
+	height: 50px;
+	padding: 8px 14px;
+	display: block;
+	cursor: default;
+	margin-bottom: 1px;
+}
+
+.webqq-main-window .chats .panels .item-panel.contacts .g-item .u-list .item-contact:last-child {
+	margin-bottom: 0;
+}
+
+.webqq-main-window .chats .panels .item-panel.contacts .g-item .u-list .item-contact:hover {
+	background-color: #fdecaa;
+}
+
+.webqq-main-window .chats .panels .item-panel.contacts .g-item .u-list .item-contact.selected {
+	background-color: #fdecaa;
+}
+
+.webqq-main-window .chats .panels .item-panel.contacts .g-item .u-list .item-contact .img {
+	height: 40px;
+	width: 40px;
+	border-radius: 3px;
+	float: left;
+	font-size: 0;
+	overflow: hidden;
+}
+
+.webqq-main-window .chats .panels .item-panel.contacts .g-item .u-list .item-contact .img > img {
+	width: 40px;
+	height: 40px;
+}
+
+.webqq-main-window .chats .panels .item-panel.contacts .g-item .u-list .item-contact.offline .img > img {
+	filter: Gray;
+	filter: grayscale(1);
+	-webkit-filter: grayscale(100%);
+}
+
+.webqq-main-window .chats .panels .item-panel.contacts .g-item .u-list .item-contact .infos {
+	margin-left: 48px;
+	font-size: 12px;
+	overflow: hidden;
+	width: 135px;
+}
+
+.webqq-main-window .chats .panels .item-panel.contacts .g-item .u-list .item-contact .infos .name {
+	height: 20px;
+	line-height: 18px;
+}
+
+.webqq-main-window .chats .panels .item-panel.contacts .g-item .u-list .item-contact .infos .msg {
+	height: 20px;
+	line-height: 18px;
+	color: #888;
+}
+
+.webqq-chat-window {
+	width: 482px;
+	height: 422px;
+	background-color: #169ada;
+	position: fixed;
+	z-index: 9999;
+	bottom: 10px;
+	right: 230px;
+	border-radius: 3px;
+	box-shadow: 0px 0px 6px #666;
+	overflow: hidden;
+	
+	font-family: Microsoft YaHei;
+	
+    display: none;
+}
+
+.webqq-chat-window .dragarea {
+	height: 65px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1;
+}
+
+
+.webqq-chat-window .slim-scroll{
+	width:100% !important
+}
+.webqq-chat-window .top-action-bar {
+	height: 23px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 0;
+	z-index: 2;
+}
+
+.webqq-chat-window .top-action-bar .btn {
+	width: 25px;
+	height: 23px;
+	display: inline-block;
+	cursor: default;
+	background-repeat: no-repeat;
+	background-position: center;
+	transition: all 0.5s ease 0s;
+}
+
+.webqq-chat-window .top-action-bar .btn.btn-min {
+	background-image: url("res/main/sysbtn_min_normal.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/main/sysbtn_min_normal.png*/;
+}
+
+.webqq-chat-window .top-action-bar .btn.btn-close {
+	background-image: url("res/main/sysbtn_close_normal.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/main/sysbtn_close_normal.png*/;
+}
+
+.webqq-chat-window .top-action-bar .btn.btn-min:hover {
+	background-color: #38a9df;
+}
+
+.webqq-chat-window .top-action-bar .btn.btn-close:hover {
+	background-color: #d44027;
+}
+
+.webqq-chat-window .my-profile {
+	height: 63px;
+	padding: 8px 10px;
+}
+
+.webqq-chat-window .my-profile .head-portrait {
+	width: 50px;
+	height: 50px;
+	border-radius: 3px;
+	box-shadow: 0px 0px 6px #666;
+	overflow: hidden;
+	font-size: 0;
+	float: left;
+}
+
+.webqq-chat-window .my-profile .head-portrait > img {
+	width: 50px;
+	height: 50px;
+}
+
+.webqq-chat-window .my-profile.offline .head-portrait > img {
+	filter: Gray;
+	filter: grayscale(1);
+	-webkit-filter: grayscale(100%);
+}
+
+.webqq-chat-window .my-profile .infos {
+	margin-left: 58px;
+	width: 400px;
+	overflow: hidden;
+}
+
+.webqq-chat-window .my-profile .infos .name {
+	height: 24px;
+	line-height: 22px;
+	color: #fff;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.webqq-chat-window .my-profile .infos .sign {
+	height: 20px;
+	line-height: 18px;
+	color: #fff;
+	font-size: 12px;
+}
+
+.webqq-chat-window .chats {
+	position: relative;
+	height: 413px;
+	background-color: #e8f5fc;
+	border-top: 1px solid #1179AC;
+}
+
+.webqq-chat-window .chats .tips {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	background-color: #badaf8;
+	z-index: 100;
+	display: none;
+}
+
+.webqq-chat-window .chats .tips .msg {
+	padding-left: 24px;
+	line-height: 24px;
+	font-size: 12px;
+}
+
+.webqq-chat-window .chats .tips .msg.info {
+	background-image: url("res/chat/icon_info.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/chat/icon_info.png*/;
+	background-position: 4px 4px;
+	background-repeat: no-repeat;
+}
+
+.webqq-chat-window .chats .tips .close {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 25px;
+	height: 23px;
+	cursor: pointer;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url("res/main/sysbtn_close_normal.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/main/sysbtn_close_normal.png*/;
+}
+
+.webqq-chat-window .chats .msg-list {
+	height: 210px;
+	/* box-shadow: inset 0 0 3px #666; */
+}
+.webqq-chat-window .chats .msg-list .slim-scroll{height:210px !important;}
+.webqq-chat-window .chats .msg-list .scroller{height:210px !important;}
+.webqq-chat-window .chats .msg-list .slimScrollBar{}
+.webqq-chat-window .chats .msg-list .item-time {
+	height: 24px;
+	line-height: 24px;
+	font-size: 12px;
+	color: #888;
+	text-align: center;
+}
+
+.webqq-chat-window .chats .msg-list .item-msg {
+	padding: 8px 10px;
+	overflow: hidden;
+}
+
+.webqq-chat-window .chats .msg-list .item-msg .img {
+	height: 30px;
+	width: 30px;
+	border-radius: 3px;
+	float: left;
+	font-size: 0;
+	overflow: hidden;
+}
+
+.webqq-chat-window .chats .msg-list .item-msg.friend .img {
+	float: left;
+}
+
+.webqq-chat-window .chats .msg-list .item-msg.user .img {
+	float: right;
+}
+
+.webqq-chat-window .chats .msg-list .item-msg .img > img {
+	width: 30px;
+	height: 30px;
+}
+
+.webqq-chat-window .chats .msg-list .item-msg .message {
+	overflow: hidden;
+	margin-left: 30px;
+	margin-right: 30px;
+}
+
+.webqq-chat-window .chats .msg-list .item-msg .msg {
+	position: relative;
+	font-size: 12px;
+	line-height: 20px;
+	padding: 5px 8px;
+	border-width: 1px;
+	border-style: solid;
+	border-radius: 6px;
+	
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+.webqq-chat-window .chats .msg-list .item-msg .msg .nor {
+	position: absolute;
+	width: 11px;
+	height: 10px;
+}
+
+.webqq-chat-window .chats .msg-list .item-msg.friend .msg {
+	float: left;
+	margin-left: 10px;
+	border-color: #d1d6dc #bdc1c5 #aeb0b3 #bdc1c5; 
+	background-color: #e4e8ee;
+}
+
+.webqq-chat-window .chats .msg-list .item-msg.friend .msg .nor {
+	top: -1px;
+	left: -10px;
+	background-image: url("res/chat/aio_friend_pic_nor.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/chat/aio_friend_pic_nor.png*/;
+	background-position: 4px -4px;
+}
+
+.webqq-chat-window .chats .msg-list .item-msg.user .msg {
+	float: right;
+	margin-right: 10px;
+	border-color: #c2d6e7 #a8c5db #92b4cf #a5c1d9; 
+	background-color: #cde8f5;
+}
+
+.webqq-chat-window .chats .msg-list .item-msg.user .msg .nor {
+	top: -1px;
+	right: -10px;
+	background-image: url("res/chat/aio_user_pic_nor.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/chat/aio_user_pic_nor.png*/;
+	background-position: 7px -4px;
+}
+
+.webqq-chat-window .chats .msg-list .item-msg.user .msg img.face {
+	vertical-align: -6px;
+}
+
+.webqq-chat-window .chats .toolbar {
+	height: 24px;
+	border-top: 1px solid #D9DFE2;
+	padding: 4px 6px 0 4px;
+	font-size: 0;
+}
+
+.webqq-chat-window .chats .toolbar .tools {
+	width: 25px;
+	height: 22px;
+	border: 1px solid #E8F5FC;
+	display: inline-block;
+	border-radius: 3px;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.webqq-chat-window .chats .toolbar .tools:hover {
+	border: 1px solid #adafb0;
+}
+
+.webqq-chat-window .chats .toolbar .tools.font {
+	background-image: url("res/chat/aio_quickbar_font.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/chat/aio_quickbar_font.png*/;
+}
+
+.webqq-chat-window .chats .toolbar .tools.face {
+	background-image: url("res/chat/aio_quickbar_face.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/chat/aio_quickbar_face.png*/;
+}
+
+.webqq-chat-window .chats .toolbar .tools.shakes {
+	background-image: url("res/chat/aio_quickbar_shake.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/chat/aio_quickbar_shake.png*/;
+}
+
+.webqq-chat-window .chats .toolbar .tools.picture {
+	background-image: url("res/chat/aio_quickbar_sendpic.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/chat/aio_quickbar_sendpic.png*/;
+}
+
+.webqq-chat-window .chats .toolbar .tools.screenshot {
+	background-image: url("res/chat/aio_quickbar_cut.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/chat/aio_quickbar_cut.png*/;
+}
+
+.webqq-chat-window .chats .toolbar .tools.clean {
+	background-image: url("res/chat/aio_quickbar_clean.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/chat/aio_quickbar_clean.png*/;
+}
+
+.webqq-chat-window .chats .toolbar .tools.history {
+	width: 78px;
+	font-size: 12px;
+	color: #888;
+	background-image: url("res/chat/aio_quickbar_register.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/chat/aio_quickbar_register.png*/;
+	background-position: 2.5px center;
+	text-indent: 25px;
+	line-height: 25px;
+	float: right;
+	cursor: default;
+}
+
+.webqq-chat-window .chats .facelist {
+	position: absolute;
+	bottom: 192px;
+	left: 2px;
+	border: 1px solid #737373;
+	width: 456px;
+	height: 195px;
+	z-index: 100;
+	background-color: #fdfdfd;
+	border-radius: 3px;
+	box-shadow: 0px 0px 6px #666;
+	padding: 5px 0 5px 5px;
+	display: none;
+}
+.webqq-chat-window .chats .facelist .slim-scroll{height:200px !important;}
+.webqq-chat-window .chats .facelist .scroller{height:200px !important;}
+.webqq-chat-window .chats .facelist .wrapper {
+	font-size: 0;
+	height: 100%;
+	overflow: hidden;
+}
+
+.webqq-chat-window .chats .facelist .face {
+	height: 24px;
+	width: 24px;
+	padding: 0px;
+	border: 1px solid #d3e4f0;
+	display: inline-block;
+	font-size: 0;
+	margin: 1px;
+	background-color: #f6fbfe;
+}
+
+.webqq-chat-window .chats .facelist .face:hover {
+	border: 1px solid #4ca0d9;
+}
+
+.webqq-chat-window .chats .facelist .face > img {
+	width: 24px;
+	height: 24px;
+}
+
+.webqq-chat-window .chats .send-msg {
+	height: 30px;
+}
+
+.webqq-chat-window .chats .send-msg .textarea {
+	height: 80px;
+}
+
+.webqq-chat-window .chats .send-msg .content {
+	line-height: 20px;
+	padding: 0 8px;
+	font-size: 13px;
+	font-family: Microsoft YaHei;
+	min-height: 72px;
+	word-wrap: break-word;
+	word-break: break-all;
+	outline: 0;
+}
+
+.webqq-chat-window .chats .send-msg .content img.face {
+	vertical-align: -6px;
+}
+
+.webqq-chat-window .chats .send-msg .textarea > textarea {
+	resize: none;
+	line-height: 20px;
+	overflow: hidden;
+	border: none;
+	background: none;
+	width: 544px;
+	height: 72px;
+	padding: 0 8px;
+	font-size: 13px;
+	font-family: Microsoft YaHei;
+}
+
+.webqq-chat-window .chats .send-msg .actions {
+	height: 30px;
+	padding: 0 10px;
+	text-align: right;
+}
+
+.webqq-chat-window .chats .send-msg .actions .btn {
+	background-color: #069dd5;
+	color: #fff;
+	height: 24px;
+	line-height: 24px;
+	padding: 0 12px;
+	font-size: 12px;
+	display: inline-block;
+	border-radius: 3px;
+	cursor: pointer;
+}
+
+.webqq-chat-window .chats .send-msg .actions .btn:hover {
+	background-color: #4bcaff;
+}
+.webqq-mini-window {
+	width: 140px;
+	height: 40px;
+	padding: 3px;
+	background-color: #1fb3ed;
+	position: fixed;
+	z-index: 9999;
+	bottom: 10px;
+	right: 10px;
+	overflow: hidden;
+	cursor: pointer;
+	border: 1px solid #1f9dce;
+}
+
+.webqq-mini-window > .head-portrait {
+	width: 32px;
+	height: 32px;
+	font-size: 0;
+	float: left;
+}
+
+.webqq-mini-window > .head-portrait > img {
+	width: 32px;
+	height: 32px;
+}
+
+.webqq-mini-window > .status {
+	width: 80px;
+	height: 32px;
+	line-height: 30px;
+	color: #fff;
+	float: left;
+	padding: 0 4px;
+}
+
+.webqq-mini-window > .status > i {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	vertical-align: -4px;
+}
+
+.webqq-mini-window > .status > i.imonline {
+	background-image: url("res/main/status/imonline.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/main/status/imonline.png*/;
+	background-position: center center;
+}
+
+.webqq-mini-window > .msg {
+	width: 16px;
+	height: 16px;
+	margin: 8px 0;
+	float: left;
+	display: none;
+}
+
+.webqq-mini-window > .msg > i {
+	width: 16px;
+	height: 16px;
+	line-height: 14px;
+	display: inline-block;
+	background-color: #f56c0b;
+	color: #fff;
+	border-radius: 50%;
+	text-align: center;
+}
+.webqq-plan-window{
+	width: 800px;
+	height: 600px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-left:-400px;
+    margin-top:-300px;
+	z-index: 9999;
+	border: #54C8D0 solid 1px;
+	overflow: hidden;
+	display: none;
+}
+.webqq-plan-window .text-right{
+	text-align: right;
+}
+.webqq-plan-window .text-left{
+	text-align: left;
+}
+.webqq-plan-window .text-center{
+	text-align: center;
+}
+*{ margin: 0; padding: 0; list-style: none;}
+.webqq-plan-window .header{
+	height: 68px;
+	width: 100%;
+	background: url("img/top.jpg")/*tpa=http://game991.hbs991.com/plugins/webqq/img/top.jpg*/ no-repeat;
+}
+.webqq-plan-window .header .header_box{
+	width: 400px;
+	margin: 0 auto;
+	height: 68px;
+}
+.webqq-plan-window .header .header_box i{
+	 display: block;
+	padding-top: 17px;
+	float: left;
+}
+.webqq-plan-window .header .header_box span{
+	display: block;
+	float: left;
+	margin-left: 22px;
+	font-size: 12px;
+    padding-top: 37px;
+    color: #fff;	
+}
+.webqq-plan-window .header .header_select{
+	width: 100%;
+	height:45px;
+	color: #54c8d0;
+	border-bottom:  #54C8D0 solid 2px;
+	background: #f4f4f4;
+	float: left;
+}
+.webqq-plan-window .header .header_select ul{
+	 padding: 13px 0 0 32px;
+}
+.webqq-plan-window .header .header_select ul li{
+	float: left;
+	font-size: 12px;
+}
+.webqq-plan-window .header .header_select ul .li_padding{
+	padding-top: 4px;
+}
+.webqq-plan-window .header .header_select ul .left_50{
+	margin-left: 50px;
+}
+.webqq-plan-window .header .header_select ul li select{
+	 border: #54C8D0 solid 1px;
+	 color: #54C8D0;
+	 margin-left: 5px;
+	 width:150px;
+}
+.webqq-plan-window .box_div{
+	width: 100%;
+	height: 485px;
+	float: left;
+	background: #FFFFFF;
+}
+.webqq-plan-window .box_div .f_left{
+	width: 156px;
+	float: left;
+	border-right: #cdcdcd solid 1px;
+	height: 485px;
+}
+.webqq-plan-window .box_div .f_left ul{
+	padding-top: 18px;
+	padding-bottom: 5px;
+}
+.activation{
+	background: #CDCDCD;
+	border-left: #54C8D0 solid 3px;
+	position:absolute;
+	left: -1px;
+	
+}
+.webqq-plan-window .box_div .f_left ul li{
+	text-align: center;
+	font-size: 12px;
+	height: 18px;
+	line-height: 18px;
+	margin-bottom: 10px;
+	position: relative;
+	width: 154px;
+}
+.webqq-plan-window .box_div .f_left ul li span{
+	display: block;
+	width: 100%;
+	position: absolute;
+}
+.webqq-plan-window .box_div .f_left ul li span:hover{
+	background: #CDCDCD;
+	border-left: #54C8D0 solid 3px;
+	position:absolute;
+	left: -1px;
+}
+.webqq-plan-window .box_div .f_right{
+	width: 620px;
+	height: 485px;
+	float:right;
+	padding: 5px;
+}
+.webqq-plan-window .box_div .f_right>table{
+	padding: 20px 0 0 20px;	
+	color: #fd825c;
+}
+.webqq-plan-window .box_div .f_right>table tr td{
+	height: 21px;
+}
+.webqq-plan-window .box_div .f_right>table tr .w_12{
+	width: 12px ;
+}
+.webqq-plan-window .box_div .f_right>table tr .w_30{
+	width: 30px;
+}
+.webqq-plan-window .box_div .f_right>table tr td .Betting{
+	width: 50px;
+	background: #54C8D0;
+	height: 18px;
+	line-height: 18px;
+	text-align: center;
+	border-radius: 3px;
+	display: block;
+	font-size: 12px;
+	color: #FFFFFF; 
+	cursor: pointer;
+}
+.webqq-plan-window .box_div .f_right .detail{
+	width: 620px;
+	height: 485px;
+	float:right;
+	padding: 5px;
+}
+
+.webqq-plan-window .box_div .f_right .detail .w_100{
+	width: 100px;
+}
+.webqq-plan-window .box_div .f_right .detail>table{
+	padding: 20px 0 0 20px;	
+	color: #fd825c;
+	width: 100%;
+	border:solid #add9c0; 
+	border-width:1px 0px 0px 1px;
+}
+
+.webqq-plan-window .box_div .f_right .detail>table tr td{
+	border:solid #add9c0;
+	border-width:0px 1px 1px 0px; 
+	padding:10px 10px;
+	height: 30px;
+}
+
+.webqq-plan-window .box_div .f_right .detail>table tr td .btn{
+	width: 100px;
+	background: #54C8D0;
+	height: 18px;
+	line-height: 18px;
+	text-align: center;
+	border-radius: 3px;
+	display: block;
+	float:left;
+	font-size: 12px;
+	color: #FFFFFF; 
+	cursor: pointer;
+}
+.webqq-plan-window .top-action-bar {
+	height: 23px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 0;
+	z-index: 2;
+}
+.webqq-plan-window .top-action-bar .btn {
+	width: 25px;
+	height: 23px;
+	display: inline-block;
+	cursor: default;
+	background-repeat: no-repeat;
+	background-position: center;
+	transition: all 0.5s ease 0s;
+}
+
+.webqq-plan-window .top-action-bar .btn.btn-min {
+	background-image: url("res/main/sysbtn_min_normal.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/main/sysbtn_min_normal.png*/;
+}
+
+.webqq-plan-window .top-action-bar .btn.btn-close {
+	background-image: url("res/main/sysbtn_close_normal.png")/*tpa=http://game991.hbs991.com/plugins/webqq/res/main/sysbtn_close_normal.png*/;
+}
+
+.webqq-plan-window .top-action-bar .btn.btn-min:hover {
+	background-color: #38a9df;
+}
+
+.webqq-plan-window .top-action-bar .btn.btn-close:hover {
+	background-color: #d44027;
+}

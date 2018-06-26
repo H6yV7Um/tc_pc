@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/dist/build.css"></link>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/javascript">
+      var isMobile = {
+        Android: function() {return navigator.userAgent.match(/Android/i);},
+        BlackBerry: function() {return navigator.userAgent.match(/BlackBerry/i);},
+        iOS: function() {return navigator.userAgent.match(/iPhone|iPad|iPod/i);},
+        Opera: function() {return navigator.userAgent.match(/Opera Mini/i);},
+        Windows: function() {return navigator.userAgent.match(/IEMobile/i);},
+        any: function() {return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());}
+      };
+      //alert(isMobile.any() && (String(location.href).indexOf('/rg/')==-1 && String(location.href).indexOf('/register')==-1));
+      if (isMobile.any() && (String(location.href).indexOf('/rg/')==-1 && String(location.href).indexOf('/register')==-1 && String(location.href).indexOf('/sales')==-1 && String(location.href).indexOf('/activity')==-1 && String(location.href).indexOf('/passwordReset')==-1 && String(location.href).indexOf('&pwd=')==-1)) {
+        window.location.href = "/yx/login/sign.html";    
+      }
+    </script>
+    <script src="/static/v3/js/pc_core.js"></script>
+    <script src="/static/v3/js/md5.js"></script>
+    <script src="/static/v3/js/chart.js"></script>
+    <script src="/static/v3/js/manager-message.js"></script>
+    <script src="/static/v3/js/manager-report.js"></script>
+    <script src="/static/v3/js/manager-proxy.js"></script>
+    <script src="/static/v3/js/manager-finance.js"></script>
+    <script src="/config.js"></script>
+    <script src="/dist/vendor.js"></script>
+    <script src="/dist/build.js"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?382eff2612d1ff1a5ba258c68e7d7ee0";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+  </body>
+</html>

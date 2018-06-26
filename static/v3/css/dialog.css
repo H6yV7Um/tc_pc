@@ -1,0 +1,40 @@
+@charset "utf-8";
+.bootstrap-dialog{width:100%;}
+/*.modal-backdrop{position:fixed;width:100%;height:100%;background:rgba(0,0,0,.7);left:0;top:0;z-index:100;} */
+.bootstrap-dialog-message{}
+.modal-dialog .close{position:absolute;right:8px;top:3px;background:none;border:none;font-size:24px;color:#fff;cursor:pointer;}
+.bootstrap-dialog-title{box-sizing: border-box;width:100%;height:40px;background:#ff6780;line-height:40px;padding-left:20px;color:#fff;font-size:16px;}
+.quick-bet .modal-body tr{margin:10px;float:left;}
+.bootstrap-dialog-footer-buttons{height:60px;}
+.btn-default{position:absolute;left:50%;bottom:20px;border-radius:5px;border:none;cursor:pointer;}
+.btn-default:nth-child(1){margin-left:-120px;width:100px;height:30px;background:#ff6780;color:#fff;}
+.btn-default:nth-child(2){width:100px;height:30px;}
+.btn-default:hover{opacity:.8;}
+.editable-buttons{display:inline-block;vertical-align:top;margin-left:7px;zoom:1;}
+.editable-buttons .btn-sm{width:30px;height:30px;border:none;border-radius:50%;margin-top:5px;}
+.editable-buttons i.glyphicon-ok:before{content:"O";font-size:14px;color:#fff;}
+.editable-buttons i.glyphicon-remove:before{content:"X";font-size:14px;color:#fff;}
+.editable-buttons .btn-sm:nth-child(1) {margin-right:5px;cursor:pointer;background:#ff6780;}
+.editable-buttons .btn-sm:nth-child(2){position:static;background:#999;}
+.editable-buttons .btn-sm:hover{opacity:.8;}
+.table-hover a{color:#333;}
+.table-hover tr:nth-last-child(1) a{text-decoration:underline;color:#ff6780;}
+.table-hover tr:nth-last-child(1){width:100%;margin-left:10px;}
+.modal-title{
+  padding: 10px;
+  background-color: #ff6780;
+  color: #fff;
+  font-size: 15px;
+}
+.size-wide .modal-dialog{
+  width:700px;
+}
+.btn-myclose{
+  position:absolute;left:50%;bottom:20px;border-radius:5px;border:none;cursor:pointer;
+  margin-left:-50px;width:100px;height:30px;background:#ccc;color:#000;
+}
+.successtips{
+  text-align:center;
+  line-height:30px;
+  font-size:16px;
+}

@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <!-- 引用样式文件开始 -->
+    <link media="all" type="text/css" rel="stylesheet" href="css/zui-org.css"/>
+    <link rel="stylesheet" type="text/css" href="css/deposit.css">
+    <link rel="stylesheet" type="text/css" href="css/dialog-style.css">
+
+    <!-- 引用脚本文件开始-->
+    <script type="text/javascript" src="js/core.js"></script>
+    <script type="text/javascript" src="js/zui.js"></script>
+    <script type="text/javascript" src="js/lodash.min.js"></script>
+    <script type="text/javascript" src="js/api.js?b=1"></script>
+    <script type="text/javascript" src="js/deposit_new.js"></script>
+</head>
+<body>
+<div id="iframedeposit" class="section">
+  <h3>支付方式</h3>
+  <div class="cursor paytypeTabs clearfix" style="font-size:14px;">
+    <div id="m_one" class="fl" style="display:none;"><i class="fonts"></i>转账(网银/微信/支付宝)</div>
+    <div id="m_two" rel="normal" class="fl on likethird"><i class="fonts"></i>在线充值</div>
+    <div id="m_thr" rel="quick" class="fl likethird" style="display:none;"><i class="fonts"></i>快速支付</div>
+    <div id="m_fou" class="fl scanmethod"><i class="fonts"></i>扫码(微信/QQ/手机银行)</div>
+    <div id="m_fiv" class="fl" style="display:none;"><i class="fonts"></i>转账II(微信/支付宝)</div>
+  </div>
+  <!-- 转账【网银】 -->
+  <div class="type1 type2" id="pay-type3" style="display:none;">
+      <label max="5000" min="50" class="selected wx">
+          <img src="images/wx.png" width="45">
+          <input name="payType" rel="4" "="" min="50" max="5000" type="radio">微信支付
+          <div class="redius">
+              <div></div>
+          </div>
+      </label>
+      <label max="5000" min="50" class="zfb">
+          <img src="images/zfb.png" width="45">
+          <input name="payType" rel="4" "="" min="50" max="5000" type="radio">支付宝支付
+          <div class="redius">
+              <div></div>
+          </div>
+      </label>
+      <label max="5000" min="50" class="wy">
+          <img src="images/yl.png" width="80">
+          <input name="payType" rel="4" "="" min="50" max="5000" type="radio">网银转账
+          <div class="redius">
+              <div></div>
+          </div>
+      </label>
+  </div>
+  <div class="clearfix iframedepositmain" style="display:none;">
+      <div id="thirdlist-head" style="display:none;">
+          <div class="type1 type2 type3">
+              <label max="5000" min="50" class="selected yl1">
+                  <img src="images/yl.png" width="80">
+                  <input name="payType" rel="4" "="" min="50" max="5000" type="radio">网银1
+                  <div class="redius">
+                      <div></div>
+                  </div>
+              </label>
+              <label max="5000" min="50" class="yl2">
+                  <img src="images/yl.png" width="80">
+                  <input name="payType" rel="4" "="" min="50" max="5000" type="radio">网银2
+                  <div class="redius">
+                      <div></div>
+                  </div>
+              </label>
+          </div>
+      </div>
+      <div class="type1" id="pay-type1" style="display:none;">
+        <label max="5000" min="50" class="selected sm-wx">
+              <img src="images/wx.png" width="45">
+              <input name="payType" rel="4" "="" min="50" max="5000"
+              type="radio">微信扫码
+              <div class="redius">
+                  <div></div>
+              </div>
+          </label>
+          <label max="5000" min="50" class="sm-qq">
+              <img src="images/qq.png"><input name="payType" rel="4" "="" min="50" max="5000"
+              type="radio">QQ扫码
+              <div class="redius">
+                  <div></div>
+              </div>
+          </label>
+          <label max="5000" min="50" class="sm-sj">
+              <img src="images/yhks.png"><input name="payType" rel="4" "="" min="50" max="5000"
+              type="radio">手机银行
+              <div class="redius">
+                  <div></div>
+              </div>
+          </label>
+      </div>
+      <!-- <div class="type1" id="pay-type2" style="display:none;"></div> -->
+  </div>
+  <!-- 在线充值 -->
+  <div id="thirdlist-box" rel="m_two">
+      <ul class="thirdlist-channel clearfix"></ul>
+      <ul class="thirdlist-quick-channel clearfix"></ul>
+      <div class="firsts firsts1">
+          <h3 class="havebank">充值银行</h3>
+          <div class="havebank amount amountdiv">
+            <select name="" id="thirdlist-bank">
+              <option value="" selected="selected">请选择银行</option>
+              <option value=""></option>
+            </select>
+          </div>
+          <h3>充值金额</h3>
+          <div class="amount amountdiv">
+              <input type="number" name="" id="accoumtkeves-blank" class="accoumtkev" value="" placeholder="请输入存款金额">
+              <select name="controlmoney" id="mychg" style="">
+                <option value="50" selected="selected">50</option>
+                <option value="100">100</option>
+                <option value="150">150</option>
+                <option value="200">200</option>
+                <option value="300">300</option>
+                <option value="500">500</option>
+                <option value="700">700</option>
+                <option value="1000">1000</option>
+                <option value="1500">1500</option>
+                <option value="2000">2000</option>
+                <option value="2500">2500</option>
+                <option value="3000">3000</option>
+                <option value="3500">3500</option>
+                <option value="4000">4000</option>
+                <option value="5000">5000</option>
+              </select>
+              <p class="notice">*单笔限额为： <span class="labeltxtMin">50</span> ~ <span class="labeltxtMax">50000</span> 元</p>
+          </div>
+          <div class="addnumber">
+              <div class="number1">
+                  <a vel="100" href="javascript:;">+100</a>
+                  <a vel="200" href="javascript:;">+200</a>
+              </div>
+              <div class="number2">
+                  <a vel="500" href="javascript:;">+500</a>
+                  <a vel="1000" href="javascript:;">+1000</a>
+              </div>
+          </div>
+          
+          <div class="third-second resolutt-all">
+              <h3>信息确认<span>（如已充值成功，请点击下方【完成】按钮确认存款）</span></h3>
+              <table>
+                  <tbody>
+                      <tr>
+                          <td class="label">充值金额</td>
+                          <td class="value" data-field="bankname"><span id="third-moneyreview"></span></td>
+                      </tr>
+                      <tr>
+                          <td class="label">订单编号</td>
+                          <td class="value" data-field="cardNum"><span id="third-oidreview" data-clipboard-text="" class="cancopy"></span><span class="cancopy" id="third-oidreview-btn" data-clipboard-text="">复制</span></td>
+                      </tr>
+                  </tbody>
+              </table>
+              <!-- <button type="button" class="returnbtnn" name="button">上一步</button> -->
+              <button type="button" id="third-submit" class="resetbtnn-blank" name="button">进入第三方支付</button>
+          </div>
+
+          <button type="button" id="submitplyt-blank1" class="submitply" name="button">下一步</button>
+          <p class="notice1">*  充值限时：请在15分钟内完成充值</p>
+          <p class="notice1">*  每日23点50分至0点10分 之间使用该充值方式，会延迟到账</p>
+      </div>
+      <div class="firsts firsts2" style="display:none;">
+          <h3>充值银行2</h3>
+          <div class="amount amountdiv">
+              <input type="text" name="" id="accoumtkevesname-blank" value="" placeholder="请输入您的银行名">
+          </div>
+          <h3>充值金额</h3>
+          <div class="amount amountdiv">
+              <input type="number" name="" id="accoumtkeves-blank" class="accoumtkev" value="" placeholder="请输入存款金额">
+              <p class="notice">*单笔限额为： <span class="labeltxtMin">50</span> ~ <span class="labeltxtMax">50000</span> 元</p>
+          </div>
+          <div class="addnumber">
+              <div class="number1">
+                  <a vel="100" href="javascript:;">+100</a>
+                  <a vel="200" href="javascript:;">+200</a>
+              </div>
+              <div class="number2">
+                  <a vel="500" href="javascript:;">+500</a>
+                  <a vel="1000" href="javascript:;">+1000</a>
+              </div>
+          </div>
+          
+          <button type="button" id="submitplyt-blank2" class="submitply" name="button">下一步</button>
+          <p class="notice1">*  充值限时：请在15分钟内完成充值</p>
+          <p class="notice1">*  每日23点50分至0点10分 之间使用该充值方式，会延迟到账</p>
+      </div>
+
+      <div class="resolutt-all resolutt-yl1" style="display: none;">
+          <h3>信息确认<span>（如已充值成功，请点击下方【完成】按钮确认存款）</span></h3>
+          <table>
+              <tbody>
+                  <tr>
+                      <td class="label">存入银行</td>
+                      <td class="value" data-field="bankname"><img src="images/bank.jpg" width="50%"></td>
+                  </tr>
+                  <tr>
+                      <td class="label">订单编号</td>
+                      <td class="value" data-field="cardNum">DMoB20150312223232<span class="copy">复制</span></td>
+                  </tr>
+                  <tr>
+                      <td class="label">充值金额</td>
+                      <td class="value" data-field="cardName"><em>68888.000</em>元</td>
+                  </tr>
+                  <tr>
+                      <td class="label">实际到账</td>
+                      <td class="value" data-field="amount"><em>68888.000</em>元</td>
+                  </tr>
+                  <tr>
+                      <td class="label">手续费</td>
+                      <td class="value" data-field="billno">0.00元</td>
+                  </tr>
+              </tbody>
+          </table>
+          <!-- <button type="button" class="returnbtnn" name="button">上一步</button> -->
+          <button type="button" class="resetbtnn-blank" name="button">进入第三方支付</button>
+      </div>
+      <div class="resolutt-all resolutt-yl2" style="display: none;">
+          <h3>信息确认<span>（如已充值成功，请点击下方【完成】按钮确认存款）</span></h3>
+          <table>
+              <tbody>
+                  <tr>
+                      <td class="label">存入银行</td>
+                      <td class="value" data-field="bankname"><img src="images/bank.jpg" width="50%"></td>
+                  </tr>
+                  <tr>
+                      <td class="label">订单编号</td>
+                      <td class="value" data-field="cardNum">DMoB20150312223232<span class="copy">复制</span></td>
+                  </tr>
+                  <tr>
+                      <td class="label">充值金额</td>
+                      <td class="value" data-field="cardName"><em>68888.000</em>元</td>
+                  </tr>
+                  <tr>
+                      <td class="label">实际到账</td>
+                      <td class="value" data-field="amount"><em>68888.000</em>元</td>
+                  </tr>
+                  <tr>
+                      <td class="label">手续费</td>
+                      <td class="value" data-field="billno">0.00元</td>
+                  </tr>
+              </tbody>
+          </table>
+          <!-- <button type="button" class="returnbtnn" name="button">上一步</button> -->
+          <button type="button" class="resetbtnn-blank" name="button">进入第三方支付</button>
+      </div>
+  </div>
+  <!-- 扫码支付 -->
+  <div id="scan-box" rel="m_two">
+      <ul class="scan-channel clearfix"></ul>
+      <div class="firsts firsts1">
+          <h3>充值金额</h3>
+          <div class="amount amountdiv">
+              <input type="number" name="" id="scan-blank" class="accoumtkev" value="" placeholder="请输入存款金额">
+              <p class="notice">*单笔限额为： <span class="labeltxtMin">50</span> ~ <span class="labeltxtMax">50000</span> 元</p>
+          </div>
+          <div class="addnumber">
+              <div class="number1">
+                  <a vel="100" href="javascript:;">+100</a>
+                  <a vel="200" href="javascript:;">+200</a>
+              </div>
+              <div class="number2">
+                  <a vel="500" href="javascript:;">+500</a>
+                  <a vel="1000" href="javascript:;">+1000</a>
+              </div>
+          </div>
+          
+          <div class="resolut-all resolut-sj scan-second" style="display:none;">
+            <h3 style="margin:0;">打开【手机银行】或【云闪付APP】，扫描下方二维码</h3>
+            <p class="col-text">（使用另一台手机打开【云闪付】扫描下方二维码。或保存二维码图片，打开云闪付扫一扫，选择右上方“相册”中的二维码图片进行支付）</p>
+            <div class="ercodeImg clearfix">
+                <img src="images/erweima.png" id="scan-ercode" alt="" width="86">
+                <div style="text-align: center;">
+                    <img src="images/yl.png" width="50">
+                    <p style="margin:0;">闪付扫一扫</p>
+                    <a href="images/erweima.png" download="erweima.png">保存二维码</a>
+                </div>
+            </div>
+            <h3>温馨提示：<span>充值不要忘了小数点，到账快快滴(∩_∩)</span></h3>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="label">充值金额</td>
+                        <td class="value"><i data-field="amount" id="scan-point">888.12</i>元(注意小数点哦)<span id="scan-point-btn" class="copy cancopy">复制</span></td>
+                    </tr>
+                    <tr>
+                        <td class="label">订单编号</td>
+                        <td class="value" data-field="billno"><span id="scan-billno" data-clipboard-text="" class="cancopy">DMoB20150312223232</span><span id="scan-billno-btn" data-clipboard-text="" class="copy cancopy">复制</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" class="resetbtn" name="button" onclick="location.reload();">完成</button>
+            
+          </div>
+
+          <button type="button" id="submit-scan" class="submitply" name="button">下一步</button>
+          <p class="notice2">二维码将不定期更换，请核对后再打款！！</p>
+      </div>
+
+  </div>
+  <div class="paytypefirst-box" style="display:none;">
+      <div class="firsts paytypefirst-all paytypefirst">
+          <h3>温馨提示：<span>请在“添加备注”内填写会员帐号，以免延迟到账</span></h3>
+          <div class="amount amountdiv" style="margin-bottom: 40px;">
+              <input type="text" name="" id="accoumtkev" class="accoumtkev" value="" placeholder="请输入存款金额">
+          </div>
+          <button type="button" id="submitply" class="submitply" name="button">提交</button>
+          <p class="notice1">*  充值限时：请在15分钟内完成充值</p>
+          <p class="notice1">*  每日23点50分至0点10分之间使用该充值方式，会延迟到账</p>
+      </div>
+      <div class="firsts paytypefirst-all paytypefirst-qq" style="display:none;">
+          <h3>温馨提示：<span>请在“添加备注”内填写会员帐号，以免延迟到账</span></h3>
+          <div class="amount amountdiv" style="margin-bottom: 40px;">
+              <input type="text" name="" id="accoumtkev-qq" class="accoumtkev" value="" placeholder="请输入存款金额">
+          </div>
+          <button type="button" id="submitply-qq" class="submitply" name="button">提交</button>
+          <p class="notice1">*  充值限时：请在15分钟内完成充值</p>
+          <p class="notice1">*  每日23点50分至0点10分之间使用该充值方式，会延迟到账</p>
+      </div>
+      <div class="firsts paytypefirst-all paytypefirst-sj" style="display:none;">
+          <h3>温馨提示：<span>为更快到帐 ,填写金额后，系统会为您随机生成小数点后两位（例如：100.12），请您按照系统生成的金额转账</span></h3>
+          <div class="amount amountdiv" style="margin-bottom: 40px;">
+              <input type="text" name="" id="accoumtkev-sj" class="accoumtkev" value="" placeholder="请输入存款金额">
+          </div>
+          <button type="button" id="submitply-sj" class="submitply" name="button">提交</button>
+          <p class="notice1">*  充值限时：请在15分钟内完成充值</p>
+          <p class="notice1">*  每日23点50分至0点10分之间使用该充值方式，会延迟到账</p>
+      </div>
+
+      <div class="resolut resolut-all" style="display:none;">
+          <h3 style="margin:0;">打开微信，扫描下方二维码</h3>
+          <p class="col-text">（使用另一台手机打开【微信扫一扫】扫描下方二维码。或保存二维码图片，打开微信扫一扫，选择“从相册选取二维码”进行支付）</p>
+          <div class="ercodeImg clearfix">
+              <img src="images/erweima.png" alt="" width="86">
+              <div style="text-align: center;">
+                  <img src="images/sm.png" width="50">
+                  <p style="margin:0;">微信扫一扫</p>
+                  <a href="images/erweima.png" download="erweima.png">保存二维码</a>
+              </div>
+          </div>
+          <h3>温馨提示：<span>请在“添加备注”内填写会员帐号，以免延迟到账</span></h3>
+          <table>
+              <tbody>
+                  <tr>
+                      <td class="label">充值金额</td>
+                      <td class="value"><i data-field="amount">68888.000</i>元<span class="copy">复制</span></td>
+                  </tr>
+                  <tr>
+                      <td class="label">订单编号</td>
+                      <td class="value" data-field="billno">DMoB20150312223232<span class="copy">复制</span></td>
+                  </tr>
+              </tbody>
+          </table>
+          <button type="button" class="resetbtn" name="button">完成</button>
+          <p class="notice2">二维码将不定期更换，请核对后再打款！！<a href="javascript:;">更多&gt;</a></p>
+      </div>
+      <div class="resolut-all resolut-qq" style="display:none;">
+          <h3 style="margin:0;">打开QQ，扫描下方二维码</h3>
+          <p class="col-text">（使用另一台手机打开【QQ钱包】扫描下方二维码。或保存二维码图片，打开QQ扫一扫，选择右上方“相册中”的二维码图片进行支付）</p>
+          <div class="ercodeImg clearfix">
+              <img src="images/erweima.png" alt="" width="86">
+              <div style="text-align: center;">
+                  <img src="images/qq.png" width="50">
+                  <p style="margin:0;">QQ扫一扫</p>
+                  <a href="images/erweima.png" download="erweima.png">保存二维码</a>
+              </div>
+          </div>
+          <h3>温馨提示：<span>请在“添加备注”内填写会员帐号，以免延迟到账</span></h3>
+          <table>
+              <tbody>
+                  <tr>
+                      <td class="label">充值金额</td>
+                      <td class="value"><i data-field="amount">68888.000</i>元<span class="copy">复制</span></td>
+                  </tr>
+                  <tr>
+                      <td class="label">订单编号</td>
+                      <td class="value" data-field="billno">DMoB20150312223232<span class="copy">复制</span></td>
+                  </tr>
+              </tbody>
+          </table>
+          <button type="button" class="resetbtn" name="button">完成</button>
+          <p class="notice2">二维码将不定期更换，请核对后再打款！！<a href="javascript:;">更多&gt;</a></p>
+      </div>
+      <div class="resolut-all resolut-sj" style="display:none;">
+          <h3 style="margin:0;">打开【手机银行】或【云闪付APP】，扫描下方二维码</h3>
+          <p class="col-text">（使用另一台手机打开【云闪付】扫描下方二维码。或保存二维码图片，打开云闪付扫一扫，选择右上方“相册”中的二维码图片进行支付）</p>
+          <div class="ercodeImg clearfix">
+              <img src="images/erweima.png" alt="" width="86">
+              <div style="text-align: center;">
+                  <img src="images/yl.png" width="50">
+                  <p style="margin:0;">闪付扫一扫</p>
+                  <a href="images/erweima.png" download="erweima.png">保存二维码</a>
+              </div>
+          </div>
+          <h3>温馨提示：<span>充值不要忘了小数点，到账快快滴(∩_∩)</span></h3>
+          <table>
+              <tbody>
+                  <tr>
+                      <td class="label">充值金额</td>
+                      <td class="value"><i data-field="amount">888.12</i>元(注意小数点哦)<span class="copy">复制</span></td>
+                  </tr>
+                  <tr>
+                      <td class="label">订单编号</td>
+                      <td class="value" data-field="billno">DMoB20150312223232<span class="copy">复制</span></td>
+                  </tr>
+              </tbody>
+          </table>
+          <button type="button" class="resetbtn" name="button">完成</button>
+          <p class="notice2">二维码将不定期更换，请核对后再打款！！<a href="javascript:;">更多&gt;</a></p>
+      </div>
+  </div>
+  <div class="paytypefirsttras-box" style="display:none;">
+      <div class="firsts paytypefirsttras">
+          <h3>充值金额</h3>
+          <div class="amount amountdiv">
+              <input type="number" name="" id="accoumtkeves" class="accoumtkev" value="" placeholder="请输入存款金额">
+
+              <div class="label label2 " style="display:none;">
+                  <ul class="clearfix controLibtn">
+                      <li vel="100">+100</li>
+                      <li vel="1000">+1000</li>
+                      <li vel="0.1">+0.1</li>
+                      <li vel="0.5">+0.5</li>
+                  </ul>
+              </div>
+              <p class="notice">*单笔限额为： <span class="labeltxtMin">50</span> ~ <span class="labeltxtMax">50000</span> 元</p>
+              <p class="notice">*为更快到帐 ,系统会为您的金额随机生成小数点后两位（如：100.12），请按系统生成的金额转账。</p>
+          </div>
+          <div class="addnumber">
+              <div class="number1">
+                  <a vel="100" href="javascript:;">+100</a>
+                  <a vel="200" href="javascript:;">+200</a>
+              </div>
+              <div class="number2">
+                  <a vel="500" href="javascript:;">+500</a>
+                  <a vel="1000" href="javascript:;">+1000</a>
+              </div>
+          </div>
+          <button type="button" id="submitplyt" class="submitply" name="button">下一步</button>
+          <p class="notice1">*  充值限时：请在15分钟内完成充值</p>
+          <p class="notice1">*  每日23点50分至0点10分 之间使用该充值方式，会延迟到账</p>
+      </div>
+      <div class="firsts paytypefirsttras-zfb" style="display:none;">
+          <h3>充值金额</h3>
+          <div class="amount amountdiv">
+              <input type="number" name="" id="accoumtkeves-zfb" class="accoumtkev" value="" placeholder="请输入存款金额">
+              <p class="notice">*单笔限额为： <span class="labeltxtMin">50</span> ~ <span class="labeltxtMax">50000</span> 元</p>
+          </div>
+          <div class="addnumber">
+              <div class="number1">
+                  <a vel="100" href="javascript:;">+100</a>
+                  <a vel="200" href="javascript:;">+200</a>
+              </div>
+              <div class="number2">
+                  <a vel="500" href="javascript:;">+500</a>
+                  <a vel="1000" href="javascript:;">+1000</a>
+              </div>
+          </div>
+          <h3>附言</h3>
+          <div class="amount amountdiv">
+              <input type="text" name="" id="accoumtkevesname-zfb" value="" placeholder="请输入支付宝姓名">
+          </div>
+          <button type="button" id="submitplyt-zfb" class="submitply" name="button">下一步</button>
+          <p class="notice1">*  充值限时：请在15分钟内完成充值</p>
+          <p class="notice1">*  每日23点50分至0点10分 之间使用该充值方式，会延迟到账</p>
+      </div>
+      <div class="firsts paytypefirsttras-wy" style="display:none;">
+          <h3>充值金额</h3>
+          <div class="amount amountdiv">
+              <input type="number" name="" id="accoumtkeves-wy" class="accoumtkev" value="" placeholder="请输入存款金额">
+              <p class="notice">*单笔限额为： <span class="labeltxtMin">50</span> ~ <span class="labeltxtMax">50000</span> 元</p>
+          </div>
+          <div class="addnumber">
+              <div class="number1">
+                  <a vel="100" href="javascript:;">+100</a>
+                  <a vel="200" href="javascript:;">+200</a>
+              </div>
+              <div class="number2">
+                  <a vel="500" href="javascript:;">+500</a>
+                  <a vel="1000" href="javascript:;">+1000</a>
+              </div>
+          </div>
+          <h3>附言</h3>
+          <div class="amount amountdiv">
+              <input type="text" name="" id="accoumtkevesname-wy" value="" placeholder="请输入持卡人姓名">
+          </div>
+          <button type="button" id="submitplyt-wy" class="submitply" name="button">下一步</button>
+          <p class="notice1">*  充值限时：请在15分钟内完成充值</p>
+          <p class="notice1">*  每日23点50分至0点10分 之间使用该充值方式，会延迟到账</p>
+      </div>
+      <div class="resolutt-all resolutt" style="display: none;">
+          <h3>信息确认<span>（充值不要忘了小数点，到账快快滴(∩_∩)）</span></h3>
+          <table>
+              <tbody>
+                  <tr>
+                      <td class="label">充值银行</td>
+                      <td class="value" data-field="bankname"><img src="images/bank.jpg" width="50%"></td>
+                  </tr>
+                  <tr>
+                      <td class="label">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</td>
+                      <td class="value" data-field="cardNum">156 1655 6416 5616<span class="copy">复制</span></td>
+                  </tr>
+                  <tr>
+                      <td class="label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</td>
+                      <td class="value" data-field="cardName">赵本衫<span class="copy">复制</span></td>
+                  </tr>
+                  <tr>
+                      <td class="label">充值金额</td>
+                      <td class="value" data-field="amount"><i>888.12</i>元 (注意小数点哦)<span class="copy">复制</span></td>
+                  </tr>
+                  <tr>
+                      <td class="label">订单编号</td>
+                      <td class="value" data-field="billno">DMoB20150312223232</td>
+                  </tr>
+              </tbody>
+          </table>
+          <!-- <button type="button" class="returnbtnn" name="button">上一步</button> -->
+          <button type="button" class="resetbtnn" name="button">完成</button>
+          <div class="teaching">
+              <img src="images/wx.png" width="30">
+              <a href="javascript:;" data-target="transfer-wx" data-toggle="modal" data-position="100px">转账操作教程</a>
+          </div>
+          <p class="notice2">银行卡将不定期更换，请核对后再打款！！ <a href="javascript:;">更多&#62;</a></p>
+      </div>
+      <div class="resolutt-all resolutt-zfb" style="display: none;">
+          <h3>信息确认<span>（充值不要忘了小数点，到账快快滴(∩_∩)）</span></h3>
+          <table>
+              <tbody>
+                  <tr>
+                      <td class="label">充值银行</td>
+                      <td class="value" data-field="bankname"><img src="images/bank.jpg" width="50%"></td>
+                  </tr>
+                  <tr>
+                      <td class="label">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</td>
+                      <td class="value" data-field="cardNum">156 1655 6416 5616<span class="copy">复制</span></td>
+                  </tr>
+                  <tr>
+                      <td class="label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</td>
+                      <td class="value" data-field="cardName">赵本衫<span class="copy">复制</span></td>
+                  </tr>
+                  <tr>
+                      <td class="label">充值金额</td>
+                      <td class="value" data-field="amount"><i>888.12</i>元 (注意小数点哦)<span class="copy">复制</span></td>
+                  </tr>
+                  <tr>
+                      <td class="label">订单编号</td>
+                      <td class="value" data-field="billno">DMoB20150312223232</td>
+                  </tr>
+              </tbody>
+          </table>
+          <!-- <button type="button" class="returnbtnn" name="button">上一步</button> -->
+          <button type="button" class="resetbtnn-zfb" name="button">完成</button>
+          <div class="teaching">
+              <img src="images/zfb.png" width="30">
+              <a href="javascript:;">转账操作教程</a>
+          </div>
+          <p class="notice2">银行卡将不定期更换，请核对后再打款！！ <a href="javascript:;">更多&#62;</a></p>
+      </div>
+      <div class="resolutt-all resolutt-wy" style="display: none;">
+          <h3>信息确认<span>（充值不要忘了小数点，到账快快滴(∩_∩)）</span></h3>
+          <table>
+              <tbody>
+                  <tr>
+                      <td class="label">充值银行</td>
+                      <td class="value" data-field="bankname"><img src="images/bank.jpg" width="50%"></td>
+                  </tr>
+                  <tr>
+                      <td class="label">账&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号</td>
+                      <td class="value" data-field="cardNum">156 1655 6416 5616<span class="copy">复制</span></td>
+                  </tr>
+                  <tr>
+                      <td class="label">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</td>
+                      <td class="value" data-field="cardName">赵本衫<span class="copy">复制</span></td>
+                  </tr>
+                  <tr>
+                      <td class="label">充值金额</td>
+                      <td class="value" data-field="amount"><i>888.12</i>元 (注意小数点哦)<span class="copy">复制</span></td>
+                  </tr>
+                  <tr>
+                      <td class="label">订单编号</td>
+                      <td class="value" data-field="billno">DMoB20150312223232</td>
+                  </tr>
+              </tbody>
+          </table>
+          <!-- <button type="button" class="returnbtnn" name="button">上一步</button> -->
+          <button type="button" class="resetbtnn-wy" name="button">完成</button>
+          <p class="notice2 notice3">银行卡将不定期更换，请核对后再打款！！ <a href="javascript:;">更多&#62;</a></p>
+      </div>
+  </div>
+  <div style="display:none;">
+      <form method="post" target="_self" id="depositform" action="">
+          <input name="text" type="hidden" value="">
+          <!--<input name="pid1" type="hidden" value="000001">
+          <input name="bankco1" type="hidden" value="ICBC"> -->
+      </form>
+  </div>
+</div>
+<div class="modal modal-zui fade" id="letdeposit">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+                    class="sr-only">关闭</span></button>
+            <h4 class="modal-title">选择支付方式</h4>
+        </div>
+        <div class="modal-content">
+            <div class="banks">
+                <ul>
+                </ul>
+            </div>
+            <div class="amount"><label>充值金额：</label><input type="text" name="" id="amnumber" value=""><select
+                    name="controlmoney" id="mychg" style="display:none;">
+                <option value="50" selected="selected">50</option>
+                <option value="100">100</option>
+                <option value="150">150</option>
+                <option value="200">200</option>
+                <option value="300">300</option>
+                <option value="500">500</option>
+                <option value="700">700</option>
+                <option value="1000">1000</option>
+                <option value="1500">1500</option>
+                <option value="2000">2000</option>
+                <option value="2500">2500</option>
+                <option value="3000">3000</option>
+                <option value="3500">3500</option>
+                <option value="4000">4000</option>
+                <option value="5000">5000</option>
+            </select><br><span class="amount_error"
+                               style="color:red;display:none;">超过充值最大￥<em></em>限额或最小￥<em></em>限额</span></div>
+            <div class="fireline"><a class="btn btn-primary surego">&nbsp;</a></div>
+        </div>
+    </div>
+</div>
+<div id="transfer-wx" class="modal modal-zui fade">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-header"></div>
+        <div class="modal-content"></div>
+    </div>
+</div>
+</body>
+</html>

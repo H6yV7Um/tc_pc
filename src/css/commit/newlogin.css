@@ -1,0 +1,219 @@
+@colorA:#fff;
+@colorB:#3dc2f7;
+@colorC:#bbbbbb;
+@colorD:#d8eaf4;
+@colorE:#ffda67;
+@colorF:#006dab;
+@colorG:#007e4d;
+@colorH:#da7b08;
+@colorI:#d4d4d4;
+@colorJ:#333;
+@colorK:#282828;
+@colorL: #06bd2d;
+@colorM: #03afb9;
+@colorN: #0750b9;
+@colorO: #c7bf00;
+@colorP: #be4d00;
+@colorQ: #d8131d;
+@colorR: #fa7000;
+@colorS: #c5d2db;
+@colorT: #ffd802;
+@colorU:#7a7a7a;
+@colorV:#ea7201;
+@colorW:#dac9bf;
+@colorX:#363636;
+@colorY:#ff8012;
+@colorZ:#f5f5f5;
+@colorAa:#ddd;
+@colorAb:#0ff;
+@colorAc:#145ccd;
+@colorAd:#f25152;
+@colorAe:#ededed;
+@colorAf:#ccc;
+@colorAg:#46b135;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@font-face {
+  font-family: 'threea';
+  src: url('/assets/fonts/threea.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/threea.woff') format('woff'), url('/assets/fonts/threea.ttf') format('truetype'), url('/assets/fonts/threea.svg#threea') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#loginform > em{
+  position: relative;
+  left: -12px;
+  top: -6px;
+  font-size: 24.5px;
+  color: #2b7dd1;              
+}
+#loginform a{
+  color:#333;
+}
+#loginform em.fix-right{
+  right: -12px;
+  position: absolute;
+  left: auto;            
+}
+
+
+
+
+
+
+.whitebg{
+  width:100%;
+  background-color: white;
+  height:357px;
+  position: absolute;
+  top: 2px;
+}
+ul.innerform{
+  /*display:none;*/
+}
+
+
+li.nobottom{
+  /*text-align:center;*/
+  padding-left: 0px;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #ececec inset;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-text-fill-color: #929292 !important;
+}
+
+.innerform input{
+  line-height:35px;
+  height:35px;
+  width:230px;
+  padding-left: 10px;
+  border:0px solid #ccc;
+  margin-top: 4px;
+  color:#929292;
+  background-color: #ececec;
+}
+.innerform input#captcha-input{
+  width:70px;
+  float:left;
+}
+.slider-box{
+  width:500px;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+
+.browsers ul{
+  height:32px;
+  width:127px;margin:0px auto;
+  margin-top:80px;
+  margin-bottom:20px;
+}
+.browsers ul li{
+  float:left;
+  width:32px;height:32px;
+  margin-right:15px;
+  background-image:url(/static/html/img/browser.png);
+}
+.browsers ul li.firefox{
+  background-position: -32px 0px;
+}
+.browsers ul li.ie{
+  width:33px;
+  margin-right:0px;
+  background-position: -64px 0px;
+}
+
+
+.bannerbox{
+  float:left;
+  width: 559px;
+  height: 370px;
+  overflow:hidden;
+}
+.swiper-pagination-bullet-active{
+  background: #ffb21b;            
+}
+.servicebox{
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 220px;height: 29px;
+  background-color: #fff;
+  border-radius: 15px;
+  margin: 0;
+  font-size:13px;
+  line-height:29px;
+  overflow: hidden;
+  -webkit-animation:shake 1s 2s ease both;
+	-moz-animation:shake 1s 2s ease both;
+}
+.servicebox a{
+  color: #098073;
+}
+.servicepop{
+  /* padding: 0 0 0 29px; */
+  
+  line-height: 20px;
+  width: 29px;
+  height: 29px;
+  float:left;
+  font-size: 14px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  background-color: #ff4500;
+  color: #fff;
+  font-weight: bolder;
+  border: 5px solid #fff;
+  text-align: center;
+}
+.botlink{
+  margin-top:90px;
+}
+.botlink a{color:#01ab87;margin-right:19px;}
+.botlink a.bl{color:#000;}
+.botlink a.rf{margin-left:19px;margin-right:0px;}
+.botlink a em{float:left;margin-right:3px;margin-top:4px;}
+
+@-webkit-keyframes shake{
+	0%{-webkit-transform:translateY(-260px);width:29px;}
+	10%{-webkit-transform:translateY(0);}
+	100%{-webkit-transform:translateY(0);width: 220px;}
+	30%, 50%{-webkit-transform:translateY(-20px);}
+	70%{-webkit-transform:translateY(0);width:29px}
+	40%, 60%{-webkit-transform:translateY(0);}
+}
+@-moz-keyframes shake{
+	0%{-moz-transform:translateY(-260px);width:29px;}
+	10%{-moz-transform:translateY(0);}
+	100%{-moz-transform:translateY(0);width: 220px;}
+	30%, 50%{-moz-transform:translateY(-20px);}
+	70%{-moz-transform:translateY(0);width:29px}
+	40%, 60%{-moz-transform:translateY(0);} 
+}
+

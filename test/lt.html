@@ -1,0 +1,1045 @@
+<head>
+    <meta charset="utf-8" />
+    <title>彩票游戏</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <link rel="shortcut icon" href="/dist/favicon.ico" type="image/x-icon">
+
+    <!-- 引用样式文件开始 -->
+    <link media="all" type="text/css" rel="stylesheet" href="/static/v3/css/zui.css" />
+    <link media="all" type="text/css" rel="stylesheet" href="/static/v3/css/login.css" />
+
+    <link rel="stylesheet" type="text/css" href="/static/v3/css/jquery.plugins.css">
+    <link rel="stylesheet" type="text/css" href="/static/v3/css/jquery.easyweb.css">
+    <link rel="stylesheet" type="text/css" href="/static/v3/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/static/v3/css/common.css">
+    <link rel="stylesheet" type="text/css" href="/static/v3/css/lottery.css">
+    <link rel="stylesheet" type="text/css" href="/static/v3/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/v3/css/dialog.css">
+    <link rel="stylesheet" type="text/css" href="/static/v3/css/topctx.css">
+    <!-- 引用脚本文件开始-->
+    <script type="text/javascript" src="/static/v3/js/core.js"></script>
+    <script type="text/javascript" src="/static/v3/js/jquery.plugins.js"></script>
+    <script type="text/javascript" src="/static/v3/js/socket.io.js"></script>
+    <script type="text/javascript" src="/static/v3/js/lodash.min.js"></script>
+    <script type="text/javascript" src="/static/v3/js/zui.js"></script>
+    <script type="text/javascript" src="/static/v3/js/app.js"></script>
+    <script type="text/javascript" src="/static/v3/js/api.js?v=14b"></script>
+    <script type="text/javascript" src="/static/v3/js/lz-string.min.js"></script>
+    <script type="text/javascript" src="/static/v3/js/game/lottery.utils.js"></script>
+    <script type="text/javascript" src="/static/v3/js/game/lottery.ssc.js"></script>
+    <script type="text/javascript" src="/static/v3/js/game/lottery.chase.js"></script>
+    <script type="text/javascript" src="/static/v3/js/game/lottery.record.js"></script>
+    <script type="text/javascript" src="/static/v3/js/game/lottery.global.js"></script>
+    <script type="text/javascript" src="/static/v3/js/game/lottery.init.js"></script>
+    <script type="text/javascript" src="/static/v3/js/platform-lottery.js"></script>
+    <script type="text/javascript" src="/static/v3/js/common-all.js"></script>
+    <script type="text/javascript" src="/static/v3/js/common-lottery.js"></script>
+    <script type="text/javascript" src="/static/v3/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/v3/js/combinatorics.js"></script>
+    <script type="text/javascript" src="/static/v3/js/bootstrap-dialog.js"></script>
+    <script type="text/javascript" src="/static/v3/js/resetpos.js"></script>
+    <script type="text/javascript" src="/static/v3/js/lzma.js"></script>
+    <script type="text/javascript" src="/config.js"></script>
+    <script>
+        var ctx = "/yx",
+            keyWords = 'hbs';
+        var goParentGo = function() {
+            $('[data-command="submit"]').click();
+        }
+        var changeModel = function(n) {
+            $('.play-options a:eq(' + n + ')').click();
+        }
+        var addTimes = function() {
+            $('.multiple span:first').click();
+        }
+        var minusTimes = function() {
+            $('.multiple span:last').click();
+        }
+        var loadjscallback = function(url, callback) {
+            var script = document.createElement("script")
+            script.type = "text/javascript";
+            if (script.readyState) { //IE
+                script.onreadystatechange = function() {
+                    if (script.readyState == "loaded" || script.readyState == "complete") {
+                        script.onreadystatechange = null;
+                        callback();
+                    }
+                };
+            } else { //Others
+                script.onload = function() {
+                    callback();
+                };
+            }
+            script.src = url;
+            document.getElementsByTagName("head")[0].appendChild(script);
+        }
+        var loadScript = function(scriptSrc) {
+            var scriptTag = document.createElement('script');
+            scriptTag.src = scriptSrc;
+            document.getElementsByTagName('head')[0].appendChild(scriptTag);
+        }
+        $(window).on('hashchange', function() {
+            if ($('#top-lt-list:visible').size() > 0) {
+                $('#top-lt-list:visible').hide();
+            }
+            var nowltid = parseInt(window.location.hash.replace('#', ''), 10);
+            $('.lottery-navs ul li').removeClass('on');
+            $('.lottery-navs ul li.mylt_' + nowltid).addClass('on');
+            //$('.lottery-navs ul').removeData('loading');
+            getLeftOnlySec();
+            var ltgroups = {
+                'ssc': [11, 18, 15, 16, 19, 9, 42],
+                'pk10': [43, 204],
+                '11y': [24, 21, 23, 22, 25, 26, 28],
+                '3d': [41],
+                'k3': [33, 35, 36, 31, 32],
+                'kl8': [7, 8]
+            };
+            var beforeload = '/static/v3/js/game/lottery.ssc.js';
+            if ($.inArray(nowltid, ltgroups['ssc']) > -1) {
+                beforeload = '/static/v3/js/game/lottery.ssc.js';
+            }
+            $.inArray(nowltid, ltgroups['pk10']) > -1 ? beforeload = '/static/v3/js/game/lottery.pk10.js' : true;
+            $.inArray(nowltid, ltgroups['11y']) > -1 ? beforeload = '/static/v3/js/game/lottery.11x5.js' : true;
+            $.inArray(nowltid, ltgroups['3d']) > -1 ? beforeload = '/static/v3/js/game/lottery.3d.js' : true;
+            $.inArray(nowltid, ltgroups['k3']) > -1 ? beforeload = '/static/v3/js/game/lottery.k3.js' : true;
+            $.inArray(nowltid, ltgroups['kl8']) > -1 ? beforeload = '/static/v3/js/game/lottery.kl8.js' : true;
+            if (typeof LotteryScript[beforeload] == 'undefined') {
+                LotteryUtils = null, LotteryMain = null;
+                loadjscallback(beforeload, function() {
+                    LotteryScript[beforeload] = {
+                        'LotteryUtils': LotteryUtils,
+                        'LotteryMain': LotteryMain
+                    };
+                    GameData.init(nowltid, function(a, b) {
+                        ininLtPage(a, b, 1);
+                        setLogo();
+                        multipleControls();
+                        setTimeout(function() {
+                            $('#top-lt-list').removeAttr('style');
+                        }, 800)
+                    });
+                });
+            } else {
+                LotteryUtils = LotteryScript[beforeload].LotteryUtils, LotteryMain = LotteryScript[beforeload].LotteryMain;
+                GameData.init(nowltid, function(a, b) {
+                    ininLtPage(a, b, 1);
+                    setLogo();
+                    multipleControls();
+                    setTimeout(function() {
+                        $('#top-lt-list').removeAttr('style');
+                    }, 800)
+                });
+            }
+        })
+    </script>
+    <!-- 引用脚本文件结束-->
+</head>
+
+<body class="lottery_main">
+    <div class="bar pageHeader">
+        <div class="a a87 holder"></div>
+        <div class="a a86 holder"></div>
+        <!-- 投注顶部导航栏 开始 -->
+
+
+        <div class="a a86">
+            <div class="b b1" data-ajax-trigger="global" data-init="topBar">
+                <div class="c c14 give-me-space">
+                    <a class="hand goback" href="http://agent.tc508.com/" target="_blank"><img src="/dist/enter.gif" alt="" width="" height=""></a>
+
+                    <div class="c c12" id='localtime'></div>
+                </div>
+                <a class="c c7 link" data-command="logout" style="background:#eeeeee;color:#333;">登出</a>
+                <a class="c c8 c7a link" href="/userAccount#page=1_finance">提款</a>
+                <a class="c c7 link" href="/userAccount#page=0_finance" target="_blank">充值</a>
+                <span class="brk brk_r"></span>
+                <div class="c c4 moneylist link">
+                    <div class='balances'>
+                        <div title="设为默认" class="lotteryBalance">&nbsp;&nbsp;余额：¥ <span class='data' data-field="lotteryBalance" style="color:#ff7a74;">0.000</span><em style="float:right;margin-right:8px;" class="rf manual_hide">隐藏</em></div>
+                    </div>
+                    <div class='outter'></div>
+                    <!--<i class="arrow-bottom"></i> -->
+                    <div title="设为默认" class="money">
+                        <div class='inner'></div>
+                    </div>
+                </div>
+                <span class="brk brk_r"></span>
+                <a class="c cc link" href="/userMessage#page=0_message"><em class="icon">&#xe68e;</em> 消息 <span style="display:none;" id="systeMsg" class="brk_rSpan">1</span></a>
+                <span class="brk brk_r"></span>
+                <a class="c cc link" href="/game-notice/0"><em class="icon">&#xe6ac;</em>公告 <span style="display:none;" id="noticeMsg" class="brk_rSpan">1</span> </a>
+                <!-- <div class="menu-drop dropdown dropdown-hover" id="agent-top-nav">
+		              <a class="hand ltmenu-top" data-toggle="dropdown">代理中心 <span class="caret"></span></a>
+                    <div id="top-agent-menu" class="dropdown-menu">
+                      <div class="top-agent-menu-inside clearfix">
+                        <em class="m_ico">&#59187;</em>
+                        <ul>
+                          <li><a href="/yx/hbs/manager-account.html#page=6_proxy" target="_self">团队报表</a></li>
+                          <li><a href="/yx/hbs/manager-account.html#page=4_report" target="_self">个人报表</a></li>
+                          <li><a href="/yx/hbs/manager-account.html#page=3_proxy" target="_self">游戏记录</a></li>
+                          <li><a href="/yx/hbs/manager-account.html#page=2_proxy" target="_self">会员管理</a></li>
+                          <li><a href="/yx/hbs/manager-account.html#page=1_proxy" target="_self">开户中心</a></li>
+                          <li><a href="/yx/hbs/manager-account.html#page=1_proxy" target="_self">链接开户</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div> -->
+                <a class="c c11 link" id="center-btn" href="/yx/hbs/manager-account.html#page=0_account" target="_self">个人中心</a>
+                <div class="menu-drop dropdown dropdown-hover">
+                    <span class="thumb_icon"></span><a class="hand ltmenu-top" data-toggle="dropdown"><span style="display:none;" data-field="greeting"></span><em class="icon" style="color: #f5e301;">&#xe600;</em>  <span data-field="username" style="font-size:12px;color:#e97206;">获取中...</span></a>
+                    <div id="top-usr-menu" class="dropdown-menu">
+                        <div class="top-usr-menu-inside clearfix">
+                            <em class="m_ico">&#59187;</em>
+                            <div class="clscols clearfix">
+                                <ul>
+                                    <li><a href="/userCenter" target="_self">个人中心</a></li>
+                                    <li><a href="/userAccount#page=0_finance" target="_self">财务中心</a></li>
+                                    <li><a href="/userReport#page=0_report" target="_self">订单报表</a></li>
+                                    <li><a href="/playDetails#0" target="_self">玩法介绍</a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <a class="c c9 link" href="/yx/hbs/manager-account.html#page=2_finance">转账</a>
+                <a class="c c10 link" href="/yx/hbs/aboutus.html">公告</a>
+								<a href="/qiandao" class="get_money c cc" style="margin-top:2px;margin-right:-20px; float:right;display:none;"><img height="35" src="/dist/getm.gif"></a>
+            </div>
+
+
+        </div>
+        <div class="sec_part">
+            <div class="sec_wrapper">
+                <div class="logo">
+                    <a href="/index" class="logo_bg"></a>
+                </div>
+
+                <div class="ul_right">
+
+                    <ul class="ul_right_ul">
+                        <li class="index ul_right_ulLi" style="position:relative;z-index:9999;">
+                            <a class="ul_right_ulLia" href="/index">
+                                <span class="icon">&#xe6be;</span>
+                                <p>首页</p>
+                            </a>
+                        </li>
+                        <li class="contain_a active ul_right_ulLi">
+                            <div class="dropdown dropdown-hover" style="-display:none;margin-top:5px;">
+                                <a class="hand ltmenu-top allgame-top" data-toggle="dropdown"><em class="icon">&#xe64d;</em>彩票中心 </a>
+
+
+
+
+                                <div id="top-lt-list" class="dropdown-menu downList drop_down_list">
+                                    <div class="drop_down_arrow"></div>
+                                    <div class="drop_down_content">
+                                        <div class="downlist_top">
+                                            <span class="official on">官方</span>
+                                            <span class="classical">经典</span>
+                                        </div>
+                                        <div class="dotted_line"></div>
+                                        <div class="official_lottery">
+
+                                        </div>
+                                        <div class="classic_lottery" style="display:none">
+
+                                        </div>
+                                        <!-- <ul class="title_ul">
+                                            <li class="title_li">
+                                                <div class="lottery_img">
+                                                    <h1 class="title">时时彩</h1>
+                                                </div>
+                                                <ul class="sec-lt-list" rel="ssc"></ul>
+                                                <div class="dotted_line"></div>
+                                            </li>
+                                        </ul>
+                                        <ul class="title_ul">
+                                            <li class="title_li">
+                                                <div class="lottery_img">
+                                                    <h1 class="title">官方时</h1>
+                                                </div>
+                                                <ul class="sec-lt-list" rel="guanfang"></ul>
+                                                <div class="dotted_line"></div>
+                                            </li>
+                                        </ul>
+                                        <ul class="title_ul">
+                                            <li class="title_li">
+                                                <div class="lottery_img">
+                                                    <h1 class="title">菲律宾</h1>
+                                                </div>
+                                                <ul class="sec-lt-list" rel="flb"></ul>
+                                                <div class="dotted_line"></div>
+                                            </li>
+                                        </ul>
+                                        <ul class="title_ul">
+                                            <li class="title_li">
+                                                <div class="lottery_img">
+                                                    <h1 class="title">11选5</h1>
+                                                </div>
+                                                <ul class="sec-lt-list" rel="xuan"></ul>
+                                                <div class="dotted_line"></div>
+                                            </li>
+                                        </ul>
+                                        <ul class="title_ul">
+                                            <li class="title_li">
+                                                <div class="lottery_img">
+                                                    <h1 class="title">低频彩</h1>
+                                                </div>
+                                                <ul class="sec-lt-list" rel="dpc"></ul>
+                                                <div class="dotted_line"></div>
+                                            </li>
+                                        </ul>
+                                        <ul class="title_ul">
+                                            <li class="title_li">
+                                                <div class="lottery_img">
+                                                    <h1 class="title">其他</h1>
+                                                </div>
+                                                <ul class="sec-lt-list" rel="other"></ul>
+                                                <div class="dotted_line"></div>
+                                            </li>
+                                        </ul>
+                                        <ul class="title_ul classic_ul" style="display:none;">
+                                            <li class="title_li">
+                                                <div class="lottery_img">
+                                                    <h1 class="title">经典</h1>
+                                                </div>
+                                                <ul class="sec-lt-list" rel="classic"></ul>
+                                                <div class="dotted_line"></div>
+                                            </li>
+                                        </ul> -->
+                                        <!--
+									<ul class="title_ul">
+			              <li class="title_li" >
+			                <div class="lottery_img">
+			                  <h1 class="title">11选5</h1>
+			                </div>
+			                <ul class="sec-lt-list" rel="xuan"></ul>
+			                <div class="dotted_line"></div>
+			              </li>
+			            </ul>
+									<ul class="title_ul">
+			              <li class="title_li" >
+			                <div class="lottery_img">
+			                  <h1 class="title">快三</h1>
+			                </div>
+			                <ul class="sec-lt-list" rel="kuai"></ul>
+			                <div class="dotted_line"></div>
+			              </li>
+			            </ul>
+									<ul class="title_ul">
+			              <li class="title_li" >
+			                <div class="lottery_img">
+			                  <h1 class="title">其他</h1>
+			                </div>
+			                <ul class="sec-lt-list" rel="other"></ul>
+			                <div class="dotted_line"></div>
+			              </li>
+			            </ul> -->
+
+
+
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <!-- <div id="top-lt-list" class="dropdown-menu">
+								<div class="top-lt-list-inside clearfix">
+									<ul class="top-lt-choose">
+										<li class="first_cls first_ssc" style="width:310px;">
+											<h4>时时彩</h4>
+											<ul class="sec-lt-list" rel="ssc"></ul>
+										</li>
+										<li class="first_cls">
+											<h4 class="xuan">11选5</h4>
+											<ul class="sec-lt-list" rel="xuan"></ul>
+										</li>
+										<li class="first_cls">
+											<h4 class="k3">快三</h4>
+											<ul class="sec-lt-list" rel="kuai"></ul>
+										</li>
+										<li class="first_cls">
+											<h4 class="other">其他</h4>
+											<ul class="sec-lt-list" rel="other"></ul>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div> -->
+                                <!-- <a>
+							<span class="icon">&#xe943;</span>
+							<p>彩票中心</p>
+							<span class="icon">&#xe943;</span>
+						</a> -->
+                        </li>
+                        <li class="lottery_link ul_right_ulLi">
+                            <a class="ul_right_ulLia lottery-code-trend">
+                                <span class="icon">&#xe69e;</span>
+                                <p>走势图表</p>
+                            </a>
+                        </li>
+                        <li class="ul_right_ulLi">
+                            <a href="javascript:alert('敬请期待');" class="ul_right_ulLia">
+                                <span class="icon">&#xe6a6;</span>
+                                <p>跟单大厅</p>
+                            </a>
+                        </li>
+                        <li class="ul_right_ulLi">
+                            <a href="javascript:alert('敬请期待');" class="ul_right_ulLia">
+                                <span class="icon">&#xe6b3;</span>
+                                <p>积分商城</p>
+                            </a>
+                        </li>
+                        <li class="ul_right_ulLi">
+                            <a class="ul_right_ulLia" href="/activity/0">
+                                <span class="icon">&#xe693;</span>
+                                <p>优惠活动</p>
+                            </a>
+                        </li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- 投注顶部导航栏 结束 -->
+            <script type="text/javascript" src="/static/v3/js/bar.js"></script>
+        </div>
+        <!-- 顶部预留位置开始 -->
+        <div class="clear-header"></div>
+        <!-- 顶部预留位置结束 -->
+        <!-- 中间部分开始 -->
+        <div class="page-content noselect default-cursor clearfix">
+            <div class="page-topgap" style="height:70px;">&nbsp;</div>
+            <div class="page-container clearfix">
+                <!-- 彩种导航开始 -->
+                <div class="lottery-nav">
+                    <div class="menu">
+                        <div class="title"><span>重庆时时彩</span><i class="arrow down"></i></div>
+                        <div class="list" id="allopenlt">
+                            <div class="line"></div>
+                            <div class="category">
+                                <div class="logo u9"></div>
+                                <div class="items zyc">
+                                    <a href="/yx/hbs/lottery/12.html" data-name="zyffc">胜利分分彩</a>
+                                    <a href="/yx/hbs/lottery/13.html" data-name="zy5fc">胜利5分彩</a>
+                                    <a href="/yx/hbs/lottery/21.html" data-name="zy11y">胜利11选5</a>
+                                </div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="category">
+                                <div class="logo ssc"></div>
+                                <div class="items sscls">
+                                    <a href="/yx/hbs/lottery/19.html" data-name="hgssc">韩国1.5分彩</a>
+                                    <a href="/yx/hbs/lottery/11.html" data-name="cqssc">重庆时时彩</a>
+                                    <a href="/yx/hbs/lottery/15.html" data-name="xjssc">新疆时时彩</a>
+                                    <a href="/yx/hbs/lottery/16.html" data-name="tjssc">天津时时彩</a>
+                                    <a href="/yx/hbs/lottery/5.html" data-name="xjpssc">新加坡2分彩</a>
+                                    <a href="/yx/hbs/lottery/6.html" data-name="djssc">东京1.5分彩</a>
+                                    <a href="/yx/hbs/lottery/7.html" data-name="bjkl8ssc">北京快乐8</a>
+                                    <a href="/yx/hbs/lottery/8.html" data-name="twssc">台湾宾果</a>
+                                    <a href="/yx/hbs/lottery/9.html" data-name="txssc">腾讯分分彩</a>
+                                </div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="category">
+                                <div class="logo x511"></div>
+                                <div class="items eleveny">
+                                    <a href="/yx/hbs/lottery/24.html" data-name="gd11y">广东11选5</a>
+                                    <a href="/yx/hbs/lottery/23.html" data-name="jx11y">江西11选5</a>
+                                    <a href="/yx/hbs/lottery/28.html" data-name="js11y">江苏11选5</a>
+                                    <a href="/yx/hbs/lottery/22.html" data-name="sd11y">山东11选5</a>
+                                    <a href="/yx/hbs/lottery/25.html" data-name="ln11y">辽宁11选5</a>
+                                    <a href="/yx/hbs/lottery/27.html" data-name="hk11y">越南11选5</a>
+                                    <a href="/yx/hbs/lottery/26.html" data-name="sh11y">上海11选5</a>
+                                </div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="category">
+                                <div class="logo k3"></div>
+                                <div class="items kuaicls">
+                                    <a href="/yx/hbs/lottery/31.html" data-name="jsk3">江苏快3</a>
+                                    <a href="/yx/hbs/lottery/32.html" data-name="jlk3">吉林快3</a>
+                                    <a href="/yx/hbs/lottery/33.html" data-name="ahk3">安徽快3</a>
+                                    <a href="/yx/hbs/lottery/34.html" data-name="gxk3">广西快3</a>
+                                    <a href="/yx/hbs/lottery/35.html" data-name="hbk3">湖北快3</a>
+                                    <a href="/yx/hbs/lottery/36.html" data-name="nmk3">内蒙快3</a>
+                                </div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="category">
+                                <div class="logo c3"></div>
+                                <div class="items pailie">
+                                    <a href="/yx/hbs/lottery/41.html" data-name="fc3d">3D福彩</a>
+                                    <a href="/yx/hbs/lottery/42.html" data-name="pl3">排列三/排列五</a>
+                                </div>
+                            </div>
+                            <div class="line"></div>
+                            <div class="category">
+                                <div class="logo pk10"></div>
+                                <div class="items pkten">
+                                    <a href="/yx/hbs/lottery/43.html" data-name="bjpk10">北京PK10</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabs"></div>
+                </div>
+                <!-- 彩种导航结束 -->
+                <div class="center-side">
+                    <a class="btn top_gen"><img src="/static/v3/images/img/generate.png"></a>
+                    <!-- 导航区域 -->
+                    <div class="lottery-navs">
+                        <!--<div class="set-navs">
+            <div class="clearfix">
+              <div class="sound-set">
+                <em class="m_ico">&#59041;</em>声音：<span class="txtgap"></span><span class="audio-sw hand juston"><em class="rf sound-status">关</em><em class=" m_bigger rf"></em><em class="m_dotcycle"></em></span>
+              </div>
+            </div>
+          </div> -->
+                        <ul>
+                            <li class="title"><img src="/static/v3/images/lotteryType.png" alt="">常用彩种 <span>编辑</span></li>
+                            <li class="normal first">
+                                <div class="lt-choose">
+                                    <h3>重庆时时彩</h3>
+                                    <span class="lt-countdown">00:00</span>
+                                </div>
+                            </li>
+                            <li class="normal">
+                                <div class="lt-choose">
+                                    <h3>广东11选5</h3>
+                                    <span class="lt-countdown">00:00</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <!-- 开奖列表信息 -->
+                        <div class="lottery-open-list mouseon clearfix">
+                            <div class="arrow"></div>
+                            <div class="title">
+                                <img src="/static/v3/images/historyLotteryList.png" alt=""> 历史期号
+                                <!-- <div class="expect">历史期号</div> -->
+                                <!-- <div class="code">开奖号码</div>
+							<div class="zutype">组态</div> -->
+                            </div>
+                            <div class="content clearfix">
+                                <div class="wrapper">
+                                    <div class="scroller" data-handle-color="#93dbce" data-handle-distance="3px">
+                                        <div class="list"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 选号区域 -->
+                    <div class="lottery-betting">
+                        <div class="fixed-right">
+                            <a class="classic">经典</a>
+                            <a class="active">官方</a>
+														<a href="javaScript:void(0)" class="open_lottery_link" target="_blank">开奖网站</a>
+                        </div>
+                        <div class="lottery-betting-topborder"></div>
+                        <div class="lottert-topside clearfix">
+                            <div class="top-side">
+                                <!-- 账户信息 -->
+                                <div data-ajax-trigger="global" class="account-info">
+                                    <div class="arrow"></div>
+                                    <div class="title">彩票账户</div>
+                                    <div class="content">
+                                        <div class="row">
+                                            <div class="label"><i class="user"></i>昵称：</div>
+                                            <div data-field="nickname" class="value">加载中...</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="label"><i class="star"></i>等级：</div>
+                                            <div data-field="vipLevel" class="value">加载中...</div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="label"><i class="money"></i>余额：</div>
+                                            <div class="value">¥ <span data-field="lotteryMoney">0.000</span></div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="label"><i class="money"></i>冻结：</div>
+                                            <div class="value">¥ <span data-field="freezeMoney">0.000</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 开奖投注信息 -->
+                                <div class="lottery-open clearfix" style="position:relative;">
+                                    <!-- 开奖信息 -->
+
+                                    <div id="top-lt-list" class="dropdown-menu  dropdown-menusss" style="margin-top:95px;">
+                                        <div class="top-lt-list-inside clearfix">
+                                            <em class="m_ico">&#xe601;</em>
+                                            <ul class="top-lt-choose">
+                                                <li class="first_cls first_ssc">
+                                                    <h4>时时彩</h4>
+                                                    <ul class="sec-lt-list" rel="ssc"></ul>
+                                                </li>
+                                                <li class="first_cls">
+                                                    <h4 class="xuan">11选5</h4>
+                                                    <ul class="sec-lt-list" rel="xuan"></ul>
+                                                </li>
+                                                <!--<li class="first_cls">
+				                <h4 class="k3">快三</h4>
+				                <ul class="sec-lt-list" rel="kuai"></ul>
+				              </li>-->
+                                                <li class="first_cls">
+                                                    <h4 class="other">其他</h4>
+                                                    <ul class="sec-lt-list" rel="other"></ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="lottery-open-code">
+                                        <div class="lt-audio">
+                                            <div class="switch audio-off audio-sw juston"></div>
+                                        </div>
+                                        <div class="expect">第 <span data-field="expect">00000000-000</span> 期开奖结果&nbsp;&nbsp;&nbsp;<a style="display:none;" href="/playDetails#0" target="_blank">游戏说明</a></div>
+                                        <div class="onlymobilecode"></div>
+                                        <div class="codeholder">开奖中...</div>
+                                        <div class="code ssc" data-field="code">
+                                            <ul>
+                                                <li>0</li>
+                                                <li>0</li>
+                                                <li>0</li>
+                                                <li>0</li>
+                                                <li>0</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="" style="position:absolute;width:150px;right:0;top:40px;;">
+                                        <a class="lottery-code-trend" href="javascript:;" style="text-decoration:none;display:block;width:110px;color:#fff;height:30px;line-height:30px;;background-image: -webkit-linear-gradient(0deg,#70cab0,#64b3d8 100%);font-size:16px;">
+                                            <em class="icon" style="margin:0 8px;">&#xe69e;</em>走势开奖</a>
+                                    </div>
+
+                                    <!-- 投注信息 -->
+                                    <div class="lottery-open-info">
+                                        <div class="expect">
+                                            第 <span data-field="global-expect">00000000-000</span> 期截止时间还有
+
+                                        </div>
+                                        <div class="last-time"><span data-field="global-last-time"></span></div>
+                                    </div>
+                                </div>
+                                <a target="lottery-trend" class="lottery-code-trend">
+                                    <i></i>近<br/>期<br/>走<br/>势
+                                </a>
+                            </div>
+                        </div>
+                        <div class="lottery-opearation"></div>
+                    </div>
+                    <!-- 号码列表 -->
+                    <div class="lottery-record clearfix">
+                        <div class="list-head clearfix"><a id="Lys_TabNumber" class="on">号码篮</a><a id="lys_TabOpenlottry">最近开奖</a></div>
+                        <!-- <a class="hand lottery-code-trend" id="lys_TabOpenlottry">最近开奖</a> -->
+                        <div class="list-thead">
+                            <div class="thead-inner">
+                                <!-- <span class="first">彩种</span> -->
+                                <!-- <span>总注数</span> -->
+                                <span>玩法</span><span class="long">号码</span><span>倍数</span><span class="short">模式</span><span class="money">投注金额(元)</span>
+                                <!-- <span class="short">返点</span> -->
+                                <span class="short last">操作</span></div>
+                        </div>
+                        <div class="list">
+                            <div class="scroller" data-handle-color="#aaa" data-handle-distance="2px">
+                                <table class="table">
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="list-bottom"></div>
+                        <div class="button">
+                            <a class="btn" data-command="add"><em class="icon">&#xe626;</em>&nbsp;添加号码</a>
+                            <a class="btn" data-command="clear"><em style="position:relative;right:10px;" class="icon">&#xe63b;</em>清空号码</a>
+                            <a class="btn" data-command="chase"><!--<i class="chase"></i>--><em style="position:relative;right:10px;" class="m_ico">&#xe6a4;</em>我要追号<em class="help_stag">可提高中奖率</em></a>
+                            <a class="btn" data-command="plan"><!--<i class="plan"></i>-->合买跟单</a>
+                            <!--<a class="btn" target="_self" >我的投注</a>-->
+                            <a class="likebtn quicksoha"></a>
+                            <a class="btn ks_btn" data-command="quick"><em class="icon" style="font-size:14px;">&#xe605;</em>&nbsp;快速投注</a>
+                            <a class="btn gen_btn" data-command="generate"><img src="/static/v3/images/img/generate.png" /></a>
+                            <a class="likebtn quicktouzhu" data-command="submit"></a>
+                            <a class="likebtn quickadd" data-command="add"></a>
+                            <div class="btn-big" data-command="submit">
+                                <div class="time"><span data-field="global-last-time">00:00:00</span></div>
+                                <div class="submit"><em class="m_ico">&#xe68e;</em>确认投注</div>
+                            </div>
+                        </div>
+                        <div class="total"></div>
+                    </div>
+
+                </div>
+                <!-- 右侧结束 -->
+
+                <!-- 投注记录开始 -->
+                <div class="record-list">
+                    <div class="tabs">
+                        <a data-key="NotOpenOrder" class="active">未开奖订单</a>
+                        <a data-key="HistoryOrder">历史投注订单</a>
+                        <a data-key="ChaseOrder">追号订单</a>
+                        <a class="outerlink" href="/userReport#page=0_report" target="_blank">订单记录</a>
+                        <em class="hand w-order-list" rel="显示列表|隐藏列表"><em class="m_ico">&#xe6b5;</em>隐藏</em>
+                        <a class="rfixed outerlink" href="/userReport#page=0_report" target="_blank"><em class="m_ico">&#xe6c0;</em>更多</a>
+                    </div>
+                    <div class="panels">
+                        <div data-content="NotOpenOrder" class="content hide">
+                            <div class="result">
+                                <table class="form-control noneopen-list">
+                                    <thead>
+                                        <tr>
+                                            <td width="10%">订单号</td>
+                                            <td>彩种/玩法</td>
+                                            <td width="14%">期号</td>
+                                            <td width="16%">下单时间</td>
+                                            <td width="10%">投注金额</td>
+                                            <td width="10%">奖金</td>
+                                            <td width="8%">状态</td>
+                                            <td width="12%">操作</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="nodata">
+                                            <td colspan="20" style="color:#f00;">当前没有未开奖订单</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="page-list noselect"></div>
+                            </div>
+                        </div>
+                        <div data-content="HistoryOrder" class="content hide">
+                            <div class="result">
+                                <table class="form-control alopen-list">
+                                    <thead>
+                                        <tr>
+                                            <td width="10%">订单号</td>
+                                            <td width="180">彩种/玩法</td>
+                                            <td width="14%">期号</td>
+                                            <td width="12%">下单时间</td>
+                                            <td width="90">投注金额</td>
+                                            <td width="90">奖金</td>
+                                            <td width="8%">状态</td>
+                                            <td width="12%">操作</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="nodata">
+                                            <td colspan="20">没有投注历史记录</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="page-list noselect"></div>
+                            </div>
+                        </div>
+                        <div data-content="ChaseOrder" class="content hide">
+                            <div class="result">
+                                <table class="form-control">
+                                    <thead>
+                                        <tr>
+                                            <td width="10%">订单号</td>
+                                            <td>彩种/玩法</td>
+                                            <td width="14%">期号</td>
+                                            <td width="16%">订单进程</td>
+                                            <td width="10%">投注金额</td>
+                                            <td width="10%">奖金</td>
+                                            <td width="8%">状态</td>
+                                            <td width="8%">操作</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="nodata">
+                                            <td colspan="20">当前没有追号记录</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <div class="page-list noselect"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 投注记录结束 -->
+            </div>
+        </div>
+        <div class="modal fade" id="saveMy">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+                        <h4 class="modal-title">请选择您最常玩的彩种(最多可选9个彩种)</h4>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="savemylt clearfix">
+                            <li class="seccls" rel="ssc">
+                                <h4>时时彩</h4>
+                                <ul class="sublist sscfirst"></ul>
+                            </li>
+                            <li class="seccls xuan" rel="xuan">
+                                <h4>11选5</h4>
+                                <ul class="sublist"></ul>
+                            </li>
+                            <li class="seccls kuai" rel="kuai">
+                                <h4>快乐彩</h4>
+                                <ul class="sublist"></ul>
+                            </li>
+                            <li class="seccls other" rel="other">
+                                <h4>其他</h4>
+                                <ul class="sublist"></ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="hand likebtn" id="saveMylottery" data-dismiss="modal">保存</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 尾部 开始 -->
+        <div class="bot">
+            <div class="pagefooterWarps">
+                <div class="page_footer"><div id="special_purpose" class="footer_content"><div class="footer_index"><em id="counter1">3240</em><em id="counter2" class="sec">3047</em></div> <div class="fullw_link"><div class="footer_link clearfix"><div class="lf"><ul><li class="first">赌博委员会监管服务条款</li> <li><a href="/aboutUs#0" target="_blank" class="">关于我们</a></li> <li><a href="/aboutUs#1" target="_blank" class="">服务条款</a></li> <li><a href="/aboutUs#2" target="_blank" class="">充提说明</a></li> <li><a href="/aboutUs#3" target="_blank" class="">免责声明</a></li> <li><a href="/aboutUs#4" target="_blank" class="">博彩责任</a></li></ul></div> <div class="rf">Copyright © 2018 头彩娱乐 版权所有 | 18+</div></div></div></div></div>
+            </div>
+        </div>
+        <!-- 尾部 结束 -->
+
+        <!-- 其他弹层 开始 -->
+        <div class="modal modal-zui fade" id="letwait">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+                    <h4 class="modal-title">提示</h4>
+                </div>
+                <div class="modal-content letus-wait">
+                    敬请期待
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="popnotice" style="display:none;">
+            <div class="modal-dialog" style="width:500px;">
+                <div class="modal-content popnotice-main">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+                        <h4 class="modal-title">系统公告</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" style="float:right;">关闭</button><a href="/yx/hbs/game-notice.html?index=0" target="_self" style="float: right;font-size: 12px;color: #0fa490;line-height: 35px;margin-right: 10px;">查看全部公告</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 其他弹层 结束 -->
+        <!-- 悬浮层 开始 -->
+        <div class="fixright-bars">
+            <ul class="clearfix">
+                <li class="rbar fixrightLi">
+                    <div class="lico"><em class="icon">&#xe69e;</em></div><a class="lottery-code-trend"><span>走势</span></a></li>
+                <li class="rbar fixrightLi">
+                    <div class="lico"><em class="icon">&#xe688;</em></div><a href="/download"><span>下载</span></a></li>
+                <li class="rbar fixrightLi router_click">
+                    <div class="lico"><em class="icon">&#xe68c;</em></div><a href="javascript:void(0)"><span>线路</span></a></li>
+                <li class="rbar btn">
+                    <div class="lico"><em class="icon">&#xe6bb;</em></div><span>收起</span></li>
+                <li class="red_packet">
+                    <a href="/activity/1" class=""></a>
+                    <div class="hover_show_list">
+                        <div class="hover_show_arrow"></div>
+                        <div class="hover_show_content"><a><span class="material_title">完善资料</span> <span class="material_cont">
+              绑定手机号即可领取6元彩金!
+            </span></a></div>
+                    </div>
+                </li>
+            </ul>
+            <div class="kefu"><div class="word">嘿，我来帮你！</div> <div class="girl"><a href="https://v88.live800.com/live800/chatClient/chatbox.jsp?companyID=925834&amp;configID=8015&amp;jid=8547731414&amp;s=1" target="_blank">&nbsp;</a></div> <div class="circle"></div> <div class="circle cir1"></div> <div class="circle cir2"></div></div>
+        </div>
+        <div class="util_prompt" style="display:none">
+            <div class="prompt_content">
+                <div class="speed_test">
+                    <div class="lineDetectionWarp loginWarp">
+                        <div class="speed_title">
+                            <div class="ft26">
+                                <span class="icon ft26">&#xe68b;</span>
+                                <i>线路检测</i>
+                            </div>
+                            <span class="icon" @click="showDetection = false">&#xe63b;</span>
+                        </div>
+                        <div class="detectionMain_cont fl relative   clearfix">
+                            <div class="part_cont">
+                                <div class="top_part">
+                                    <div class="recommend">
+                                        <div class="icon_part">
+                                            <span class="icon ft22">&#xe6bf;</span>
+                                        </div>
+                                        <i class="ft16">推荐路线</i>
+                                    </div>
+                                    <div class="detectionMain_title_right clearfix">
+                                        <label class="clearfix">
+                                            <span class="spColor10"></span>
+                                            <b>很好</b>
+                                        </label>
+                                        <label class="clearfix">
+                                            <span class="spColor11"></span>
+                                            <b>较好</b>
+                                        </label>
+                                        <label class="clearfix">
+                                            <span class="spColor12"></span>
+                                            <b>好</b>
+                                        </label>
+                                        <label class="clearfix">
+                                            <span class="spColor13"></span>
+                                            <b>一般</b>
+                                        </label>
+                                        <label class="clearfix">
+                                            <span class="spColor14"></span>
+                                            <b>较差</b>
+                                        </label>
+                                        <label class="clearfix">
+                                            <span class="spColor15"></span>
+                                            <b>很差</b>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="best_route detectionMain_contDemo">
+
+                                </div>
+                            </div>
+                            <div class="bold_line"></div>
+                            <div class="part_cont part_cont2">
+
+                            </div>
+                        </div>
+                        <div class="btn_part">
+                            <div class="refresh_route" @click="resterLoad">
+                                <span class="icon ft20">&#xe614;</span>
+                                <i>刷新</i>
+                            </div>
+                            <!--<div class="intelligent_choose">-->
+                            <!--<span class="icon ft20">&#xe698;</span>-->
+                            <!--<i>智能选择</i>-->
+                            <!--</div>-->
+                        </div>
+                        <div class="imgWrapper" style="display: none;"></div>
+                        <!--<img v-for="item in speedSrc" :src="item+ '/yx/'+speedSrcRdm+'.html'" @error="srcErroe"-->
+                             <!--/>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="footer_float">
+    <div class="leftnav">
+      <p></p>
+      <ul>
+        <li class="float_service"><a href="https://chat.livechatvalue.com/chat/chatClient/chatbox.jsp?companyID=913191&configID=55502&jid=6889947871&s=1" target="_blank">联系客服</a></li>
+        <li class="lineText"><a href="/static/speedtest.html" target="_self">线路检测</a></li>
+        <li class="help"><a href="/static/help.html" target="_self">帮助中心</a></li>
+      </ul>
+      <p></p>
+    </div>
+    <div class="goTop" href="javascript:;" style="display: block;"><em class="m_ico">&#58952;</em></div>
+  </div> -->
+        <!-- 悬浮层 结束 -->
+        <script type="text/javascript">
+            $(".fixright-bars .btn").click(function() {
+                if (this.zdidx) {
+                    $('.fixright-bars .fixrightLi').show();
+                    $(this).find("span").html("收起");
+                    this.zdidx = false;
+                } else {
+                    $('.fixright-bars .fixrightLi').hide();
+                    $(this).find("span").html("展开");
+                    this.zdidx = true;
+                }
+            })
+        </script>
+</body>
+<script type="text/javascript">
+    var speedInit =   function(speedSrc, speedConfig) {
+        var speed = {
+            allsites: speedSrc,
+            domStyle: speedConfig,
+            speedIdx: 0,
+            init2: function() {
+                if (this.speedIdx > this.allsites.length - 1) this.speedIdx = 0;
+                let classStr = this.speedIdx % 2 !== 0 ?  'odd' : '';
+                let aLink = this.speedIdx === 0 ? ('<a href="' + this.allsites[0] + '" class="detectionBtn ft16" style="width:110px; margin-right:-90px">立即进入 ></a>') : '';
+
+                var html =
+                    '<div class="detectionMain_contDemo">' +
+                    '<div class="top clearfix txtl router_line ' + classStr + '">' +
+                    '<em class=" ft14">' + this.domStyle[1][this.speedIdx] + '</em>' +
+                    '<a class="detectionMain_progress bgcoloref clearfix cursor" href="' + this.allsites[this.speedIdx] + '">' +
+                    '<div class="txtl ft14 spColor1' + this.speedIdx + '" style="width:' + this.domStyle[0][this.speedIdx] + '%">' +
+                    '</div></a></div></div>';
+
+                $('.detectionMain_cont .part_cont2').append(html)
+                if(this.speedIdx === 0) {
+                    $('.detectionMain_cont .best_route').append(html);
+                    $('.detectionMain_cont .best_route .detectionMain_contDemo').removeClass('detectionMain_contDemo');
+                    $('.detectionMain_cont .best_route .spColor10').removeClass('spColor10').addClass('spColor11');
+                    $('.detectionMain_cont .best_route .router_line').append(aLink)
+                }
+                this.speedIdx++;
+                return this.speedIdx;
+            }
+        };
+        return speed;
+    }(appConfig().speedSrc, appConfig().speedConfig);
+    function initImags(srcs, speedConfig) {
+        for(var i = 0; i < srcs.length; i++) {
+            var oimg = document.createElement('img');
+            oimg.src = 'http://' + srcs[i] + '/yx/' + Math.random(10) + '.html';
+            oimg.onerror = function() {
+                speedInit.init2(srcs, speedConfig);
+            }
+            $('.speed_test .imgWrapper').append(oimg);
+        }
+    }
+//    $(".fixright-bars .router_click").click(
+    $(".fixright-bars .router_click").click(function () {
+        $('.util_prompt').show();
+        speedInit.speedIdx = 0;
+        $('.detectionMain_cont .part_cont2').html('');
+        $('.detectionMain_cont .best_route').html('');
+        $('.speed_test .imgWrapper').html('');
+        initspeeds();
+    });
+
+    function initspeeds() {
+        var speedSrc = appConfig().speedSrc;
+        var speedConfig = appConfig().speedConfig;
+        initImags(speedSrc, speedConfig);
+    }
+    $('.util_prompt .refresh_route').click(function() {
+        if ($('.speed_test .part_cont2 .detectionMain_contDemo').length > 5) {
+            $(".fixright-bars .router_click").click();
+            $('.util_prompt').hide();
+            let timer = setTimeout(function () {
+                $('.util_prompt').show();
+                clearTimeout(timer);
+            }, 100)
+        } else {
+            return false
+        }
+    });
+
+    $('.speed_title .icon').click(function() {
+        $('.util_prompt').hide();
+    })
+</script>
+</html>

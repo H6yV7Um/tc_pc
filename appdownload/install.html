@@ -1,0 +1,166 @@
+﻿<html>
+<head>
+<title>头彩 苹果APP 下载</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=480">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="apple-touch-icon" href="http://www.apple.com/apple-touch-icon.png" />
+<style type="text/css">
+.link {
+	margin:1em;
+	padding:0em;
+	border-radius: 10px;
+	background-image: transparent;
+  cursor:pointer;
+}
+.link a {
+	display:block;
+	padding:1em;
+	font-size:15pt;
+	font-family: sans-serif;
+	text-align: center;
+	text-decoration:none;
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+	color:#333;
+  opacity: 0;
+}
+.guide {
+	display:block;
+	padding:1em;
+	font-size:9pt;
+	font-family: sans-serif;
+	text-align: center;
+	text-decoration:none;
+	text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+	color:#666;
+  display:none;
+}
+body{
+  text-align:center;
+}
+iframe{
+  border: none;
+  width: 1px;
+  height: 1px;
+}
+body {
+  font-size: 12px;
+  font-family: Microsoft YaHei, Arial, Helvetica, sans-serif;
+  background-color: #fff;
+  margin:0px;
+  padding:0px;
+  background-image:url("21-min.png");
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+.counterdown{
+  color: #fff;
+  margin-top: 30px;
+  line-height: 29px;
+  font-size: 16px;
+  padding-right: 10px;
+}
+.counterdown em{
+  font-style:normal;
+}
+.gapin{
+  height:560px;
+}
+</style>
+<script type="text/javascript">
+!function(e,t){typeof module!="undefined"?module.exports=t():typeof define=="function"&&typeof define.amd=="object"?define(t):this[e]=t()}("domready",function(){var e=[],t,n=typeof document=="object"&&document,r=n&&n.documentElement.doScroll,i="DOMContentLoaded",s=n&&(r?/^loaded|^c/:/^loaded|^i|^c/).test(n.readyState);return!s&&n&&n.addEventListener(i,t=function(){n.removeEventListener(i,t),s=1;while(t=e.shift())t()}),function(t){s?setTimeout(t,0):e.push(t)}})
+var isMobile = {
+  Android: function() {return navigator.userAgent.match(/Android/i);},
+  BlackBerry: function() {return navigator.userAgent.match(/BlackBerry/i);},
+  iOS: function() {return navigator.userAgent.match(/iPhone|iPad|iPod/i);},
+  Opera: function() {return navigator.userAgent.match(/Opera Mini/i);},
+  Windows: function() {return navigator.userAgent.match(/IEMobile/i);},
+  any: function() {return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());}
+};
+var QueryString = function() {
+  var query_string = {};
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i = 0; i < vars.length; i++) {
+    var pair = vars[i].split("=");
+    if (typeof query_string[pair[0]] === "undefined") {
+      query_string[pair[0]] = decodeURIComponent(pair[1]);
+    } else if (typeof query_string[pair[0]] === "string") {
+      var arr = [query_string[pair[0]], decodeURIComponent(pair[1])];
+      query_string[pair[0]] = arr;
+    } else {
+      query_string[pair[0]].push(decodeURIComponent(pair[1]));
+    }
+  }
+  return query_string;
+}();
+var loadApk = function() {
+  var ifrm = document.createElement('iframe');
+  ifrm.setAttribute('id', 'ifrm'); // assign an id
+
+  //document.body.appendChild(ifrm); // to place at end of document
+
+  // to place before another page element
+  var el = document.getElementById('apklink');
+  el.parentNode.insertBefore(ifrm, el);
+
+  // assign url
+  ifrm.setAttribute('src', 'https://touc288.com/tc.apk');
+}
+
+function installApp(){
+    if(window.navigator.standalone){ // from Home Screen Icon
+        // tap Install Button by script
+        var event = document.createEvent("MouseEvents");
+        event.initEvent("click", true, true);
+        document.getElementById("install").dispatchEvent(event);
+    }
+}
+
+domready(function () {
+  if (isMobile.Android()) {
+    document.getElementById('ioslink').style.display = "none";
+    document.getElementById('apklink').style.display = "block";
+    setTimeout(function() {
+      loadApk();   
+    },3000)
+  }
+  
+  if (typeof QueryString.auto !='undefined' && isMobile.iOS()) {
+    document.getElementById('apklink').style.display = "none";
+    document.getElementById('ioslink').style.display = "block";
+    //alert(QueryString.auto);
+    //alert('111');
+    setTimeout(function() {
+      document.getElementById('install').click();    
+    },3000)
+  }
+
+  var msec = 3;
+  setInterval(function() {
+    msec--;
+    if (msec<0) {
+      if (typeof QueryString.auto !='undefined' && isMobile.Android()) {
+        //loadApk();
+      }
+      if (typeof QueryString.auto !='undefined' && isMobile.iOS()) {
+        //document.getElementById('install').click();
+      }
+      return false;  
+    }
+    document.getElementById("tccounter").innerHTML = String(msec);
+  },1000)  
+})
+                                                                                      
+</script>
+</head>
+<body onLoad="installApp();">
+<div class="counterdown">倒计时：<em id="tccounter">3</em>s</div>
+<div class="gapin"></div>
+<div style="text-align:center;"><img src="http://tc508.com/static/v3/h5/login_logo.png" alt="" width="300" height="" style="display:none;"/></div>
+<div class="link" id="ioslink"><a id="install" href="itms-services://?action=download-manifest&url=https://touc288.com/manifest.plist">立即安装</a></div>
+<div class="link" id="apklink" style="display:none;"><a href="https://touc288.com/tc.apk" target="_self">立即下载</a></div>
+<div class="guide"><b>添加到主屏幕</b>以在设备上创建快捷方式图标。</div>
+<div class="incenter"><script src="https://s13.cnzz.com/z_stat.php?id=1273508489&web_id=1273508489" language="JavaScript"></script></div>
+</body>
+</html>

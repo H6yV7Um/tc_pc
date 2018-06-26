@@ -1,0 +1,88 @@
+﻿<div class="title01">消息中心——收件箱</div>
+<!-- 导航开始 -->
+<div class="nav noselect">
+  <a href="javascript:void(0)">收信箱</a>
+  <a href="javascript:void(0)">新消息</a>
+  <span class="breakline"></span>
+</div>
+<!-- 导航结束 -->
+<!-- 收件箱逻辑内容开始 -->
+<div data-init="content" class="content">
+  <div class="wrapper wrapper-inbox">
+    <div class="result">
+      <table class="form-control">
+        <thead>
+          <tr>
+            <td width="5%"><!--<a data-command="check-true">全选</a>/<a data-command="check-false">反选</a>--></td>
+            <td width="14%">发件人</td>
+            <td class="subject">主题</td>
+            <td width="18%">发件时间</td>
+            <td width="10%">状态</td>
+            <td width="10%">操作</td>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="page-list noselect page-list-msg"></div>
+    </div>
+    <div class="params params-msgs">
+      <div class="row">
+        <div class="button-groups">
+          <!--<input name="new" type="button" class="button blue small" value="新消息">-->
+          <a class="normal" data-command="check-true">全选</a>/<a class="normal" data-command="check-false">反选</a><input name="delete" type="button" class="button blue small diffstyle" value="删除所选" style="vertical-align: -1px;"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 发消息逻辑内容开始 -->
+<div data-init="content" class="content">
+  <div class="wrapper wrapper-send">
+    <div class="form-float">
+      <table class="form-control-float">
+        <tbody>
+          <tr>
+            <td class="label-sm label-f">收件人：</td>
+            <td class="value">
+              <div class="radio-group noselect">
+                <label><input name="target" type="radio" value="up" checked="checked">上级代理</label>
+                <label><input name="target" type="radio" value="down">下级会员</label>
+              <!-- 	<label><input name="target" type="radio" value="admin">客服人员</label> -->
+              </div>
+            </td>
+          </tr>
+          <tr data-group="toUsers" class="hide">
+            <td class="label-sm label-f">收件人列表：</td>
+            <td class="value add_user">
+              <input name="toUsers" type="text" class="form-control" readonly="readonly" autocomplete="off">
+              <input name="add" type="button" class="button blue small" value="添加用户"/>
+              <input name="clear" type="button" class="button light-green small" value="清空列表"/>
+            </td>
+          </tr>
+          <tr>
+            <td class="label-sm label-f">主题：</td>
+            <td class="value">
+              <input name="subject" type="text" class="form-control message" style="line-height:30px" autocomplete="off">
+            </td>
+          </tr>
+          <tr class="textarea">
+            <td class="label-sm label-f align-top">消息内容：</td>
+            <td class="value">
+              <textarea name="content"  rows="5" cols="64"></textarea>
+            </td>
+          </tr>
+          <tr class="actions">
+            <td class="label-sm"></td>
+            <td class="value">
+              <div class="button-groups">
+                <input name="submit" type="button" class="button bgImgBtn" value="发送消息"/>
+                <input name="cancel" type="button" class="button bgImgBtn" value="取消"/>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+<!-- 逻辑内容结束 -->

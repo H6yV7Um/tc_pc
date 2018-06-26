@@ -1,0 +1,1230 @@
+<div class="title01">财务中心——充值</div>
+<!-- 菜单开始 -->
+<div class="menu noselect">
+	<a href="${ctx}/hbs/manager-finance" class="active"><i class="funds"></i>财务中心</a>
+	<a href="account/index.html"><i class="account"></i>个人中心</a>
+	<a href="proxy/account.html" data-visible="proxy"><i class="proxy"></i>代理中心</a>
+	<a href="report/main.html"><i class="report"></i>报表中心</a>
+	<a href="message/inbox.html"><i class="message"></i>消息中心</a>
+</div>
+<!-- 菜单结束 -->
+<!-- 导航开始 -->
+<div class="nav noselect">
+	<a href="javascript:void(0)">存款</a>
+	<a href="javascript:void(0)">提款</a>
+	<a href="javascript:void(0)">转账</a>
+	<a href="javascript:void(0)">存款记录</a>
+	<a href="javascript:void(0)">提款记录</a>
+	<a href="javascript:void(0)">转账记录</a>
+	<a href="javascript:void(0)" id="testdeposit" style="display:none;">充值(new)</a>
+	<span class="breakline"></span>
+</div>
+
+<!-- 转账部分 -->
+<link rel="stylesheet" href="/static/v3/css/deposit_v2.css"></link>
+<style media="screen">
+	.manager .content .recharge-form .onlinepay-details > .pay-info > .value a {
+		background: #ff6977;
+		color: #fff;
+		height: 20px;
+		padding: 0 8px;
+		line-height: 20px;
+		border-radius: 6px;
+		/* margin-top: 10px; */
+		margin-left: 30px;
+	}
+	
+	.manager .content .recharge-form div.pay-amountTips {
+		line-height: 20px;
+		background: rgba(0, 0, 0, 0);
+		border: 0;
+		padding: 0;
+		color: #f00;
+	}
+	
+	.manager .content .recharge-form div.bank-list {
+		padding-top: 0px;
+		margin-top: 15px;
+	}
+	
+	div.manager .content .recharge-form .onlinepay-details {
+		padding: 20px 50px;
+	}
+	
+	.common-confirm .jBox-content .msg, .common-alert .jBox-content .msg {
+		width: 100%;
+		margin-left: 0;
+		text-align: center;
+	}
+	
+	.common-confirm .jBox-Confirm-footer .jBox-Confirm-button > i.icon, .common-alert .jBox-Confirm-footer .jBox-Confirm-button > i.icon {
+		display: none;
+	}
+	
+	.manager .content .recharge-form .onlinepay-details > .bank-info > .bank-list {
+		margin-top: 0;
+	}
+	
+	.pay-info div {
+		float: left;
+	}
+	
+	.pay-type {
+		display: none;
+	}
+	
+	.manager .content .recharge-form div.pay-type {
+		/* margin-left: 80px; */
+	}
+	
+	.manager .content .recharge-form .pay-step, .manager .content .recharge-form .help-tips, .manager .content .recharge-form .bank-list {
+		margin-left: 0;
+	}
+	
+	.sildeTab {
+		position: absolute;
+		top: -165px;
+		right: -245px;
+		width: 300px;
+		height: 490px;
+	}
+	
+	.manager .content .recharge-form div.help-tips {
+		width: 758px;
+	}
+	
+	.sildeTab p {
+		width: 100%;
+		color: #333;
+		font-size: 16px;
+		text-align: center;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+	}
+	
+	.sildeTabl {
+		cursor: pointer;
+		position: absolute;
+		width: 30px;
+		height: 30px;
+		top: 40%;
+		left: 0;
+		background-image: url(/static/v3/images/img/prev.png);
+	}
+	
+	.sildeTabr {
+		cursor: pointer;
+		position: absolute;
+		width: 30px;
+		height: 30px;
+		top: 40%;
+		right: 0;
+		background-image: url(/static/v3/images/img/next.png);
+	}
+	
+	.manager .content .recharge-form div.pay-type > label img {
+		display: block;
+		margin: 0 auto;
+	}
+	
+	.manager .content .recharge-form div.pay-type > label {
+		color: #333;
+		text-align: center;
+	}
+	
+	.sildeTabMain {
+		width: 230px;
+		position: absolute;
+		left: 12%;
+		overflow: hidden;
+		height: 460px;
+	}
+	
+	.sildeTabMain ul li {
+		float: left;
+	}
+	
+	.sildeTabMain ul {
+		width: 1160px;
+		position: absolute;
+		left: 0;
+		top: 0;
+		display: none;
+	}
+	
+	.userFinanceMain {
+		box-shadow: 0px 0px 10px #ccc;
+	}
+	
+	.manager .content .recharge-form div.pay-amount {
+		position: static;
+		
+	}
+	
+	.content .recharge-form .labels {
+		font-size: 15px;
+		color: #333;
+		display: inline-block;
+		text-indent: 10px;
+		/* border-left: 2px solid #00af64; */
+		border: 0;
+		
+	}
+	
+	.manager .content .recharge-form .transfers-details > table > tbody > tr > td.label {
+		text-align: center;
+		padding: 0;
+		font-size: 12px;
+	}
+	
+	.manager .content .recharge-form .transfers-details > table {
+		width: 95%;
+	}
+	
+	.manager .content .recharge-form .two .transfers-details > .bank-info > .bank-list {
+		margin: 0;
+	}
+	
+	.manager .content .recharge-form .transfers-details > .bank-info > .labelss {
+		height: 20px;
+		line-height: 20px;
+		border: 0;
+		font-size: 14px;
+		margin-left: 30px;
+		margin-top: 18px;
+	}
+	
+	.ercodeImg {
+		border: 1px solid #ccc;
+		background: #fff;
+		width: 293px;
+		height: 350px;
+		margin-left: 0px;
+		border-radius: 8px;
+		padding: 10px;
+		margin-bottom: 15px;
+	}
+	
+	.ercodeImg p {
+		width: 100%;
+		text-align: center;
+	}
+	
+	.ercodeImg > div {
+		width: 115px;
+		text-align: center;
+		margin-top: 108px;
+		margin-left: 22px;
+	}
+	
+	.ercodeImg > img {
+		width: 270px;
+		height: 335px;
+	}
+	
+	.manager .content .recharge-form .transfers-details > table > tbody > tr > td.value > a.copy {
+		background: #ff6977;
+		color: #fff;
+		height: 20px;
+		padding: 0 8px;
+		line-height: 20px;
+		border-radius: 6px;
+		margin-top: 10px;
+	}
+	
+	.manager .button-groups .button.blue, .manager .content .recharge-form .button-groups > .blue {
+		background: #00af64;
+	}
+	
+	.manager .content .recharge-form .button-groups > .big {
+		height: 40px;
+		line-height: 40px;
+	}
+	
+	.manager .content .recharge-form .button-groups {
+		margin-left: 0;
+	}
+	
+	.manager .content .recharge-form .transfers-details {
+		width: 95%;
+		border-bottom: 0;
+		border-left: 0;
+		border-right: 0;
+	}
+	
+	.manager .content .recharge-form .transfers-details > .text {
+		text-align: left;
+		/* border-left: 2px solid #00af64; */
+		border: 0;
+		padding: 0;
+		padding-left: 8px;
+		height: 20px;
+		line-height: 20px;
+		margin-left: 0;
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+	
+	.manager .content .recharge-form .pay-amount > div.label:nth-child(1) {
+		float: left;
+		height: 20px;
+		line-height: 20px;
+		margin-top: 12px;
+	}
+	
+	.manager .content .recharge-form .transfers-details {
+		padding: 0;
+	}
+	
+	.manager .content .recharge-form .labeltxt {
+		color: #ff6977;
+		margin-left: 0px;
+	}
+	
+	.noticeTxt {
+		margin-left: 0;
+		color: #898989;
+		line-height: 30px;
+	}
+	
+	.noticeTxt span {
+		color: #ff6977;
+	}
+	
+	.manager .content .recharge-form .pay-amount > .label2 {
+		font-size: 15px;
+		color: #333;
+		display: inline-block;
+		text-indent: 10px;
+		float: left;
+		
+	}
+	
+	.manager .content .recharge-form .pay-amount > input[type="text"].form-control {
+		float: left;
+		margin-top: 7px;
+		/* margin-left: 15px; */
+	}
+	
+	.manager .content .recharge-form .pay-amount > .label > ul {
+		margin-left: 15px;
+		border-right: 1px solid #e9e9e9;
+		cursor: pointer;
+	}
+	
+	.manager .content .recharge-form .pay-amount > .label > ul li:nth-child(1) {
+		background: #61c285;
+		border-top-left-radius: 6px;
+		border-bottom-left-radius: 6px;
+		color: #fff;
+	}
+	
+	.manager .content .recharge-form .pay-amount > .label > ul li:nth-child(2) {
+		background: #61c285;
+		border-top-right-radius: 6px;
+		border-bottom-right-radius: 6px;
+		color: #fff;
+		margin-right: 15px;
+	}
+	
+	.manager .content .recharge-form .pay-amount > .label > ul li:nth-child(3) {
+		background: #3bc1ff;
+		border-top-left-radius: 6px;
+		border-bottom-left-radius: 6px;
+		color: #fff;
+	}
+	
+	.manager .content .recharge-form .pay-amount > .label > ul li:nth-child(4) {
+		background: #3bc1ff;
+		border-top-right-radius: 6px;
+		border-bottom-right-radius: 6px;
+		color: #fff;
+	}
+	
+	.manager .content .recharge-form .pay-amount > .label > ul li {
+		float: left;
+		text-indent: 0;
+		line-height: 36px;
+		border: 1px solid #e9e9e9;
+		border-right: 0;
+		margin-top: 6px;
+		width: 80px;
+		text-align: center;
+	}
+	
+	.clearfix:after, .clearfix:before {
+		content: " ";
+		display: table;
+		clear: both;
+	}
+	
+	label .redius {
+		width: 15px;
+		height: 15px;
+		border-radius: 50%;
+		border: 1px solid #ccc;
+		background: #fff;
+		margin: 0 auto;
+	}
+	
+	label .redius div {
+		width: 7px;
+		height: 7px;
+		background: #ccc;
+		border-radius: 50%;
+		margin: 3px auto;
+	}
+	
+	label.active .redius {
+		border: 1px solid #ff6977;
+	}
+	
+	label.active .redius div {
+		background: #ff6977;
+	}
+	
+	.manager .content .recharge-form div.pay-type > label.active, .manager .content .recharge-form div.pay-type > label {
+		background: #fff;
+	}
+	
+	.manager .content .recharge-form div.pay-type > label.active {
+		color: #333;
+	}
+	
+	@font-face {
+		font-family: 'iconfont';
+		src: url('/static/fonts/iconfont.eot');
+		src: url('/static/fonts/iconfont.eot?#iefix') format('embedded-opentype'),
+		url('/static/fonts/iconfont.woff') format('woff'),
+		url('/static/fonts/iconfont.ttf') format('truetype'),
+		url('/static/fonts/iconfont.svg#iconfont') format('svg');
+	}
+	
+	.fonts {
+		font-family: "iconfont" !important;
+		font-size: 16px;
+		font-style: normal;
+		-webkit-font-smoothing: antialiased;
+		-webkit-text-stroke-width: 0.2px;
+		-moz-osx-font-smoothing: grayscale;
+	}
+	
+	.pay-typeTab > div > div i {
+		font-size: 22px;
+		position: relative;
+		top: 4px;
+	}
+	
+	.pay-typeTab > div > div {
+		padding: 2px 10px 6px 10px;
+		background: #fff;
+		line-height: 20px;
+		color: #333;
+		border: 1px solid #ccc;
+		margin-left: 15px;
+		margin-right: 15px;
+		border-radius: 4px;
+	}
+	
+	.pay-typeTab > div > div.on {
+		background: #ff6977;
+		border: 1px solid #ff6977;
+		color: #fff;
+	}
+	
+	.manager .content .recharge-form .help-tips {
+		background: #fff;
+		border: 0;
+	}
+	
+	div.manager .content .recharge-form .pay-step {
+		padding: 0;
+		margin: 0;
+		height: 0;
+	}
+	
+	.manager .content .recharge-form .transfers-details {
+		border: 0;
+	}
+</style>
+<!-- 逻辑内容1充值开始 -->
+<div data-init="content" class="content deposit">
+	<div class="wrapper">
+		
+		<div class="recharge-form" style="margin: 0 auto;width:750px;">
+			<!-- 选择充值方式 -->
+			<div class="pay-typeTab clearfix" style="width:100%;margin-bottom:15px;">
+				<div class="label fl labels" style="margin-top:3px;">充值方式：</div>
+				<div class="cursor paytypeTabs clearfix fl" style="font-size:14px;">
+					
+					<div vel="2" class="fl paytypeTabs3 on">
+						<i class="fonts">&#xe6d7;</i>
+						在线支付
+					</div>
+					<div class="fl paytypeTabs1">
+						<i class="fonts">&#xe6d6;</i>
+						转账
+					</div>
+					<!--<div class="fl paytypeTabs4">
+						<i class="fonts">&#xe6e5;</i>
+						快速支付
+					</div>-->
+					<div vel="1" class="fl paytypeTabs2">
+						<i class="fonts">&#xe6d5;</i>
+						扫码(微信/QQ/手机银行)
+					</div>
+				</div>
+			</div>
+			<div class="pay-type pay-type0 clearfix">
+				<!-- <label><input name="payType" type="radio" value="0"> 网银转账</label>
+				<label><input name="payType" type="radio" value="1"> 快捷支付</label> -->
+			</div>
+			<div class="pay-type pay-type1 clearfix">
+				<!-- <label><input name="payType" type="radio" value="0"> 网银转账</label>
+				<label><input name="payType" type="radio" value="1"> 快捷支付</label> -->
+			</div>
+			<div class="pay-type pay-type2 clearfix">
+				<!-- <label><input name="payType" type="radio" value="0"> 网银转账</label>
+				<label><input name="payType" type="radio" value="1"> 快捷支付</label> -->
+			</div>
+			<!-- 转账汇款 -->
+			<div class="section hide">
+				<!-- 第一步 -->
+				<div data-step="one" class="step-panel one" style="display:none;">
+					<form method="post" target="_black">
+						<input name="pid" type="hidden"/>
+						<div class="bank-list" style="display:none;"></div>
+						<!-- <div class="help-tips">充值限时：请在15分钟内完成充值。</div> -->
+						<div class="ercodes">
+							<div class="pay-amount ">
+								<div class="label labels firsttxt">第一步：打开【手机银行】或【云闪付APP】，扫描下方二维码<span style="color:#ff6977;"></span>
+								</div>
+								<!-- <input name="amount" type="text" class="form-control input accoumtkev" style="height:35px;line-height:33px;" placeholder="请输入充值金额" autocomplete="off"/> -->
+								
+								
+								<!-- <div class="help-tips pay-amountTips">尊敬的会员：因应微信转帐手续上的处理，充值金额会有额外一元以内的浮动，若造成不便还请见谅。</div> -->
+							</div>
+							<div class="ercodeImg clearfix">
+								<img src="/static/v3/images/img/qq.png" class="fl" alt="">
+							</div>
+							<div style="clear:both;"></div>
+							<!-- <div class="label labels secondtxt">支付成功后，填写您的转帐资料，然后提交（<span style="color:#ff6977;">金额后面加零头,到账更快,如100.2元</span>）</div> -->
+							<!-- <div class="pay-amount " style="margin-top:10px;">
+								<div class="label labels" style="border:0; font-size:14px;">输入金额</div>
+								<input name="amount" type="text" class="form-control input accoumtkev" style="margin-left:15px;height:35px;line-height:33px;" placeholder="请输入充值金额" autocomplete="off"/>
+								<div class="label label2 ">
+									<ul class="clearfix controLibtn">
+										<li vel="100">+100</li>
+										<li vel="1000">+1000</li>
+										<li vel="0.1">+0.1</li>
+										<li vel="0.5">+0.5</li>
+									</ul>
+								</div>
+
+							</div> -->
+						</div>
+						<div class="pay-amount notercode">
+							<div class="label labels">充值金额：</div>
+							<input name="amount" type="text" class="form-control input accoumtkev"
+										 style="height:35px;line-height:33px;" placeholder="请输入充值金额" autocomplete="off"/>
+							<div class="label label2 " style="display:none;">
+								<ul class="clearfix controLibtn">
+									<li vel="100">+100</li>
+									<li vel="1000">+1000</li>
+									<li vel="0.1">+0.1</li>
+									<li vel="0.5">+0.5</li>
+								</ul>
+							</div>
+							
+							<!-- <div class="help-tips pay-amountTips">尊敬的会员：因应微信转帐手续上的处理，充值金额会有额外一元以内的浮动，若造成不便还请见谅。</div> -->
+						</div>
+						<div class="clear" style="clear:both"></div>
+						<!-- <div class="label labeltxt " width="width:100%;">（单笔限额为<span data-field="min-amount">0.0</span> ~ <span data-field="max-amount">0.0</span>元）</div> -->
+						<div class="label labeltxt" width="width:100%;">*&nbsp;&nbsp;&nbsp;单笔限额为 : <span
+								class="labeltxtMin">5</span> ~ <span class="labeltxtMax">5</span> 元
+						</div>
+						<div class="label labeltxt onlynotalipay" width="width:100%;display:none;">
+							*&nbsp;&nbsp;&nbsp;为<span>更快到帐</span> ,填写金额后，系统会为您随机生成小数点后两位（例如：100.12），请您按照系统生成的金额转账。
+						</div>
+						<div class="label labeltxt onlyqr" width="width:100%;display:none;">*&nbsp;&nbsp;&nbsp;请在“添加备注”内填写会员帐号，以免延迟到账；</div>
+						
+						<div class="clear" style="clear:both"></div>
+						<div class="pay-fuyan mt20 " id="payfuyan">
+							<div class="label"
+									 style="margin-left:10px;font-size:15px;display:inline-block;width:70px;text-align:right;"><span
+									class="thirdparty_name">附言（支付宝姓名）</span>：
+							</div>
+							<input name="fuyan" type="text" style="width:300px;height:35px;"
+										 class="form-control input thirdparty_fuinput" placeholder="附言内容" autocomplete="off"/>
+							<div class="label" style="color:red;font-size:14px;margin-left:10px;display:none;">请一定要输入正确的<span
+									class="thirdparty_name">支付宝姓名</span>，否则无法到帐
+							</div>
+						</div>
+						<div class="button-groups">
+							<input name="next" type="button" class="button big" value="下一步"/>
+							<!-- <span class="label" id="transhelp" org="每日23点50分至0点10分 之间使用该充值方式，会导致到账延迟，请合理避开此时间段；具体到账时间以银行时间为准。" style="color:red;font-size:15px;margin-left:15px;">每日23点50分至0点10分 之间使用该充值方式，会导致到账延迟，请合理避开此时间段；具体到账时间以银行时间为准。</span> -->
+						</div>
+						<ul class="noticeTxt">
+							<li>*&nbsp;&nbsp;&nbsp;充值时限: 请在15分钟内完成充值</li>
+							<li class="allqrcodehelp">*&nbsp;&nbsp;&nbsp;每日23点50分至0点10分 之间使用该充值方式，会导致到账延迟，请合理避开此时间段。具体到账时间以银行时间为准</li>
+						</ul>
+					</form>
+				
+				</div>
+				<!-- 第二步 -->
+				<div data-step="two" class="step-panel two" style="display:block;">
+					<div class="transfers-details">
+						<!-- <div class="welcometxt text" org="尊敬的客户您好，请根据以下信息进一步完成您的存款（如：以充值成功，请点击下方【完成】按钮确认存款）">尊敬的客户您好，请根据以下信息进一步完成您的存款（如：以充值成功，请点击下方【完成】按钮确认存款）</div> -->
+						<div class="bank-info">
+							<div class="label labelss" style="margin-left:12px;">银行：</div>
+							<div class="bank-list"><a class="item b1" data-code="00004"></a></div>
+							<!-- <div class="show-qr "><img src="" class="qrnow" alt="" width="auto" height="400" /></div> -->
+							<!--<div class="label"><a data-field="link" target="_black">（点击打开官方网址）</a></div>-->
+						</div>
+						<div class="qrrepeat" style="display:none;">
+							<div class="ercodeImg"><img src="images/" class="" alt="" width="227" height="335"/></div>
+						</div>
+						<table>
+							<!-- <tbody>
+								<tr>
+									<td class="label">订单编号：</td>
+									<td class="value" data-field="billno">加载中...</td>
+
+								</tr>
+								<tr>
+									<td class="label">姓名：</td>
+									<td class="value"><span data-field="cardName">加载中...</span><a rel="cardName" data-clipboard-text="" class="copy cancopy">复制</a></td>
+									<td class="label">存入金额：</td>
+									<td class="value"><span data-field="amount">0.0</span><a rel="amount" data-clipboard-text="" class="copy cancopy">复制</a></td>
+								</tr>
+								<tr>
+									<td class="label">账号：</td>
+									<td class="value"><span data-field="cardId">加载中...</span><a rel="cardId" data-clipboard-text="" class="copy cancopy">复制</a></td>
+									<td class="label needhide">附言：</td>
+									<td class="value needhide"><span data-field="postscript">加载中...</span><a rel="postscript" data-clipboard-text="" class="copy cancopy">复制</a></td>
+								</tr>
+							</tbody> -->
+							<tbody>
+							<tr>
+								<td class="label">订单编号：</td>
+								<td class="value" data-field="billno">加载中...</td>
+								<td class="label">存入金额：</td>
+								<td class="value bigredval"><span data-field="amount" style="font-size:25px;color:red;font-weight:500;">0.0</span><a
+										rel="amount" data-clipboard-text="" class="copy cancopy">复制</a></td>
+							</tr>
+							<tr>
+								<td class="label">姓名：</td>
+								<td class="value"><span data-field="cardName">加载中...</span><a rel="cardName" data-clipboard-text=""
+																																							class="copy cancopy">复制</a></td>
+								<td class="label">账号：</td>
+								<td class="value"><span data-field="cardId">加载中...</span><a rel="cardId" data-clipboard-text=""
+																																						class="copy cancopy">复制</a></td>
+							</tr>
+							</tbody>
+						</table>
+						<div class=" text" org="">为更快到帐 ,请您按照系统生成的“存入金额”转账</div>
+						<div class=" text" org="请把您的会员账号填写到转账附言或者备注，再进行转账。如果填写有误，将会导致到账延迟。">
+							请把您的会员账号填写到转账附言或者备注，再进行转账。如果填写有误，将会导致到账延迟。
+						</div>
+						<div class=" text onloytxt" org="官方会不定时更换收款银行卡信息，请核实正确的转账信息之后，再进行转账操作，如果造成损失，需要自行承担。">
+							官方会不定时更换收款银行卡信息，请核实正确的转账信息之后，再进行转账操作，如果造成损失，需要自行承担。
+						</div>
+						<!-- <div class="text">
+							<div class="title">充值注意事项：</div>
+							<div>1、<span class="firsthelp">操作支付宝直接转到我们银行卡账户时，输入银行卡信息和转账金额后，<span style="color:red;font-weight:400;">必须将上面附言中的内容填写到支付宝转账页面的留言或备注中，再转账，如果填写有误，将会导致到账延迟。</span></span></div>
+							<div>2、单笔最低充值金额为50元，最高限额以转账方限额为准；</div>
+							<div>3、转账充值一次，仅需进入该页面一次；</div>
+							<div>4、平台收款卡“不定时”更换，请玩家每次转账前在本页面查看银行账号后操作转账，如充值过期或停用账户造成损失需自行承担。</div>
+							<div>5、建议使用“同行转账”即可即时到账，如果使用“跨行转账”请选择“跨行快汇”或“加急业务”，这样您的存款可以在1分钟之内到账</div>
+							<div class="lastwechat" style="display:none;">6、为了更快速为您充值到账，请不要汇款整数金额，请一定按照我们为您提供的 存入金额进行入款，谢谢合作。</div>
+						</div> -->
+					</div>
+					<div class="button-groups">
+						<input name="back" type="button" class="button" value="上一步"/>
+						<!-- <input name="record" type="button" class="button blue" value="完成 "/> -->
+						<!--<input name="transfers" type="button" class="button" value="前往转账中心 "/>-->
+						<a href="#page=3_finance"><input name="" type="button" class="button blue" value="确定提交订单"/></a>
+					</div>
+					
+					<div class="sildeTab">
+						<div class="sildeTabl"></div>
+						<div class="sildeTabr"></div>
+						<div class="sildeTabMain">
+							<ul class="clearfix paytab">
+								<li>
+									<img src="/static/v3/images/img/z1.png" alt="">
+								</li>
+								<li>
+									<img src="/static/v3/images/img/z2.png" alt="">
+								</li>
+								<li>
+									<img src="/static/v3/images/img/z3.png" alt="">
+								</li>
+								<li>
+									<img src="/static/v3/images/img/z4.png" alt="">
+								</li>
+							</ul>
+							<ul class="clearfix wxtab">
+								<li>
+									<img src="/static/v3/images/img/v1.png" alt="">
+								</li>
+								<li>
+									<img src="/static/v3/images/img/v2.png" alt="">
+								</li>
+								<li>
+									<img src="/static/v3/images/img/v3.png" alt="">
+								</li>
+								<li>
+									<img src="/static/v3/images/img/v4.png" alt="">
+								</li>
+								<li>
+									<img src="/static/v3/images/img/v5.png" alt="">
+								</li>
+							</ul>
+						</div>
+						<p class="sildeTabMainTxt">充值教程</p>
+					</div>
+				</div>
+			
+			</div>
+			<script type="text/javascript">
+          // setTimeout(function(){
+          //   $('.section .one').hide();
+          //   $('.section .two').show();
+          // },2000)
+			</script>
+			<!-- 第三方充值 -->
+			<div class="section hide">
+				<div class="pay-step">
+					<table class="form-control" style="display:none;width:0;height:0;overflow:hidden;">
+						<tbody>
+						<tr>
+							<td class="current"><i class="dotball">1</i>选择银行并输入金额
+								<div class="mask"></div>
+								<div class="triangle"></div>
+							</td>
+							<td><i class="dotball">2</i>确认充值信息
+								<div class="mask"></div>
+								<div class="triangle"></div>
+							</td>
+							<td><i class="dotball">3</i>登录网上银行汇款
+								<div class="mask"></div>
+								<div class="triangle"></div>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- 第一步 -->
+				<div data-step="one" class="step-panel">
+					<form method="post" target="_black">
+						<input name="text" type="hidden"/>
+					</form>
+					<input name="pid1" type="hidden"/>
+					<input name="bankco1" type="hidden"/>
+					<div class="bank-list"></div>
+					<div class="help-tips">温馨提示：请您在15分钟内完成充值</div>
+					<div class="pay-amount">
+						<div class="label">充值金额：</div>
+						<input name="amount1" id="thirdam_input" type="text" class="form-control input" style="height:35px;line-height:33px" placeholder="请输入充值金额" autocomplete="off"/>
+            <div class="limitgroup needshow need205" style="display:none;"><select name="controlmoney" id="mychg">
+              <option value="50" selected="selected">50</option>
+              <option value="100">100</option>
+              <option value="150">150</option>
+              <option value="200">200</option>
+              <option value="300">300</option>
+              <option value="500">500</option>
+              <option value="700">700</option>
+              <option value="1000">1000</option>
+              <option value="1500">1500</option>
+              <option value="2000">2000</option>
+              <option value="2500">2500</option>
+              <option value="3000">3000</option>
+              <option value="3500">3500</option>
+              <option value="4000">4000</option>
+              <option value="5000">5000</option>
+            </select></div>
+						<div class="label">（单笔限额为<span data-field="min-amount">0.0</span> ~ <span data-field="max-amount">0.0</span>元）
+						</div>
+					</div>
+					<div class="button-groups">
+						<input name="next" type="button" class="button big" value="下一步"/>
+					</div>
+				</div>
+				<!-- 第二步 -->
+				<div data-step="two" class="step-panel">
+					<div class="onlinepay-details">
+						<div class="text">尊敬的客户您好，请根据以下信息进一步完成您的存款</div>
+						<div class="bank-info">
+							<div class="label">银行：</div>
+							<div class="bank-list"><a class="item b1" data-code="00004"></a></div>
+						</div>
+						<div class="pay-info">
+							<div class="label">充值金额：</div>
+							<div class="value">¥ <span data-field="amount">0.0</span> 元<a rel="amount" data-clipboard-text=""
+																																						class="copy cancopy">复制</a></div>
+						</div>
+						
+						<div class="pay-info">
+							<div class="label">订单编号：</div>
+							<div class="value"><span data-field="billno">加载中...</span></div>
+						</div>
+					</div>
+					<div class="button-groups">
+						<input name="back" type="button" class="button" value="返回从新选择"/>
+						<input name="redirect" type="button" class="button big blue"
+									 style="height:32px;font-size:15px;line-height:32px;" value="进入第三方支付付款"/>
+						<input name="game" type="button" class="button" value="进入游戏 "/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="wrapper hide">
+		<div style="font-size: 18px;">抱歉，平台充值已关闭！</div>
+	</div>
+</div>
+<!-- 逻辑内容1充值结束 -->
+<!-- 逻辑内容2提现开始 -->
+<div data-init="content" class="content withdraw" style="padding:0 15px;">
+	<div class="wrapper hide">
+		<div class=" clearfix">
+			<ul class="withdraw_card" data-field="card-list"></ul>
+			<a href="/userCenter#bandCard" class="clearfix ddcolorY bgcolorA usercenterMmain_CardLi fl cursor ml15"
+				 style="width:220px; padding: 12px 0;margin-top:10px;display:block;text-align: center;">
+				<b>添加银行卡</b>
+			</a>
+		</div>
+		<p class="" style="padding-top:15px;">&nbsp;可提现金额:<span data-field="money" class="text-money">加载中...</span></p>
+		<table class="form-control-floa  form-control-floatererl" style="width:660px;">
+			<tbody>
+			<tr>
+				<td class="" style="width:100px; text-align:center;padding-top: 15px;">提现金额:</td>
+				<td class="value" style="text-align:left;padding-top: 15px;width:750px;"><input type="text" name="amount"
+																																												class="form-control input  "
+																																												autocomplete="off"
+																																												style="width:50%;margin:0 10px;height:40px;"><span
+						class="help-inline">元<b style="font-size:12px;color:#f00;">（单次提现金额<i data-field="minUnitAmount"></i>-<i
+						data-field="maxUnitAmount"></i>元）</b></span></td>
+			</tr>
+			<tr>
+				<td class="" style="width:100px;text-align:center;padding-top: 15px;">资金密码:</td>
+				<td class="value" style="text-align:left;padding-top: 15px;width:750px;"><input type="password"
+																																												name="withdrawPwd"
+																																												class="form-control input  "
+																																												style="width:50%;margin:0 10px;height:40px;"><span
+						class="help-inline"></span></td>
+			</tr>
+			<tr>
+				<td class="" style="width:100px;text-align:right;padding-top: 15px;"></td>
+				<td class="" style="width:85px;text-align:left;padding-top: 15px;width:750px;"><input name="submit"
+																																															style="width:17%;margin:0 10px;height:45px;"
+																																															type="button"
+																																															class="button apply_deposit w-260 bgImgBtn1"
+																																															value="申请提现"/></td>
+			</tr>
+			</tbody>
+		</table>
+		
+		<div class="form" style="display:none;">
+			<table class='w-tbd' style="margin-bottom: 30px;">
+				<tr>
+					<td>账户总额</td>
+					<td colspan="3"><span class='w-data1' data-field="total">0.00</span>元</td>
+				</tr>
+				<tr>
+					<td>可提金额</td>
+					<td><span class='w-data3' data-field="money">0.00</span>元</td>
+					<td>彩票所需消费量</td>
+					<td><span class='w-data2' data-field="lotteryLimitAmount">0.00</span>元</td>
+				</tr>
+				<tr>
+					<td>取款时间(24小时制)</td>
+					<td><span class='w-data5' data-field="serviceTime">00:00:00 ~ 23:59:59</span></td>
+					<td>单笔限额</td>
+					<td><span data-field="minUnitAmount">0.0</span> - <span data-field="maxUnitAmount">0.0</span>元</td>
+				</tr>
+				<tr>
+					<td>今日已提金额</td>
+					<td><span data-field="dailyAmount">0.00</span>元</td>
+					<td>今日已提次数</td>
+					<td><span data-field="dailyCount">0</span>次</td>
+				</tr>
+				<tr>
+					<td>每日限制金额</td>
+					<td><span data-field="maxDailyAmount">0.00</span>元</td>
+					<td>每日限制次数</td>
+					<td><span data-field="maxDailyCount">0</span>次</td>
+				</tr>
+				<tr class="aboutfee">
+					<td>每日免手续费次数</td>
+					<td colspan="3"><span class='w-data8' data-field="feeRateTimes">0</span></td>
+				</tr>
+				<tr class="aboutfee">
+					<td>手续费说明</td>
+					<td colspan="3">提款金额 * <span class='w-data8' data-field="feeRate">0</span>%，最小手续费 <span class='w-data9'
+																																																	data-field="feeRateMin">1</span>元，最高上限是25元。
+						<!--<span class='w-data10' data-field="maxFee">25</span>元--></td>
+				</tr>
+			</table>
+			<br/>
+		</div>
+	</div>
+	<div class="wrapper hide">
+		<div class="tips f16">您还没有设置资金密码 <a href="/userCenter#bandCard">点击立即设定</a></div>
+	</div>
+	<div class="wrapper hide">
+		<div class="tips f16">您还没有绑定银行卡 <a href="/userCenter#bandCard">点击立即绑定</a></div>
+	</div>
+</div>
+<!-- 逻辑内容2提现结束 -->
+
+<!-- 逻辑内容3转账开始 --><!--个人中心转账-->
+<div data-init="content" class="content transfer transfer_money">
+	<div class=" mt10 TransferAccount bgcolorA " style="margin:30px auto;">
+		<div class=" clearfix accontMain  bdrdbom6 relative">
+			<div class="accontMainBox ft14 color9 clearfix txtl">
+				<select class="fl bgcolofJ bdc colorlb ft14 mr10" data-type="static-bigger"
+								name="fromacc">
+					<option value="sobet_01" selected="selected">主账户</option>
+					<option value="agin_01">agin钱包</option>
+					<option value="im_01">im钱包</option>
+					<option value="ky_01">ky钱包</option>
+				</select>
+			</div>
+			
+			<div class="accontMainBox ft14 color9 clearfix txtl mt15">
+				<select class="fl bgcolofJ bdc colorlb ft14 mr10" data-type="static-bigger"
+								name="toacc">
+					<option value="sobet_01">主账户</option>
+					<option value="ky_01" selected="selected">ky钱包</option>
+					<option value="agin_01">agin钱包</option>
+					<option value="im_01">im钱包</option>
+				</select>
+			</div>
+			<div class="accontMainBox accontMainBox2 ft14 color9 clearfix txtl mt15">
+				<input class="fl bgcolofJ bdc colorlb ft14 mr10" type="text" name="amount" value=""
+							 placeholder="请输入转账金额">
+			</div>
+			
+			<div class="accontMainBox accontMainBox2 ft14 color9 clearfix txtl mt15">
+				<input class="fl bgcolofJ bdc colorlb ft14 mr10" type="password" name="financial_psw" value=""
+							 placeholder="请输入资金密码">
+			</div>
+			<div class="" style="width: 100%;height:35px;"></div>
+			<a class="accontMainBtn colorA ft16 cursor inputlineBtn bgImgBtn1" @click="openFunds">确认转入</a>
+			<div class="TransferAccountImg transfer_img">
+				<div class="first_acount">余额：<span></span></div>
+				<div class="sec_acount">余额：<span></span></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 逻辑内容3转账结束 -->
+
+
+<!-- 逻辑内容4充值记录开始 -->
+<div data-init="content" style="padding:0 15px;" class="content">
+	<div class="wrapper">
+		<div class="params">
+			<div class="row">
+				<label>存款状态：</label>
+				<select data-type="static" name="type" class="form-control input">
+					<option value="0">全部</option>
+					<option value="1">成功</option>
+					<option value="2">失败</option>
+					<option value="3">待处理</option>
+				</select>
+				<!-- <label>用户名：</label>
+				<input name="username" type="text" class="form-control input" placeholder="用户名" autocomplete="off"> -->
+				<!--<label>订单号：</label>-->
+				<input name="billno" type="text" class="form-control input" placeholder="订单号" style="display:none;">
+				<label>存款时间：</label>
+				<input name="time" type="text" data-time-opens="center" data-time-init="0"
+							 class="form-control input d-range-picker">
+				<input name="submit" type="button" class="search" value="搜索">
+			</div>
+		</div>
+		<div class="result">
+			<table class="form-control">
+				<thead>
+				<tr>
+					<td width="20%">订单号</td>
+					<td width="16%">充值方式</td>
+					<td width="16%">充值金额</td>
+					<td width="20%">存款日期</td>
+					<td width="16%">状态</td>
+					<!-- <td>备注</td> -->
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="nodata">
+					<td colspan="20">请点击搜索查询数据</td>
+				</tr>
+				</tbody>
+			</table>
+			<div class="page-list noselect"></div>
+		</div>
+	</div>
+</div>
+<!-- 逻辑内容4充值记录结束 -->
+
+<!-- 逻辑内容5提现记录开始 -->
+<div data-init="content" style="padding:0 15px;" class="content">
+	<div class="wrapper">
+		<div class="params">
+			<div class="row">
+				<!-- <label>订单号：</label> -->
+				<input name="billno" type="text" class="form-control input" placeholder="订单号" style="display:none;">
+				<!-- <label>用户名：</label>
+				<input name="username" type="text" class="form-control input" placeholder="用户名" autocomplete="off"> -->
+				<label>提现时间：</label>
+				<input name="time" type="text" data-time-opens="center" data-time-init="0"
+							 class="form-control input d-range-picker">
+				<input name="submit" type="button" class="search" value="搜索">
+			</div>
+		</div>
+		<div class="result">
+			<table class="form-control">
+				<thead>
+				<tr>
+					<td width="40%">订单号</td>
+					<td>申请金额</td>
+					<!-- <td>手续费</td> -->
+					<!-- 	<td>到账金额</td>
+						<td>账户余额</td> -->
+					<td>申请时间</td>
+					<td>状态</td>
+					<!-- 	<td>备注</td> -->
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="nodata">
+					<td colspan="20">请点击搜索查询数据</td>
+				</tr>
+				</tbody>
+			</table>
+			<div class="page-list noselect"></div>
+		</div>
+	</div>
+</div>
+<!-- 逻辑内容5提现记录结束 -->
+
+<!-- 逻辑内容6转账记录开始 -->
+<div data-init="content" style="padding:0 15px;" class="content">
+	<div class="wrapper">
+		<div class="params">
+			<div class="row">
+				<!--<label>账变类型：</label>
+				<select  data-type="static" name="zbType" class="form-control input">
+					<option value="">全部</option>
+					<option value="7">彩票游戏</option>
+					<option value="90">活动</option>
+					<option value="91">分红</option>
+					<option value="3">转账</option>
+					<option value="80">修正资金</option>
+					<option value="1">充值</option>
+					<option value="2">提现</option>
+				</select>
+				<label>订单号：</label> -->
+				<input name="billno" type="text" class="form-control input" placeholder="订单号" style="display:none;">
+				<label>操作时间：</label>
+				<input name="time" type="text" data-time-opens="center" data-time-init="0"
+							 class="form-control input d-range-picker">
+				<input name="submit" type="button" class="search" value="搜索">
+			</div>
+		</div>
+		<div class="result">
+			<table class="form-control">
+				<thead>
+				<tr>
+					<td>订单号</td>
+					<td>用户名</td>
+					<td>时间</td>
+					<td width="14%">操作类型</td>
+					<td width="14%">业务类型</td>
+					<td>变动金额</td>
+					<td>余额</td>
+					<td>备注</td>
+				</tr>
+				</thead>
+				<tbody>
+				<tr class="nodata">
+					<td colspan="20">请点击搜索查询数据</td>
+				</tr>
+				</tbody>
+			</table>
+			<div class="page-list noselect"></div>
+		</div>
+	</div>
+</div>
+<!-- 逻辑内容6转账记录结束 -->
+
+<!-- 逻辑内容7新充值开始 -->
+<div data-init="content" class="content">
+	<div class="wrapper noselect abitright">
+		<div class="deposit_item deposit_types clearfix">
+      <label><em></em>支付方式</label>
+      <ul class="typ_list">
+        <li class="type_item wechat_item" rel="wechat"><div></div></li>
+        <li class="type_item alipay_item" rel="alipay"><div></div></li>
+        <li class="type_item qq_item" rel="qqpay"><div></div></li>
+        <li class="type_item unionpay_item" rel="unionpay"><div></div></li>
+        <li class="type_item yunscan_item" rel="yunscan"><div></div></li>
+        <li class="type_item onlinepay_item" rel="onlinepay"><div></div></li>
+      </ul>
+      <ul class="sectyp_list"></ul>
+    </div>
+    <div class="deposit_item clearfix">
+      <ul class="step_items">
+        <li class="nums on"><em>1</em><span>输入金额</span></li>
+        <li><em class="blank_line"></em></li>
+        <li class="nums"><em>2</em><span>立即支付</span></li>
+        <li><em class="blank_line"></em></li>
+        <li class="nums"><em>3</em><span>操作完成</span></li>
+      </ul> 
+    </div>
+    <div class="deposit_item clearfix" rel="bank" style="display:none;">
+      <label><em></em>选择银行</label>
+      <ul class="choosebank_items deposit_banks">
+        <li class="on b2" rel="CCB"><div class=""></div><em></em></li>
+        <li class="b1"><div class=""></div><em></em></li>
+        <li class="b3"><div class=""></div><em></em></li>
+        <li class="b4"><div class=""></div><em></em></li>
+        <li class="b5"><div class=""></div><em></em></li>
+        <li class="b6"><div class=""></div><em></em></li>
+        <li class="b7"><div class=""></div><em></em></li>
+        <li class="b8"><div class=""></div><em></em></li>
+        <li class="b9"><div class=""></div><em></em></li>
+        <li class="b10"><div class=""></div><em></em></li>
+        <li class="b11"><div class=""></div><em></em></li>
+        <li class="b12"><div class=""></div><em></em></li>
+        <li class="b13"><div class=""></div><em></em></li>
+        <li class="b14"><div class=""></div><em></em></li>
+      </ul>
+    </div>
+    <div class="deposit_item clearfix">
+      <label><em></em>充值金额</label>
+      <ul class="amount_items">
+        <li class="am_input"><input type="text" name="" id="amount_money" onkeyup="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'')}else{this.value=this.value.replace(/\D/g,'')}"  
+    onafterpaste="if(this.value.length==1){this.value=this.value.replace(/[^1-9]/g,'0')}else{this.value=this.value.replace(/\D/g,'')}" value="" placeholder="请输入充值金额"/></li>
+        <li class="am_quick"><a rel="100" class="first_am">+100</a><a rel="1000" class="last_am">+1000</a></li>
+        <li class="am_limits">（单笔限额为<em>0</em> ~ <em>0</em>元）</li>
+      </ul>
+    </div>
+    <div class="deposit_item deposit_fuyin clearfix" style="display:none;">
+      <label><em></em>充值附言</label>
+      <ul class="amount_items">
+        <li class="am_input"><input type="text" name="" id="amount_fuyin" onkeyup="value=value.replace(/[^\u4E00-\u9FA5·]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5·]/g,''))" value="" placeholder="请输入支付宝姓名"/></li>
+      </ul>
+    </div>
+    <div class="deposit_item deposit_next">
+      <a class="hand" id="main_fire">下一步</a>
+    </div>
+    
+    <div class="deposit_item clearfix deposit_second deposit_itemhide" rel="thirdpay">
+      <div class="deposit_confirm clearfix">
+        <ul>
+          <li class="firstline">尊敬的客户您好，请根据以下信息进一步完成您的存款</li>
+          <li class="choosebank_items"><label class="fl">银　　行：</label><div class="confirm_bank"></div></li>
+          <li><label>充值金额：</label>¥<span class="confirm_number">300.00</span>元 <a rel="amount" data-clipboard-text="300.00" class="copy cancopy">复制</a></li>
+          <li><label>订单编号：</label><span class="confirm_czno">CZ_201805041449126017726</span> <a rel="amount" data-clipboard-text="300.00" class="copy cancopy">复制</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="deposit_item deposit_second clearfix deposit_itemhide" rel="qrcodepay">
+      <div class="deposit_confirm deposit_code_confirm clearfix">
+        <div class="qrcode_confirm fr">
+          <img src="/static/v3/images/deposit/code1.gif" alt="" width="" height="" />
+        </div>
+        <ul>
+          <li class="firstline">尊敬的客户您好，请根据以下信息进一步完成您的存款</li>
+          <li class="choosebank_items"><label class="fl">银　　行：</label><div class="confirm_bank b11"></div></li>
+          <li class="choosecode_items"><label class="fl">充值方式：</label><div class="confirm_code"></div></li>
+          <li><label>订单编号：</label><span class="confirm_czno">CZ_201805041449126017726</span> <a rel="amount" data-clipboard-text="CZ_201805041449126017726" class="copy cancopy">复制</a></li>
+          <li><label>存入金额：</label>¥<span class="confirm_number">300.00</span>元 <a rel="amount" data-clipboard-text="300.00" class="copy cancopy">复制</a></li>
+          <li class="trans"><label>姓　　名：</label><span class="confirm_czname">周岩</span> <a rel="amount" data-clipboard-text="周岩" class="copy cancopy">复制</a></li>
+          <li class="trans"><label>账　　号：</label><span class="confirm_czname">6223 1122 4412 21223</span> <a rel="amount" data-clipboard-text="62231122441221223" class="copy cancopy">复制</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="deposit_item deposit_second deposit_sectrans clearfix deposit_itemhide" rel="transpay">
+      <div class="deposit_confirm clearfix">
+        <ul>
+          <li class="firstline">尊敬的客户您好，请根据以下信息进一步完成您的存款</li>
+          <li class="choosebank_items"><label class="fl">银　　行：</label><div class="confirm_bank b11"></div></li>
+          <li><label>订单编号：</label><span class="confirm_czno">CZ_201805041449126017726</span> <a rel="amount" data-clipboard-text="CZ_201805041449126017726" class="copy cancopy">复制</a></li>
+          <li><label>存入金额：</label>¥<span class="confirm_number">300.00</span>元 <a rel="amount" data-clipboard-text="300.00" class="copy cancopy">复制</a></li>
+          <li><label>姓　　名：</label><span class="confirm_czname">周岩</span> <a rel="amount" data-clipboard-text="周岩" class="copy cancopy">复制</a></li>
+          <li><label>账　　号：</label><span class="confirm_czcard">6223 1122 4412 21223</span> <a rel="amount" data-clipboard-text="62231122441221223" class="copy cancopy">复制</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="deposit_item deposit_last" style="display:none;">
+      <span class="blank_break fl"></span><a class="hand" id="main_finish">进入第三方付款</a><a id="main_finished" class="hand notvery finished notready">确定提交订单</a>&nbsp;<a id="main_reset" class="hand notvery">返回重新选择</a>&nbsp;<a href="/static/lt.html#11" target="_blank" class="hand notvery">进入游戏</a>
+    </div>
+    <div id="deposit_help_slider" class="deposit_item deposit_slider clearfix" style="display:none;">
+      <div class="sildeTab">
+        <div class="sildeTabl"></div>
+        <div class="sildeTabr"></div>
+        <div class="sildeTabMain">
+          <ul class="clearfix paytab nowtab">
+            <li>
+              <img src="/static/v3/images/img/z1.png" alt="">
+            </li>
+            <li>
+              <img src="/static/v3/images/img/z2.png" alt="">
+            </li>
+            <li>
+              <img src="/static/v3/images/img/z3.png" alt="">
+            </li>
+            <li>
+              <img src="/static/v3/images/img/z4.png" alt="">
+            </li>
+          </ul>
+          <ul class="clearfix wxtab ">
+            <li>
+              <img src="/static/v3/images/img/v1.png" alt="">
+            </li>
+            <li>
+              <img src="/static/v3/images/img/v2.png" alt="">
+            </li>
+            <li>
+              <img src="/static/v3/images/img/v3.png" alt="">
+            </li>
+            <li>
+              <img src="/static/v3/images/img/v4.png" alt="">
+            </li>
+            <li>
+              <img src="/static/v3/images/img/v5.png" alt="">
+            </li>
+          </ul>
+        </div>
+        <p class="sildeTabMainTxt">充值教程</p>
+      </div>
+    </div>
+    <div class="deposit_item clearfix">
+      <div class="deposit_help">
+        <h3>温馨提示：</h3>
+        <p>为确保您的款项及时到账，请您留意以下内容：</p>
+        <ul class="justhelp">
+          <li class="qcode_help0">1.若在存款中提示二维码已过期或者存入金额已满，请刷新二维码后继续支付。</li>
+          <li class="qcode_help0">2.站点每日都会产生大量的存款订单，为确保每一位玩家的存款能够及时到账，每笔充值金额系统均会智能生成两位小数，以便于人工快速处理您的业务。</li>
+          <li class="qcode_help0">3.支付时，请务必按照页面显示的金额（含小数点）进行支付，否则可能导致存款订单延误或掉单。</li>
+          <li class="qcode_help1" style="display:none">1.请在“添加备注”内填写会员帐号，以免延迟到账；</li>
+          <li class="qcode_help1" style="display:none">2.充值时限: 请在15分钟内完成充值；</li>
+          <li class="qcode_help1" style="display:none">3.每日23点50分至0点10分 之间使用该充值方式，会导致到账延迟，请合理避开此时间段。具体到账时间以银行时间为准；</li>
+          <li><a href="https://v88.live800.com/live800/chatClient/chatbox.jsp?companyID=925834&configID=8015&jid=8547731414&s=1" target="_blank" class="help_red">支付遇到困难？联系客服人员获得帮助</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="deposit_item deposit_form">
+      <form method="post" target="_blank" id="deposit_newform">
+        <input name="text" type="hidden" id="deposit_newtext"/>
+      </form>  
+    </div>
+	</div>
+</div>
+<!-- 逻辑内容3新充值结束 -->

@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>{{domain}} - 走势图</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link media="all" type="text/css" rel="stylesheet" href="/static/v3/css/login.css" />
+  <link rel="stylesheet" type="text/css" href="/static/v3/css/trend.css">
+  <!--[if IE]><script type="text/javascript" src="/static/v3/js/html5.js"></script>
+  <script type="text/javascript" src="/static/v3/js/excanvas.js"></script><![endif]-->
+  <script type="text/javascript" src="/config.js"></script>
+  <script type="text/javascript" src="/static/v3/js/trend/config.js"></script>
+  <script type="text/javascript" src="/static/v3/js/trend/jm.js"></script>
+</head>
+<body class="trend_main">
+  <header>
+    <div class="w_1280" style="height:85px;">
+      <a href="/"><div class="logo"></div></a>
+    </div>
+  </header>
+  <div class="fullbg" id="trendpage">
+    <div class="wrapperTop ">
+      <div class="w_1280 clearfix">
+        <h3 id="cz">
+          <a id="showMenu"></a>
+        </h3>
+        <h3 id="wf"><span id="play"></span></h3>
+        <h3 id="wf"><span id="nper"></span></h3>
+        <div class="outer-nav bottom horizontal alllotterys">
+          <a href="?id=11&w=1&q=50&chs=重庆时时彩">重庆时时彩</a>
+          <a href="?id=6&w=1&q=50&chs=新德里1.5分彩">新德里1.5分彩</a>
+          <a href="?id=151&w=1&q=50&chs=新疆时时彩">新疆时时彩</a>
+          <a href="?id=119&w=1&q=50&chs=夏威夷分分彩">夏威夷分分彩</a>
+          <a href="?id=205&w=1&q=50&chs=首尔1.5分彩">首尔1.5分彩</a>
+          <a href="?id=206&w=1&q=50&chs=纽约1.5分彩">纽约1.5分彩</a>
+          <a href="?id=161&w=1&q=50&chs=天津时时彩">天津时时彩</a>
+          <a href="?id=191&w=1&q=50&chs=韩国1.5分彩">韩国1.5分彩</a>
+          <a href="?id=51&w=1&q=50&chs=新加坡2分彩">新加坡2分彩</a>
+          <a href="?id=601&w=1&q=50&chs=东京1.5分彩">东京1.5分彩</a>
+          <a href="?id=711&w=1&q=50&chs=北京时时彩">北京时时彩</a>
+          <a href="?id=811&w=1&q=50&chs=台湾时时彩">台湾时时彩</a>
+          <a href="?id=911&w=1&q=50&chs=腾讯分分彩">腾讯分分彩</a>
+          <a href="?id=46&w=1&q=50&chs=多伦多30秒">多伦多30秒</a>
+          <a href="?id=200&w=1&q=50&chs=菲律宾1.5分彩">菲律宾1.5分彩</a>
+          <a href="?id=201&w=1&q=50&chs=菲律宾2分彩">菲律宾2分彩</a>
+          <a href="?id=202&w=1&q=50&chs=菲律宾5分彩">菲律宾5分彩</a>
+          <a href="?id=203&w=1&q=50&chs=伦敦2分彩">伦敦2分彩</a>
+          <a href="?id=24&w=1&q=50&chs=广东11选5">广东11选5</a>
+          <a href="?id=21&w=1&q=50&chs=槟城11选5">槟城11选5</a>
+          <a href="?id=23&w=1&q=50&chs=江西11选5">江西11选5</a>
+          <a href="?id=22&w=1&q=50&chs=山东11选5">山东11选5</a>
+          <a href="?id=26&w=1&q=50&chs=上海11选5">上海11选5</a>
+          <a href="?id=28&w=1&q=50&chs=江苏11选5">江苏11选5</a>
+          <a href="?id=31&w=1&q=50&chs=江苏快3">江苏快3</a>
+          <a href="?id=32&w=1&q=50&chs=吉林快3">吉林快3</a>
+          <a href="?id=33&w=1&q=50&chs=安徽快3">安徽快3</a>
+          <a href="?id=35&w=1&q=50&chs=湖北快3">湖北快3</a>
+          <a href="?id=36&w=1&q=50&chs=内蒙快3">内蒙快3</a>
+          <a href="?id=41&w=1&q=50&chs=3D福彩">3D福彩</a>
+          <a href="?id=42&w=1&q=50&chs=排列三排列五">排列三/排列五</a>
+          <a href="?id=43&w=1&q=50&chs=北京PK10">北京PK10</a>
+          <a href="?id=204&w=1&q=50&chs=奥克兰赛车PK10">奥克兰赛车PK10</a>
+        </div>
+      </div>
+    </div>
+    <div id="perspective" class="perspective effect-rotatetop">
+      <div class="container w_1280">
+        <div class="wrapper">
+
+          <div class="clear"></div><label><input type="checkbox" checked onclick="cyl(this)">遗漏</label><label><input type="checkbox" onclick="cylt(this)">遗漏条</label><label><input type="checkbox" checked onclick="czs(this)">走势</label><label><input type="checkbox" onclick="chw(this)">号温</label>
+          <div class="search" style="display:none;">日期： <input id="searchstar"> 至 <input id="searchend">
+            <a class="schbtn" onclick="searchs(this)"><i></i>搜索</a>
+          </div>
+          <div class="clear"></div>
+          <div id="main"><canvas id="ballcanvas" width="1280" style="position:absolute"></canvas>
+            <table id="balltb" width="100%"><span class="msg" style="display:none;">正在读取中...</span></table>
+            <div id="help">
+              <ul>
+                <li><em class="m_ico">&#59159;</em>使用说明：</li>
+                <li>出现总次数：统计期数内实际出现的次数。</li>
+                <li>平均遗漏：统计期数内遗漏的平均值。（计算公式：平均遗漏＝统计期数/(出现次数+1)。）</li>
+                <li>最大遗漏：统计期数内遗漏的最大值。</li>
+                <li>最大连出值：统计期数内连续开出的最大值。</li>
+                <li>温号与号码分布：<i id="rehao">热</i> <i id="lenghao">冷</i> <i id="wenhao">温</i><i id="danhao">单</i><i id="duohao">多</i></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="/static/v3/js/trend/vue.js"></script>
+<script type="text/javascript" src="/static/v3/js/trend/jBox.min.js"></script>
+<script type="text/javascript" src="/static/v3/js/trend/apis.js"></script>
+<script type="text/javascript" src="/static/v3/js/api.js?b=1"></script>
+<script type="text/javascript" src="/static/v3/js/common-all.js?b=1" ></script>
+<script type="text/javascript" src="/static/v3/js/trend/lines.js"></script>
+<script type="text/javascript" src="/static/v3/js/trend/classie.js"></script>
+<script type="text/javascript" src="/static/v3/js/trend/menu.js"></script>
+</html>

@@ -1,0 +1,95 @@
+<head>
+	<meta charset="utf-8"/>
+	<title>彩票游戏</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+	<!-- 引用样式文件开始 -->
+  <link media="all" type="text/css" rel="stylesheet" href="/static/v3/css/zui-org.css" />
+  <link rel="stylesheet" type="text/css" href="/static/v3/css/deposit.css">
+  <link rel="stylesheet" type="text/css" href="/static/v3/css/dialog-style.css">
+
+	<!-- 引用脚本文件开始-->
+	<script type="text/javascript" src="/plugins/official/core.js" ></script>
+  <script type="text/javascript" src="/plugins/official/clipboard.min.js" ></script>
+  <script type="text/javascript" src="/static/v3/js/zui.js" ></script>
+  <script type="text/javascript" src="/static/v3/js/lodash.min.js" ></script>
+  <script type="text/javascript" src="/static/v3/js/api.js?b=1"></script>
+	<script type="text/javascript" src="/static/v3/js/onlinebank.js" ></script>
+</head>
+<body>
+  <div id="iframedeposit">
+    <h3>支付宝银行</h3>
+    <div class="clearfix">
+      <ul id="thirdlist">
+      </ul> 
+    </div>
+    <div style="display:none;">
+      <form method="post" target="_self" id="depositform" action="">
+        <input name="text" type="hidden" value="">
+        <input name="pid1" type="hidden" value="000001">
+        <input name="bankco1" type="hidden" value="ICBC">
+      </form>
+    </div>
+  </div>
+  <div class="modal modal-zui fade" id="letdeposit_success">
+    <div class="modal-dialog modal-sm modal-sms">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+        <h4 class="modal-title">提示</h4>
+      </div>
+      <div class="modal-content">
+        <h4 style="text-align: center;line-height: 50px;font-size: 16px;font-weight: normal;">复制成功！</h4>
+      </div>
+    </div>
+  </div>
+  <div class="modal modal-zui fade" id="letsubmit_success">
+    <div class="modal-dialog modal-sm modal-sms">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+        <h4 class="modal-title">提示</h4>
+      </div>
+      <div class="modal-content">
+        <h4 style="text-align: center;line-height: 50px;font-size: 16px;font-weight: normal;">提交成功！</h4>
+      </div>
+    </div>
+  </div>
+  <div class="modal modal-zui fade" id="letdeposit_t">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+        <h4 class="modal-title">选择支付方式</h4>
+      </div>
+      <div class="modal-content">
+        <div class="bankinfo" style="display:none;">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td width="40%" align="right">充值银行：</td><td><span class="bname"></span></td>
+            </tr>
+            <tr>
+              <td width="40%" align="right">订单编号：</td><td><span class="ono"></span></td>
+            </tr>
+            <tr>
+              <td width="40%" align="right">存入银行：</td><td><span class="bname"></span></td>
+            </tr>
+            <tr>
+              <td width="40%" align="right">姓名：</td><td><span class="bcard"></span><a rel="bcard" data-clipboard-text="" class="copy cancopy">复制</a></td>
+            </tr>
+            <tr>
+              <td width="40%" align="right">存入金额：</td><td><span class="bmoney"></span><a rel="bmoney" data-clipboard-text="" class="copy cancopy">复制</a></td>
+            </tr>
+            <tr>
+              <td width="40%" align="right">账号：</td><td><span class="bcardno lf"></span><a rel="bcardno" data-clipboard-text="" class="copy lf cancopy">复制</a></td>
+            </tr>
+            <tr style="display:none;">
+              <td width="40%" align="right">附言：</td><td><span class="battach"></span><a rel="battach" data-clipboard-text="" class="copy cancopy">复制</a></td>
+            </tr>
+          </table>   
+        </div>
+        <div class="amount"><label>充值金额：</label><input type="text" name="" id="amnumber" value="" /><br><span class="amount_error" style="color:red;display:none;">超过充值最大限额或最小限额</span></div>
+        <div class="amount" id="aliline"><label>支付宝姓名：</label><input type="text" name="" id="alipayname" value="" /><br><span class="fuyin_error" style="color:red;">请务必填写正确的支付宝姓名，如不填或填写错误将无法到账。</span></div>
+        <div class="amount" id="fuyinline" style="display:none;"><label>充值附言：</label><input type="text" name="" id="fuyin" value="" style="width:110px;"/><a rel="bcardfuyin" data-clipboard-text="" class="copy rf cancopy">复制</a><br><span style="color:red;">请务必填写正确的支付宝姓名，如不填或填写错误将无法到账。</span></div>
+        <div class="fireline"><a class="btn btn-primary surenext">下一步</a><a class="btn btn-primary nextfinish closemodel" data-dismiss="modal">完成</a> <span class="timecounter" style="display:none;">充值剩余时间：<em id="timeleft" style="font-style:normal;"></em></span></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
